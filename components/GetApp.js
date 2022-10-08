@@ -11,6 +11,15 @@ function GetApp() {
                 <img src="./images/playstore.png" alt="playstore" className='h-full w-full' />
             </button>
         </div>
+
+        <div className='h-full w-[50%] flex relative'>
+           <div className=' h-full w-[40%]'>
+             <img src="./images/wash1.png" alt="washpapa" className='h-full object-cover' />
+           </div> 
+           <div className=' h-full w-[40%]'>
+             <img src="./images/wash3.png" alt="washpapa" className='h-full object-cover translate-y-[-1.5rem]' />
+           </div>
+        </div>
        </div>
     </section>
   )

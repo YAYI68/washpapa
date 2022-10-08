@@ -23,7 +23,7 @@ function Navbar() {
           </Link>
           </li>
          <li> 
-          <Link href="">
+          <Link href="/login">
          <a className='font-medium  block dark:text-white w-full   px-2 py-2 rounded-md bg-light-blue text-white'>Get Started</a> 
           </Link>
           </li>
