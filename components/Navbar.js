@@ -5,8 +5,8 @@ import { MdDarkMode, MdLightMode } from "react-icons/md"
 function Navbar() {
   return (
     <nav className='h-[10vh] dark:bg-black flex items-center justify-end px-[4rem] w-screen'>
-      <div className='w-[80%] flex items-center justify-around'>
-      <h5 className='text-[1.5rem] font-semibold italic text-light-blue w-fit'>washpapa</h5>
+      <div className='w-[100%] flex items-center justify-between'>
+      <h5 className='text-[2rem] font-semibold  text-light-blue w-fit'>washpapa</h5>
       <div className='items-center flex justify-around w-[60%]'>  
        <ul className='list-none flex items-center gap-8 '>
          <li className='w-fit'> 
@@ -30,7 +30,7 @@ function Navbar() {
        </ul>
        <div className='relative'>
        <button type=""><MdDarkMode className='fill-light-blue' /></button>
-        <ul className='absolute top-[100%] translate-x-[-2rem] border-2 w-fit bg-white dark:bg-black shadow-xl rounded-md py-1'>
+        <ul className='absolute z-10 top-[100%] translate-x-[-2rem] border-2 w-fit bg-white dark:bg-black shadow-xl rounded-md py-1'>
           <li className='flex items-center cursor-pointer py-2 px-4 dark:text-white gap-2 font-semibold  hover:bg-gray-100 rounded-sm'><MdDarkMode className='fill-light-blue' /><span className='text-light-blue'>Dark</span></li>
           <li className='flex items-center cursor-pointer py-2 px-4 dark:text-white gap-2 font-semibold hover:bg-gray-100 rounded-sm'><MdLightMode /><span>Light</span></li>
         </ul>
