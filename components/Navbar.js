@@ -4,27 +4,27 @@ import { MdDarkMode, MdLightMode } from "react-icons/md"
 
 function Navbar() {
   return (
-    <nav className='h-[10vh] dark:bg-black flex items-center justify-end px-[4rem] w-screen'>
+    <nav className='h-[10vh] dark:bg-black bg-white flex items-center justify-end px-[4rem] w-screen fixed z-20 top-0 left-0'>
       <div className='w-[100%] flex items-center justify-between'>
       <h5 className='text-[2rem] font-semibold  text-light-blue w-fit'>washpapa</h5>
       <div className='items-center flex justify-around w-[60%]'>  
        <ul className='list-none flex items-center gap-8 '>
          <li className='w-fit'> 
           <Link href="" >
-             <a className='font-bold  block dark:text-white w-full hover:text-light-blue'>About</a> 
+             <a className='font-medium  block dark:text-white w-full hover:text-light-blue'>About</a> 
           </Link>
           </li>
          <li> <Link href="">
-         <a className='font-bold block dark:text-white w-full hover:text-light-blue'>Services</a> 
+         <a className='font-medium block dark:text-white w-full hover:text-light-blue'>Services</a> 
           </Link></li>
          <li>
           <Link href="" >
-            <a className='font-bold  block dark:text-white w-full hover:text-light-blue'>Contact Us</a> 
+            <a className='font-medium  block dark:text-white w-full hover:text-light-blue'>Contact Us</a> 
           </Link>
           </li>
          <li> 
           <Link href="">
-         <a className='font-bold  block dark:text-white w-full   px-2 py-2 rounded-md bg-light-blue text-white'>Get Started</a> 
+         <a className='font-medium  block dark:text-white w-full   px-2 py-2 rounded-md bg-light-blue text-white'>Get Started</a> 
           </Link>
           </li>
        </ul>

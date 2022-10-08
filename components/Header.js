@@ -4,8 +4,7 @@ import Navbar from './Navbar'
 
 function Header() {
   return (
-    <header className='h-[100vh] w-full  relative'>
-       <Navbar />
+    <header className='h-[100vh] w-full  relative mb-[2rem]'>
        <div className='h-[90vh] w-full dark:bg-black bg-white flex items-center justify-center'>
          <HeaderContent/>
        </div>
