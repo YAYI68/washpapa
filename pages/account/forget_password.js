@@ -4,7 +4,6 @@ import Main from '../../components/Main'
 import Link from 'next/link';
 
 const ForgetPassword = () => {
-  const [showPassword, setShowPassword] = useState(false)
    
   return (
     <Main className='dark:bg-black bg-white mt-[5rem]'>
@@ -26,12 +25,6 @@ const ForgetPassword = () => {
                   
                   <button type="submit" className='bg-light-blue text-white px-4 w-full font-medium py-2 rounded-md shadow-md'>Reset password</button>
                </form>
-               {/* <div className='flex  justify-between w-full'> 
-               <small className='self-start'>Don't have an account? <Link href='/account/login' >
-                  <a className='text-blue-500 hover:underline'>Sign in</a> 
-                </Link>
-                </small>
-               </div> */}
             </div>
            </div>
         </section>
