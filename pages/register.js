@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
-import { Formik } from 'formik';
+import React from 'react';
 import Main from '../components/Main'
 import Link from 'next/link';
 
-const login = () => {
-  const [showPassword, setShowPassword] = useState(false)
-   
+
+const Register = () => {
+     
+
+
   return (
     <Main className='dark:bg-black bg-white mt-[5rem]'>
         <section className='h-[80vh] w-full flex flex-col items-center justify-center '>
@@ -59,4 +60,4 @@ const login = () => {
   )
 }
 
-export default login
+export default Register;

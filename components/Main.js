@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Main = ({children}) => {
+const Main = ({children,className}) => {
   return (
-    <main>
+    <main className={className}>
         {children}
     </main>
   )
