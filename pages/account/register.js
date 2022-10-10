@@ -1,10 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Main from '../../components/Main'
 import Link from 'next/link';
 
 
+
 const Register = () => {
+   const [errorMessage,setErrorMessage] = useState("")
    const [showPassword, setShowPassword] = useState(false)
+   const [ validate, setValidate] = useState("")
+    const emailRef = useRef()
+    const phoneRef = useRef()
+    const passwordRef = useRef()
+     
+   //  useEffect(() => {  
+ 
+   //  }, [])
+   
+  const handleSubmit = (e)=>{
+    e.preventDefault();
+    setTimeout(() => {
+       setErrorMessage("Incorrect email / password . Try login with a valid email and correct password")
+    }, 500);
+    console.log("ErrorMessage")
+  }
+    const emailBlur = ()=>{
+       if(emailRef.current.value === ""){
+          setValidate( "Required") 
+          console.log("Blurred email")
+       }
+       else if (emailRef.current.value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(emailRef.current.value)){
+          console.log(emailRef.current.value);
+          setValidate('Invalid email address')  
+       }
+      
+    }
      
 
 
@@ -21,19 +50,21 @@ const Register = () => {
                       <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                          <svg aria-hidden="true" className="w-5 h-5 text-blue-500 dark:text-blue-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
                        </div>
-                       <input type="text" id="input-group-1" className="bg-gray-50 border focus:outline-light-blue border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@email.com" />
+                       <input ref={emailRef} required type="text" onBlur={emailBlur} id="email" className="bg-gray-50 border focus:outline-light-blue border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@email.com" />
                        </div>
-                      <small className='text-red-500 ml-4'>Required *</small>
+                       {validate &&   
+                      <small className='text-red-500 ml-4'>{validate} *</small>
+                       }
                     </div>
                     <div className='flex flex-col gap-1 w-full'>
-                    <label htmlFor="phone_number" className='ml-2'>Phone number</label>
+                    <label htmlFor="phone_number" className='ml-2'>Phone number <span>(Optional)</span></label>
                        <div className="relative">
                        <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                         <svg className="w-5 h-5 text-blue-500 dark:text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
                        </div>
-                       <input type="tel" id="phone_number" className="bg-gray-50 border focus:outline-light-blue border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="phone number" />
+                       <input ref={phoneRef} type="tel" id="phone_number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" className="bg-gray-50 border focus:outline-light-blue border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="phone number" />
                        </div>
-                      <small className='text-red-500 ml-4'>Required *</small>
+                     
                     </div>
                     <div className='flex flex-col gap-1 w-full'>
                     <label htmlFor="password" className='ml-2'>Password</label>
@@ -41,7 +72,7 @@ const Register = () => {
                         <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                         <svg className="w-5 h-5 text-blue-500 dark:text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"></path></svg>
                         </div>
-                        <input type={showPassword?"text":"password"} id="input-group-1" className="bg-gray-50 border focus:outline-light-blue border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="password" />
+                        <input required ref={passwordRef} type={showPassword?"text":"password"} id="input-group-1" className="bg-gray-50 border focus:outline-light-blue border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="password" />
                         {showPassword ?  
                         <div onClick={()=>setShowPassword(false)} className="flex absolute inset-y-0 right-0 items-center pr-3 pointer-events-auto cursor-pointer">
                         <svg className="w-5 h-5 text-blue-500 dark:text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>                        
@@ -55,7 +86,7 @@ const Register = () => {
                     </div>
                    <small>By clicking create account, you are accepting our</small>
                     <small className='text-light-blue'>terms and conditions</small>
-                  <button type="submit" className='bg-light-blue text-white px-4 w-full font-medium py-2 rounded-md shadow-md'>Create account</button>
+                  <button  type="submit" className='bg-light-blue text-white px-4 w-full font-medium py-2 rounded-md shadow-md'>Create account</button>
                </form>
                <div className='flex  justify-between w-full'> 
                <small className='self-start'>Already have an account? <Link href='/account/login' >
