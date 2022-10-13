@@ -18,4 +18,4 @@ function ContextProvider({children}) {
 }
 
 export default ContextProvider
-export const useContextState = ()=>useContext(StateContext)
+export const useStateContext = ()=>useContext(StateContext)
