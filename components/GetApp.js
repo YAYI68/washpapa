@@ -20,10 +20,10 @@ function GetApp() {
         </div>
 
         <div className='h-full w-[50%] flex relative gap-2'>
-           <div className=' h-full w-[40%] relative'>
+           <div className=' h-full w-[40%] relative shadow-xl '>
              <Image src="/images/wash1.png" alt="washpapa" layout='fill'/>
            </div> 
-           <div className=' h-full w-[40%] relative'>
+           <div className=' h-full w-[40%] relative shadow-xl'>
              <Image src="/images/wash3.png" alt="washpapa" layout='fill' />
            </div>
         </div>
