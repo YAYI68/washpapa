@@ -4,7 +4,7 @@ import Navbar from '../Navbar';
 
 function Layout({children}) {
   return (
-    <Fragment>
+    <Fragment class="dark">
      <Navbar />
       <Fragment>
         {children}
