@@ -40,7 +40,7 @@ const Login = () => {
   
 
   return (
-    <Main className='dark:bg-slate-900 bg-white mt-[5rem]'>
+    <Main className=' mt-[5rem]'>
         <section className='h-[80vh] w-full flex flex-col items-center justify-center '>
            { errorMessage &&    
            <p className='text-white w-[30%] bg-red-600 mb-[1rem] p-2'>{errorMessage}</p>

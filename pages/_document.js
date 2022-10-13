@@ -4,7 +4,7 @@ import Document, { Html, Head, Main, NextScript } from 'next/document';
 class MyDocument extends Document {
   render() {
     return (
-      <Html lang='en' className='dark' >
+      <Html lang='en' className='' >
         <Head />
         <body className='dark:bg-black'>
           <Main />
