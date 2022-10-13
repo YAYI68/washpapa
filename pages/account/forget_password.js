@@ -20,7 +20,7 @@ const ForgetPassword = () => {
  }
    
   return (
-    <Main className='dark:bg-black bg-white mt-[5rem]'>
+    <Main className='dark:bg-slate-900 bg-white mt-[5rem]'>
         <section className='h-[80vh] w-full flex flex-col items-center justify-center '>
            <div className='w-[30%]  bg-white shadow-md rounded-md border-2 dark:bg-gray-700 p-4'>
             <div className='w-full h-full flex flex-col gap-5 items-center'>

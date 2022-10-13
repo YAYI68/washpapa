@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <Fragment>
       <Header/>
-      <Main>
+      <Main className={`dark:bg-black`}>
         <Services/>
         <GetApp />
       </Main>

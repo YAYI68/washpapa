@@ -5,7 +5,7 @@ import ProductContainer from '../components/ProductContainer'
 
 function shoe() {
   return (
-    <Main className='w-full mt-[12vh] dark:bg-gray-900'>
+    <Main className='w-full mt-[12vh] '>
     <ProductContainer products={clothData} />
     </Main>
   )

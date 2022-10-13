@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 
-const login = () => {
+const Login = () => {
    const [errorMessage,setErrorMessage] = useState("")
   const [showPassword, setShowPassword] = useState(false)
   const [ validate, setValidate] = useState("")
@@ -40,7 +40,7 @@ const login = () => {
   
 
   return (
-    <Main className='dark:bg-black bg-white mt-[5rem]'>
+    <Main className='dark:bg-slate-900 bg-white mt-[5rem]'>
         <section className='h-[80vh] w-full flex flex-col items-center justify-center '>
            { errorMessage &&    
            <p className='text-white w-[30%] bg-red-600 mb-[1rem] p-2'>{errorMessage}</p>
@@ -101,4 +101,4 @@ const login = () => {
   )
 }
 
-export default login
+export default Login

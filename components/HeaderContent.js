@@ -3,7 +3,9 @@ import React from 'react';
 import { GoTriangleRight } from "react-icons/go";
 
 
+
 const HeaderContent = () => {
+  
   return (
     <div className='w-[90%] h-[90%] mt-4  flex ' >
       <div className='w-[60%] h-full pt-12 flex flex-col items-center justify-center'>
@@ -14,7 +16,7 @@ const HeaderContent = () => {
         <p className='text-[1.3rem] font-semibold text-light-blue'>
           Wash, dry and iron your clothes and shoes at affordable prices.
         </p>  
-        <ul className='text-[1.3rem] font-semibold'>
+        <ul className='text-[1.3rem] font-semibold dark:text-white'>
            <li className='flex items-center gap-4'> <GoTriangleRight className="fill-light-blue" /> <span> We'll collect your laundry</span> </li> 
            <li className='flex items-center gap-4'> <GoTriangleRight className="fill-light-blue" /> <span> hygienically clean it,</span></li>
            <li className='flex items-center gap-4'> <GoTriangleRight className="fill-light-blue" /> <span> deliver it back to you freshly cleaned </span></li>
