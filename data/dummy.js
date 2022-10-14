@@ -2,6 +2,7 @@
 export const clothData = [
     {
         name:'Single Wash (Max. 6 clothes)',
+        typeofWash:'cloth',
         cost:1200,
         details:"Order a quality wash and get your cloth (max. 6 pieces) returned to you in less than 48 hours for NGN 1,200. You also recieve 200 bonus Wash Papa points!! You can use these to get discounted washes. T'c and C's apply ",
         quantity:" 1-6 Clothes",
@@ -12,6 +13,7 @@ export const clothData = [
     },
     {
         name:'Single Wash (Max. 6 clothes)',
+        typeofWash:'cloth',
         cost:1500,
         details:"Order a quality wash and get your cloth (max. 6 pieces) washed, dry-cleaned and returned to you in less than 48 hours for NGN 1,500. You also recieve 200 bonus Wash Papa points!! You can use these to get discounted washes. T'c and C's apply ",
         quantity:" 1-6 Clothes",
@@ -22,6 +24,7 @@ export const clothData = [
     },
     {
         name:'Single Wash (Max. 10 clothes)',
+        typeofWash:'cloth',
         cost:2000,
         details:"Order a quality wash and get your cloth (max. 10 pieces)  returned to you in less than 48 hours for NGN 2,000. You also recieve 200 bonus Wash Papa points!! You can use these to get discounted washes. T'c and C's apply ",
         quantity:" 1- 6 Clothes",
@@ -32,6 +35,7 @@ export const clothData = [
     },
     {
         name:'Single Wash (Max. 10 clothes)',
+        typeofWash:'cloth',
         cost:2500,
         details:"Order a quality wash and get your cloth (max. 10 pieces) washed, dry-cleaned and returned to you in less than 48 hours for NGN 2,000. You also recieve 200 bonus Wash Papa points!! You can use these to get discounted washes. T'c and C's apply ",
         quantity:" 1- 6 Clothes",
@@ -45,6 +49,7 @@ export const clothData = [
 export const shoeData =  [ 
  {
     name:'Single Wash ( 1 Shoe )',
+    typeofWash:'shoe',
     cost:800,
     details:"Order a quality shoe wash and get your shoes clean (1 pair )  returned to you in less than 48 hours for NGN 800. You also recieve 200 bonus Wash Papa points!! You can use these to get discounted washes. T'c and C's apply ",
     quantity:" 1 Shoe",
@@ -55,6 +60,7 @@ export const shoeData =  [
 },
 {
     name:'Single Wash ( 2 Shoes )',
+    typeofWash:'shoe',
     cost:1500,
     details:"Order a quality shoe wash and get your shoes clean (2 pairs )  returned to you in less than 48 hours for NGN 1,500. You also recieve 200 bonus Wash Papa points!! You can use these to get discounted washes. T'c and C's apply ",
     quantity:" 2 Shoes",
@@ -66,6 +72,7 @@ export const shoeData =  [
 
 {
     name:'Single Wash ( 3 Shoes )',
+    typeofWash:'shoe',
     cost:2000,
     details:"Order a quality shoe wash and get your shoes clean (2 pairs )  returned to you in less than 48 hours for NGN 2,000. You also recieve 200 bonus Wash Papa points!! You can use these to get discounted washes. T'c and C's apply ",
     quantity:" 3 Shoes",
@@ -80,6 +87,7 @@ export const shoeData =  [
 export const blanketData = [
     {
         name:'Single Wash ( 1 Blanket )',
+        typeofWash:'blanket',
         cost:800,
         details:"Order a quality blanket/curtain/bedsheet wash and get your shoes clean (1 blanket ), sorted and returned to you in less than 48 hours for NGN 800. You also recieve 200 bonus Wash Papa points!! You can use these to get discounted washes. T'c and C's apply ",
         quantity:" 1 blanket",
@@ -91,6 +99,7 @@ export const blanketData = [
 
     {
         name:'Single Wash ( Max. 3 Blanket )',
+        typeofWash:'blanket',
         cost:800,
         details:"Order a quality blanket/curtain/bedsheet wash and get your shoes clean (Max. 3 Blanket ), sorted and returned to you in less than 48 hours for NGN 2000. You also recieve 200 bonus Wash Papa points!! You can use these to get discounted washes. T'c and C's apply ",
         quantity:" 1-3 blanket",
@@ -108,6 +117,7 @@ export const blanketData = [
 export const bagData = [
     {
         name:'Single Wash ( 1 Bag )',
+        typeofWash:'baggage',
         cost:800,
         details:"Order a quality blanket/curtain/bedsheet wash and get your shoes clean (1 Bag ), sorted and returned to you in less than 48 hours for NGN 800. You also recieve 200 bonus Wash Papa points!! You can use these to get discounted washes. T'c and C's apply ",
         quantity:" 1-3 blanket",
@@ -119,6 +129,7 @@ export const bagData = [
 
     {
         name:'Single Wash ( Max.3 Bag )',
+        typeofWash:'baggage',
         cost:2000,
         details:"Order a quality blanket/curtain/bedsheet wash and get your shoes clean (Max.3 Bag ), sorted and returned to you in less than 48 hours for NGN 2000. You also recieve 200 bonus Wash Papa points!! You can use these to get discounted washes. T'c and C's apply ",
         quantity:" 1-3 blanket",

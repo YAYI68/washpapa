@@ -48,11 +48,6 @@ const Login = () => {
            <div className='w-[30%]  bg-white shadow-md rounded-md border-2 dark:bg-gray-700 p-4'>
             <div className='w-full h-full flex flex-col gap-2 items-center'>
                <h4 className='text-light-blue text-[2rem]'>Sign in</h4>
-               <button type="button" className='h-[3rem] rounded-md border-2 w-fit p-2 flex items-center gap-2 relative'>
-                <Image src="/icons/googleLogo.png" alt="google" width={40} height={40} />
-               <span> Sign in with Google</span> 
-                </button>
-                <p>OR</p>
                <form onSubmit={handleSubmit} className="w-full flex flex-col items-center gap-2">
                   <div className='flex flex-col gap-1 w-full'>
                   <label htmlFor="email" className='ml-2'>Email address</label>
