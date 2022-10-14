@@ -1,14 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useTheme } from 'next-themes';
 import { MdDarkMode, MdLightMode } from "react-icons/md"
-import { useStateContext } from '../context/ContextProvider';
+
 
 function Navbar() {
   const [ modeDropdown, setModeDropdown ] = useState(false)
-  const {currentMode, setCurrentMode } = useStateContext()
+  const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
   const toggleMode = (mode)=>{
-     setCurrentMode(mode);
+    setTheme(mode);
      setModeDropdown(false);
+  }
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    return null
   }
   return (
     <nav className='h-[10vh] dark:bg-slate-900 bg-white flex items-center justify-end px-[4rem] w-screen fixed z-20 top-0 left-0'>
@@ -40,7 +50,7 @@ function Navbar() {
        <div className='relative'>
         
         <button onClick={()=>setModeDropdown(!modeDropdown)} type="">
-        {currentMode === "Dark" ?
+        {theme === "dark" ?
         <MdDarkMode className={`fill-light-blue`} />
         :<MdLightMode className={`fill-light-blue`} />
          }
@@ -48,8 +58,8 @@ function Navbar() {
       
        {modeDropdown && 
         <ul className='absolute z-10 top-[100%] translate-x-[-2rem] border-2 w-fit bg-white dark:bg-black shadow-xl rounded-md py-1'>
-          <li onClick={()=>toggleMode('Dark')} className={`flex items-center cursor-pointer py-2 px-4 dark:text-white gap-2 font-semibold  hover:bg-gray-100 rounded-sm`}><MdDarkMode className={`${currentMode === 'Dark' &&  'fill-light-blue' }`} /><span className={`${currentMode === 'Dark' &&  'text-light-blue' }`}>Dark</span></li>
-          <li onClick={()=>toggleMode('Light')} className='flex items-center cursor-pointer py-2 px-4 dark:text-white gap-2 font-semibold hover:bg-gray-100 rounded-sm'><MdLightMode className={`${currentMode === 'Light' &&  'fill-light-blue' }`} /><span  className={`${currentMode === 'Light' &&  'text-light-blue' }`}>Light</span></li>
+          <li onClick={()=>toggleMode('dark')} className={`flex items-center cursor-pointer py-2 px-4 dark:text-white gap-2 font-semibold dark:hover:bg-slate-800  hover:bg-gray-100 rounded-sm`}><MdDarkMode className={`${theme === 'dark' &&  'fill-light-blue' }`} /><span className={`${theme === 'dark' &&  'text-light-blue' }`}>Dark</span></li>
+          <li onClick={()=>toggleMode('light')} className='flex items-center cursor-pointer py-2 px-4 dark:text-white gap-2 font-semibold dark:hover:bg-slate-800  hover:bg-gray-100 rounded-sm'><MdLightMode className={`${theme === 'light' &&  'fill-light-blue' }`} /><span  className={`${theme === 'light' &&  'text-light-blue' }`}>Light</span></li>
         </ul>
        }
        </div>

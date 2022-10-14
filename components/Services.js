@@ -7,7 +7,7 @@ import Link from 'next/link';
 const Services = () => {
   return (
     <section id="service" className='w-full my-[2rem] '>
-        <h2 className='my-[2rem] text-[2rem] font-semibold text-center'>What do you want us to wash?</h2>
+        <h2 className='my-[2rem] text-[2rem] font-semibold text-center dark:text-white dark:bg-black'>What do you want us to wash?</h2>
        <div className='w-[80%] mx-auto  grid-rows-2 grid-cols-2 gap-5  grid p-1'>
         <Link href={'/cloth'}>
          <div className='bg-white dark:bg-gray-800 border-2 cursor-pointer rounded-md shadow-md p-2 flex gap-2'>

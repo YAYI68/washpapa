@@ -6,13 +6,11 @@ import Navbar from '../Navbar';
 function Layout({children}) {
   const {currentMode}= useStateContext()
   return (
-    <Fragment>
-      <div className={`${currentMode === 'Dark'?'dark':''} w-full  min-h-full bg-red-500 `}>    
+    <Fragment>  
      <Navbar />
       <Fragment>
         {children}
       </Fragment>
-      </div>
     </Fragment>
   )
 }
