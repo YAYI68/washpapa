@@ -87,7 +87,7 @@ const Login = () => {
                   <button type="submit" className='bg-light-blue text-white px-4 w-full font-medium py-2 rounded-md shadow-md'>Sign in</button>
                </form>
                <div className='flex  justify-between w-full'> 
-               <small className='self-start'>Don't have an account? <Link href='/account/register' >
+               <small className='self-start'>Dont have an account? <Link href='/account/register' >
                   <a className='text-blue-500 hover:underline'>Register</a> 
                 </Link>
                 </small>

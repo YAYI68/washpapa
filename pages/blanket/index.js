@@ -1,7 +1,7 @@
 import React from 'react';
-import Main from '../components/Main'
-import { blanketData } from '../data/dummy'
-import ProductContainer from '../components/ProductContainer'
+import Main from '../../components/Main'
+import ProductContainer from '../../components/ProductContainer'
+import { blanketData } from '../../data/dummy'
 
 function blanket() {
   return (
