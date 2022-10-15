@@ -1,14 +1,15 @@
-import Main from "../../../components/Main"
-import WashDetail from "../../../components/WashDetail"
-import { getAllService, getService } from "../../../lib/utils"
+
+import Main from "../../../../components/Main"
+import WashDetail from "../../../../components/WashDetail"
+import { getAllService, getService } from "../../../../lib/utils"
 
 
 
 
-const BagDetail = () => {
+const BagDetail = ({washService}) => {
     return (
       <Main className=' mt-[5rem]'>
-       <WashDetail />
+       <WashDetail wash={washService} />
       </Main>
     )
   }

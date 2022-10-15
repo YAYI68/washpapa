@@ -9,7 +9,7 @@ import Main from './Main'
 
 
 
-function WashDetail() {
+function WashDetail({wash}) {
   const router = useRouter()
   const [errorMessage,setErrorMessage] = useState("")
   const [ validate, setValidate] = useState({
@@ -45,7 +45,7 @@ function WashDetail() {
     }
 
     if(phoneNumber && busStop && takePic){
-      router.push(`/`)
+      // router.push(`/wash/${wash.typeofWash}/${wash.name}/payment`)
     }
 
 
