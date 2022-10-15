@@ -1,5 +1,6 @@
 import Main from "../../../components/Main"
 import WashDetail from "../../../components/WashDetail"
+import { getAllService, getService } from "../../../lib/utils"
 
 
 
@@ -16,16 +17,17 @@ const BagDetail = () => {
 
 export async function getStaticPaths(){
 
-
-  return{
-    paths:[{params:{id:"1"}}],
-    fallback:false,
+  const data = await getAllService()
+  return {
+      paths:data.map((wash)=>({params:{slug:wash.typeofWash,serviceId:wash.name}})),
+      fallback: false,
   }
 }  
 
 export async function getStaticProps(context){
-
-    
+    const { params } = context;
+    const { serviceId } = params;
+    const data = await getService(serviceId)
 
   return {
     props:{

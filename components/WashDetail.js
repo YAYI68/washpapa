@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { useRouter } from 'next/router';
 import React, { useRef, useState } from 'react';
 import { IoBus } from "react-icons/io5";
 import { FaTimes } from "react-icons/fa";
@@ -8,7 +8,9 @@ import Main from './Main'
 
 
 
+
 function WashDetail() {
+  const router = useRouter()
   const [errorMessage,setErrorMessage] = useState("")
   const [ validate, setValidate] = useState({
     phoneRequired:"",
@@ -31,6 +33,7 @@ function WashDetail() {
     const busStop = busRef.current.value;
     const note = noteRef.current.value;
     const takePic = pictureRef.current.checked;
+
     if(phoneNumber === ""){
       setErrorMessage("Please fill in the phone number that will recieve the delivery")
     }
@@ -39,6 +42,10 @@ function WashDetail() {
     }
     if(!takePic){
       setErrorMessage("Please take the pictures of your items and click the box below to confirm consent")
+    }
+
+    if(phoneNumber && busStop && takePic){
+      router.push(`/`)
     }
 
 

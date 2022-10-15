@@ -40,7 +40,7 @@ function Wash({service,tab,toggleTab,tabNum}) {
           <p className='text-[1.2rem] font-medium'>Quantity</p>
           <p className='dark:text-slate-300'>NGN {service.TotalCost}</p>
         </div>
-          <Link href={`/${service.typeofWash}/${service_slug }`} >
+          <Link href={`/wash/${service.typeofWash}/${service.name }`} >
             <a className='w-full block p-2 text-center bg-light-blue mt-4 text-white font-medium text-[1.1rem]'>Continue</a> 
             </Link>
          </div>
