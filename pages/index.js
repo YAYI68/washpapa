@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { Fragment } from 'react'
+import Footer from '../components/Footer'
 import GetApp from '../components/GetApp'
 import Header from '../components/Header'
 import Main from '../components/Main'
@@ -16,6 +17,7 @@ export default function Home() {
         <Services/>
         <GetApp />
       </Main>
+      <Footer />
     </Fragment>
   )
 }

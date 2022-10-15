@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useTheme } from 'next-themes';
-import { MdDarkMode, MdLightMode } from "react-icons/md"
+import { MdDarkMode, MdLightMode } from "react-icons/md";
+import {IoCaretForwardCircleSharp, IoCaretDownCircle } from "react-icons/io5";
 
 
 function Navbar() {
+  const [ isLogin, setIsLogin ] = useState(true) 
+  const [ accountDropdown, setAccountDropdown ] = useState(false)
   const [ modeDropdown, setModeDropdown ] = useState(false)
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
@@ -30,36 +33,66 @@ function Navbar() {
        <ul className='list-none flex items-center gap-8 '>
          <li className='w-fit'> 
           <Link href="" >
-             <a className='font-medium  block dark:text-white w-full hover:text-light-blue'>About</a> 
+             <a className='font-semibold  block dark:text-white w-full hover:text-light-blue dark:hover:text-light-blue'>Wash</a> 
           </Link>
           </li>
          <li> <Link href="">
-         <a className='font-medium block dark:text-white w-full hover:text-light-blue'>Services</a> 
+         <a className='font-semibold block dark:text-white w-full hover:text-light-blue dark:hover:text-light-blue'>About</a> 
           </Link></li>
          <li>
           <Link href="" >
-            <a className='font-medium  block dark:text-white w-full hover:text-light-blue'>Contact Us</a> 
+            <a className='font-semibold  block dark:text-white w-full hover:text-light-blue dark:hover:text-light-blue'>Contact Us</a> 
           </Link>
           </li>
          <li> 
-          <Link href="/account/login">
-         <a className='font-medium  block dark:text-white w-full   px-2 py-2 rounded-md bg-light-blue text-white'>Get Started</a> 
-          </Link>
+          {/* <Link href="/account/login">
+           <a className='font-medium  block dark:text-white w-full   px-2 py-2 rounded-md bg-light-blue text-white'>Get Started</a> 
+          </Link> */}
+          <div className=' cursor-pointer relative'>
+            <button type="button" className='flex items-center gap-4  border-2 p-2 rounded-md border-light-blue' onClick={() => setAccountDropdown(!accountDropdown)}>
+              <p className="font-semibold text-light-blue">W500</p>
+              <button type="button"> <IoCaretDownCircle className='fill-light-blue' /> </button>
+            </button>
+            {accountDropdown &&    
+            <ul className='top-[110%] absolute bg-white dark:bg-black w-[15rem] border-2 border-light-blue dark:border-light-blue rounded-md py-1'>
+              <li className=" rounded-sm">
+                <Link href={``}>
+                  <a onClick={()=>setAccountDropdown(false)} className=' py-2 px-4 w-full block dark:hover:text-light-blue hover:text-light-blue dark:text-white gap-2 font-semibold dark:hover:bg-slate-800  hover:bg-slate-300'>Orders</a>
+                </Link>
+              </li>
+              <li className=" rounded-sm">
+                <Link href={``}>
+                  <a onClick={()=>setAccountDropdown(false)} className=' py-2 px-4 w-full block dark:hover:text-light-blue hover:text-light-blue dark:text-white gap-2 font-semibold dark:hover:bg-slate-800  hover:bg-slate-300'>Login with Another Account</a>
+                </Link>
+              </li>
+              <li className="  rounded-sm">
+                <Link href={``}>
+                  <a onClick={()=>setAccountDropdown(false)} className=' py-2 px-4 w-full block dark:hover:text-light-blue hover:text-light-blue dark:text-white gap-2 font-semibold dark:hover:bg-slate-800  hover:bg-slate-300'>Reset Password</a>
+                </Link>
+              </li>
+              <li className="rounded-sm">
+                <Link href={``}>
+                  <a onClick={()=>setAccountDropdown(false)} className=' py-2 px-4 w-full block dark:hover:text-light-blue hover:text-light-blue dark:text-white gap-2 font-semibold dark:hover:bg-slate-800  hover:bg-slate-300'>Logout</a>
+                </Link>
+              </li>
+            </ul>
+            }
+          </div>
           </li>
        </ul>
        <div className='relative'>
         
         <button onClick={()=>setModeDropdown(!modeDropdown)} type="">
         {theme === "dark" ?
-        <MdDarkMode className={`fill-light-blue`} />
-        :<MdLightMode className={`fill-light-blue`} />
+        <MdDarkMode className={`fill-light-blue h-6 w-6`} />
+        :<MdLightMode className={`fill-light-blue h-6 w-6`} />
          }
         </button>
       
        {modeDropdown && 
-        <ul className='absolute z-10 top-[100%] translate-x-[-2rem] border-2 w-fit bg-white dark:bg-black shadow-xl rounded-md py-1'>
-          <li onClick={()=>toggleMode('dark')} className={`flex items-center cursor-pointer py-2 px-4 dark:text-white gap-2 font-semibold dark:hover:bg-slate-800  hover:bg-gray-100 rounded-sm`}><MdDarkMode className={`${theme === 'dark' &&  'fill-light-blue' }`} /><span className={`${theme === 'dark' &&  'text-light-blue' }`}>Dark</span></li>
-          <li onClick={()=>toggleMode('light')} className='flex items-center cursor-pointer py-2 px-4 dark:text-white gap-2 font-semibold dark:hover:bg-slate-800  hover:bg-gray-100 rounded-sm'><MdLightMode className={`${theme === 'light' &&  'fill-light-blue' }`} /><span  className={`${theme === 'light' &&  'text-light-blue' }`}>Light</span></li>
+        <ul className='absolute z-10 top-[100%] border-light-blue dark:border-light-blue translate-x-[-2rem] border-2 w-fit bg-white dark:bg-black shadow-xl rounded-md py-1'>
+          <li onClick={()=>toggleMode('light')} className='flex items-center cursor-pointer py-2 px-4 dark:text-white gap-2 font-semibold dark:hover:bg-slate-800  hover:bg-slate-300 rounded-sm'><MdLightMode className={`${theme === 'light' &&  'fill-light-blue' }`} /><span  className={`${theme === 'light' &&  'text-light-blue' }`}>Light</span></li>
+          <li onClick={()=>toggleMode('dark')} className={`flex items-center cursor-pointer py-2 px-4 dark:text-white gap-2 font-semibold dark:hover:bg-slate-800  hover:bg-slate-300 rounded-sm`}><MdDarkMode className={`${theme === 'dark' &&  'fill-light-blue' }`} /><span className={`${theme === 'dark' &&  'text-light-blue' }`}>Dark</span></li>
         </ul>
        }
        </div>
