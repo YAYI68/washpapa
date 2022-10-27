@@ -21,3 +21,19 @@ export default function Home() {
     </Fragment>
   )
 }
+
+
+
+// export async function getStaticProps(context){
+//   const res = await fetch("https://musica-api.up.railway.app/popular")
+//   const data = await res.json();
+//   console.log({data})
+
+//   return {
+//     props:{
+//       music: data
+//     }
+//   }
+
+
+// }
