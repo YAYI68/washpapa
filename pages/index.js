@@ -1,15 +1,34 @@
+import { child, get, ref } from 'firebase/database'
 import Head from 'next/head'
 import Image from 'next/image'
-import { Fragment } from 'react'
+import { Fragment, useEffect } from 'react'
 import Footer from '../components/Footer'
 import GetApp from '../components/GetApp'
 import Header from '../components/Header'
 import Main from '../components/Main'
 import Services from '../components/Services'
+import { db } from '../config/firebaseConfig'
+
 
 
 
 export default function Home() {
+
+  useEffect(() => {
+  (async()=>{
+    const dbRef = ref(db,`Users`);
+    const dataSnapshot = await get(dbRef)
+    const data = dataSnapshot.val()
+    const users = Object.entries({...data})
+    console.log(users)
+    
+    // dataSnapshot.forEach((snapshot)=>{
+    //   console.log(snapshot.val())
+    // })
+  })()  
+
+  }, [])
+  
   return (
     <Fragment>
       <Header/>
