@@ -18,9 +18,7 @@ export default function Home() {
   (async()=>{
     const dbRef = ref(db,`Users`);
     const dataSnapshot = await get(dbRef)
-    const data = dataSnapshot.val()
-    const users = Object.entries({...data})
-    console.log(users)
+    const data = dataSnapshot
     
     // dataSnapshot.forEach((snapshot)=>{
     //   console.log(snapshot.val())
