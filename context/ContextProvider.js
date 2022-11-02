@@ -6,11 +6,22 @@ export const StateContext = createContext();
 
 function ContextProvider({children}) {
     const [ currentMode, setCurrentMode ] = useState('Light');
+    const [ userInfo, setUserInfo ] = useState();
+
+   const setCurrentUser = (userInfo)=>{
+    setUserInfo(userInfo)
+    localStorage.setItem("userInfo",userInfo)
+   } 
+
+
 
 
   return (
     <StateContext.Provider value={{
-      currentMode,setCurrentMode   
+      currentMode,
+      setCurrentMode,
+      userInfo,
+      setCurrentUser,   
     }}>
       {children}
     </StateContext.Provider>

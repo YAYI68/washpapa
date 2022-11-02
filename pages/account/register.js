@@ -2,11 +2,13 @@ import React, { useState, useRef } from 'react';
 import Main from '../../components/Main'
 import Link from 'next/link';
 import { signup } from '../../db/auth';
+import { useRouter } from 'next/router';
 
 
 
 const Register = () => {
    const [errorMessage,setErrorMessage] = useState("")
+   const [ successMessage, setSuccessMessage] = useState("")
    const [showPassword, setShowPassword] = useState(false)
    const [ validate, setValidate] = useState("")
     const emailRef = useRef()
@@ -16,20 +18,43 @@ const Register = () => {
    //  useEffect(() => {  
  
    //  }, [])
-   
+
   const handleSubmit = async(e)=>{
     e.preventDefault();
    const email = emailRef.current.value
    const phone = phoneRef.current.value
    const password = passwordRef.current.value
-   const user =  await signup({email, phone, password})
-   //  setTimeout(() => {
-   //     setErrorMessage("Incorrect email / password . Try login with a valid email and correct password")
-   //  }, 500);
+   const result =  await signup({email, phone, password})
+   
 
-     console.log({user})
+    if(result.inValidMessage) {
+      setErrorMessage(result.inValidMessage)
+      setTimeout(()=>{
+         setErrorMessage("")
+      },7000)
+   
+    }
+    
+   if(result.user){
+      const user = result.user
+         setSuccessMessage(result.success)
+         setTimeout(()=>{
+            setSuccessMessage("")
+         },10000)
+   }
+
+   if(result.errorMessage){
+      console.log(result.errorMessage)
+      setErrorMessage(result.errorMessage)
+      setTimeout(()=>{
+         setErrorMessage("")
+      },7000)
+   }
+
    //  console.log(" User registered successfully")
   }
+
+
     const emailBlur = ()=>{
        if(emailRef.current.value === ""){
           setValidate( "Required") 
@@ -43,10 +68,16 @@ const Register = () => {
     }
      
 
-
   return (
     <Main className=' mt-[5rem]'>
         <section className='h-[80vh] w-full flex flex-col items-center justify-center '>
+        { errorMessage &&    
+           <p className='text-white w-[30%] bg-red-600 mb-[1rem] p-2'>{errorMessage}</p>
+         }
+         { successMessage? 
+           <p className='text-white w-[30%] bg-green-500 mb-[1rem] p-2'>{successMessage}</p>
+           :""
+         }
            <div className='w-[30%]  bg-white shadow-md rounded-md border-2 dark:bg-gray-700 p-4'>
             <div className='w-full h-full flex flex-col gap-2 items-center'>
                <h4 className='text-light-blue text-[2rem]'>Sign up</h4>
