@@ -10,7 +10,7 @@ function ContextProvider({children}) {
 
    const setCurrentUser = (userInfo)=>{
     setUserInfo(userInfo)
-    localStorage.setItem("userInfo",userInfo)
+    localStorage.setItem("userInfo", JSON.stringify(userInfo))
    } 
 
 

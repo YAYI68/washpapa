@@ -3,27 +3,63 @@ import { Formik } from 'formik';
 import Main from '../../components/Main'
 import Link from 'next/link';
 import Image from 'next/image';
+import { logIn } from '../../db/auth';
+import { useStateContext } from '../../context/ContextProvider';
+import { useRouter } from 'next/router';
 
 
 const Login = () => {
+  const router =  useRouter()
+  const { userInfo, setCurrentUser } =  useStateContext();
+  const [ successMessage, setSuccessMessage] = useState("")
    const [errorMessage,setErrorMessage] = useState("")
   const [showPassword, setShowPassword] = useState(false)
   const [ validate, setValidate] = useState("")
    const emailRef = useRef()
    const passwordRef = useRef()
     
-   useEffect(() => {  
+   useEffect(() => {    
+      if(userInfo){
+         router.push("/wash")
+      }
 
-   console.log(validate.email)
-   }, [])
+   }, [userInfo,router])
   
- const handleSubmit = (e)=>{
+ const handleSubmit = async(e)=>{
    e.preventDefault();
-   // setTimeout(() => {
-   //    setErrorMessage("Incorrect email / password . Try login with a valid email and correct password")
-   // }, 500);
+   const email = emailRef.current.value;
+   const password = passwordRef.current.value;
+
+    const result =  await logIn({email, password})
+    if(result.emailCheck){
+      setSuccessMessage(result.emailCheck)
+      setTimeout(()=>{
+         setSuccessMessage("")
+      },10000)
+   }
+   
+    if(result.user){
+      setSuccessMessage(result.success)
+      setTimeout(()=>{
+         setSuccessMessage("")
+      },10000)
+      const user = result.user
+      setCurrentUser(user)
+    }
+     
+   if(result.errorMessage){
+      console.log(result.errorMessage)
+      setErrorMessage(result.errorMessage)
+      setTimeout(()=>{
+         setErrorMessage("")
+      },7000)
+   }
+   
+  
    console.log("ErrorMessage")
  }
+
+
    const handleBlur = ()=>{
       if(emailRef.current.value === ""){
          setValidate( "Required") 
@@ -45,6 +81,10 @@ const Login = () => {
            { errorMessage &&    
            <p className='text-white w-[30%] bg-red-600 mb-[1rem] p-2'>{errorMessage}</p>
            }
+             { successMessage? 
+           <p className='text-white w-[30%] bg-green-500 mb-[1rem] p-2'>{successMessage}</p>
+           :""
+         }
            <div className='w-[30%]  bg-white shadow-md rounded-md border-2 dark:bg-gray-700 p-4'>
             <div className='w-full h-full flex flex-col gap-2 items-center'>
                <h4 className='text-light-blue text-[2rem]'>Sign in</h4>

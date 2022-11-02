@@ -22,7 +22,7 @@ export const signup = async (data)=>{
      await sendEmailVerification(auth.currentUser)
        return {
         user : userCredential.user,
-        success:"Account signUp Successfully check your email to verify your account",     
+        success:"Account signUp Successfully check your email to verify your account and sign in",     
     }    
     }
     catch(error){
@@ -40,23 +40,32 @@ export const signup = async (data)=>{
     }    
 }
 
-export const signIn = async({email,password})=>{
+export const logIn = async({email,password})=>{
     try{
-        if(!email || !email.includes("@") || 
-        !password || password.trim().length <  7){
+        if(!email || !email.includes("@")){
          return{
             inValidMessage: "Invalid email address / Password"
          }
         }
       const userCredential = await signInWithEmailAndPassword(auth,email,password)
-      return {
-        user: userCredential.user,
-        success:"User signed in successfully"
+      if(!userCredential.user.emailVerified){
+          return {
+            emailCheck:"Check your email or spam to activate your account",    
+          }
+      }
+      else{
+        return {
+            user:userCredential.user,
+            success:"User signed in successfully"
+        }
       }
     }
     catch(error){
-        return {
-            error:error.message,
+        console.log({error})
+        if(error.code === "auth/wrong-password"){
+            return {
+                errorMessage:"Invalid email / wrong password"
+            }
         }
     }
 }
