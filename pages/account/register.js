@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import Main from '../../components/Main'
 import Link from 'next/link';
+import { signup } from '../../db/auth';
 
 
 
@@ -16,12 +17,22 @@ const Register = () => {
  
    //  }, [])
    
-  const handleSubmit = (e)=>{
+  const handleSubmit = async(e)=>{
     e.preventDefault();
+   const email = emailRef.current.value
+   const phone = phoneRef.current.value
+   const password = passwordRef.current.value
+    await signup({email, phone, password})
+
+    console.log({email, phone, password})
+
+
     setTimeout(() => {
        setErrorMessage("Incorrect email / password . Try login with a valid email and correct password")
     }, 500);
-    console.log("ErrorMessage")
+
+
+    console.log(" User registered successfully")
   }
     const emailBlur = ()=>{
        if(emailRef.current.value === ""){
@@ -43,7 +54,7 @@ const Register = () => {
            <div className='w-[30%]  bg-white shadow-md rounded-md border-2 dark:bg-gray-700 p-4'>
             <div className='w-full h-full flex flex-col gap-2 items-center'>
                <h4 className='text-light-blue text-[2rem]'>Sign up</h4>
-               <form onSubmit={``} className="w-full flex flex-col items-center gap-2">
+               <form onSubmit={handleSubmit} className="w-full flex flex-col items-center gap-2">
                     <div className='flex flex-col gap-1 w-full'>
                     <label htmlFor="email" className='ml-2'>Email address</label>
                        <div className="relative">

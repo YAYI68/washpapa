@@ -19,9 +19,9 @@ const Login = () => {
   
  const handleSubmit = (e)=>{
    e.preventDefault();
-   setTimeout(() => {
-      setErrorMessage("Incorrect email / password . Try login with a valid email and correct password")
-   }, 500);
+   // setTimeout(() => {
+   //    setErrorMessage("Incorrect email / password . Try login with a valid email and correct password")
+   // }, 500);
    console.log("ErrorMessage")
  }
    const handleBlur = ()=>{
