@@ -82,7 +82,7 @@ function Navbar() {
                 </Link>
               </li>
               <li className="  rounded-sm">
-                <Link href={``}>
+                <Link href={`/account/reset_password`}>
                   <a onClick={()=>setAccountDropdown(false)} className=' py-2 px-4 w-full block dark:hover:text-light-blue hover:text-light-blue dark:text-white gap-2 font-semibold dark:hover:bg-slate-800  hover:bg-slate-300'>Reset Password</a>
                 </Link>
               </li>

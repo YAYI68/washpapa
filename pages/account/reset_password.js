@@ -37,8 +37,7 @@ const ForgetPassword = () => {
                       {validate &&    
                         <small className='text-red-500 ml-4'>{validate} *</small>
                       } 
-                  </div>
-                  
+                  </div>  
                   <button type="submit" className='bg-light-blue mt-[1rem] text-white px-4 w-full font-medium py-2 rounded-md shadow-md'>Reset password</button>
                </form>
             </div>
