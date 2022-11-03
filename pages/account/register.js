@@ -32,12 +32,10 @@ const Register = () => {
       setTimeout(()=>{
          setErrorMessage("")
       },7000)
-   
     }
 
    if(result.user){
       const user = result.user
-      console.log({user})
          setSuccessMessage(result.success)
          setTimeout(()=>{
             setSuccessMessage("")

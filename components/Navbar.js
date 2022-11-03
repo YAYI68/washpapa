@@ -3,10 +3,15 @@ import Link from 'next/link';
 import { useTheme } from 'next-themes';
 import { MdDarkMode, MdLightMode } from "react-icons/md";
 import {IoCaretForwardCircleSharp, IoCaretDownCircle } from "react-icons/io5";
+import { logOut } from '../db/auth';
+import { useStateContext } from '../context/ContextProvider';
+import { useRouter } from 'next/router';
 
 
 function Navbar() {
+  const router = useRouter();
   const [ isLogin, setIsLogin ] = useState(true) 
+  const { userInfo } = useStateContext();
   const [ accountDropdown, setAccountDropdown ] = useState(false)
   const [ modeDropdown, setModeDropdown ] = useState(false)
   const { theme, setTheme } = useTheme()
@@ -23,6 +28,14 @@ function Navbar() {
   if (!mounted) {
     return null
   }
+   
+  const logUserOut = ()=>{
+    setAccountDropdown(false)
+    logOut()
+    router.push("/account/login")
+  }
+
+
   return (
     <nav className='h-[10vh] dark:bg-slate-900 bg-white flex items-center justify-end px-[4rem] w-screen fixed z-20 top-0 left-0'>
       <div className='w-[100%] flex items-center justify-between'>
@@ -44,10 +57,13 @@ function Navbar() {
             <a className='font-semibold  block dark:text-white w-full hover:text-light-blue dark:hover:text-light-blue'>Contact Us</a> 
           </Link>
           </li>
-         <li> 
-          {/* <Link href="/account/login">
+          
+         <li>
+         {!userInfo ?
+          <Link href="/account/login">
            <a className='font-medium  block dark:text-white w-full   px-2 py-2 rounded-md bg-light-blue text-white'>Get Started</a> 
-          </Link> */}
+          </Link>
+          :
           <div className=' cursor-pointer relative'>
             <button type="button" className='flex items-center gap-4  border-2 p-2 rounded-md border-light-blue' onClick={() => setAccountDropdown(!accountDropdown)}>
               <p className="font-semibold text-light-blue">W500</p>
@@ -71,13 +87,12 @@ function Navbar() {
                 </Link>
               </li>
               <li className="rounded-sm">
-                <Link href={``}>
-                  <a onClick={()=>setAccountDropdown(false)} className=' py-2 px-4 w-full block dark:hover:text-light-blue hover:text-light-blue dark:text-white gap-2 font-semibold dark:hover:bg-slate-800  hover:bg-slate-300'>Logout</a>
-                </Link>
+                  <button onClick={logUserOut} className=' py-2 px-4 w-full block dark:hover:text-light-blue hover:text-light-blue dark:text-white gap-2 font-semibold dark:hover:bg-slate-800  hover:bg-slate-300'>Logout</button>                
               </li>
             </ul>
             }
           </div>
+          }       
           </li>
        </ul>
        <div className='relative'>

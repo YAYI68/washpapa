@@ -5,9 +5,11 @@ import { ref, set } from "firebase/database";
 
 export const signup = async (data)=>{
     const { email, password, phone } = data;
+ 
     try{  
         if(!email || !email.includes("@")){
          return{
+            loading:false,
             inValidMessage: "Invalid email address"
          }
         }
@@ -21,40 +23,48 @@ export const signup = async (data)=>{
       });
      await sendEmailVerification(auth.currentUser)
        return {
+        loading:false,
         user : userCredential.user,
-        success:"Account signUp Successfully check your email to verify your account and sign in",     
+        success:"Account signUp Successfully check your email inbox or spam to verify your account and sign in",     
     }    
     }
     catch(error){
         console.log({error})
         if(error.code==="auth/weak-password"){
          return{
+            loading:false,
             errorMessage: "Password should be at least 6 characters"
          }
         }
         else if(error.code === "auth/email-already-in-use"){
             return{
+                loading:false,
                 errorMessage: "Email already in use, SignIn into account with that email"
             }
         }
-    }    
+    }   
+   
 }
 
 export const logIn = async({email,password})=>{
+
     try{
         if(!email || !email.includes("@")){
          return{
+            loading:false,
             inValidMessage: "Invalid email address / Password"
          }
         }
       const userCredential = await signInWithEmailAndPassword(auth,email,password)
       if(!userCredential.user.emailVerified){
           return {
+            loading:false,
             emailCheck:"Check your email or spam to activate your account",    
           }
       }
       else{
         return {
+            loading:false,
             user:userCredential.user,
             success:"User signed in successfully"
         }
@@ -64,12 +74,23 @@ export const logIn = async({email,password})=>{
         console.log({error})
         if(error.code === "auth/wrong-password"){
             return {
+                loading:false,
                 errorMessage:"Invalid email / wrong password"
             }
         }
+        if(error.code === "auth/network-request-failed"){
+            return {
+                loading:false,
+                errorMessage:"Poor or No Internet Access. Check your internet connection and try again"
+            }
+        }
+        
     }
+    return{  loading:true,} 
 }
 
 export const logOut = async()=>{
     await signOut (auth)
+    localStorage.removeItem("userInfo")
+    window.location.reload();
 }

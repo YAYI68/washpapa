@@ -6,13 +6,15 @@ import Image from 'next/image';
 import { logIn } from '../../db/auth';
 import { useStateContext } from '../../context/ContextProvider';
 import { useRouter } from 'next/router';
+import { Spinner } from '../../components/Spinner';
+import { authvalidator } from '../../utils/validator';
 
 
 const Login = () => {
   const router =  useRouter()
+  const [ isLoading , setIsLoading ] = useState(false)
   const { userInfo, setCurrentUser } =  useStateContext();
-  const [ successMessage, setSuccessMessage] = useState("")
-   const [errorMessage,setErrorMessage] = useState("")
+  const [ message, setMessage] = useState({error:"",success:""})
   const [showPassword, setShowPassword] = useState(false)
   const [ validate, setValidate] = useState("")
    const emailRef = useRef()
@@ -20,43 +22,31 @@ const Login = () => {
     
    useEffect(() => {    
       if(userInfo){
-         router.push("/wash")
+         setTimeout(()=>{
+            router.push("/wash")
+         },200)
       }
-
    }, [userInfo,router])
+
+   // useEffect(()=>{
+   //    if(message.error || message.success){
+   //       loading("login",false)
+   //     }
+   // },[message.error,message.success])
   
  const handleSubmit = async(e)=>{
    e.preventDefault();
+   setIsLoading(true)
+
    const email = emailRef.current.value;
    const password = passwordRef.current.value;
-
     const result =  await logIn({email, password})
-    if(result.emailCheck){
-      setSuccessMessage(result.emailCheck)
-      setTimeout(()=>{
-         setSuccessMessage("")
-      },10000)
-   }
-   
+    authvalidator(result,setMessage)
     if(result.user){
-      setSuccessMessage(result.success)
-      setTimeout(()=>{
-         setSuccessMessage("")
-      },10000)
-      const user = result.user
-      setCurrentUser(user)
+      setCurrentUser(result.user)
     }
-     
-   if(result.errorMessage){
-      console.log(result.errorMessage)
-      setErrorMessage(result.errorMessage)
-      setTimeout(()=>{
-         setErrorMessage("")
-      },7000)
-   }
-   
-  
-   console.log("ErrorMessage")
+
+  setIsLoading(result.loading)
  }
 
 
@@ -78,11 +68,12 @@ const Login = () => {
   return (
     <Main className=' mt-[5rem]'>
         <section className='h-[80vh] w-full flex flex-col items-center justify-center '>
-           { errorMessage &&    
-           <p className='text-white w-[30%] bg-red-600 mb-[1rem] p-2'>{errorMessage}</p>
+           { message.error ?    
+           <p className={`text-white w-[30%] bg-red-600 mb-[1rem] p-2`}>{message.error}</p>
+           :""
            }
-             { successMessage? 
-           <p className='text-white w-[30%] bg-green-500 mb-[1rem] p-2'>{successMessage}</p>
+             { message.success? 
+           <p className='text-white w-[30%] bg-green-500 mb-[1rem] p-2'>{ message.success}</p>
            :""
          }
            <div className='w-[30%]  bg-white shadow-md rounded-md border-2 dark:bg-gray-700 p-4'>
@@ -119,7 +110,13 @@ const Login = () => {
                         </div>
                     }
                   </div>
-                  <button type="submit" className='bg-light-blue text-white px-4 w-full font-medium py-2 rounded-md shadow-md'>Sign in</button>
+                  <button type="submit" className='bg-light-blue flex items-center justify-center gap-5 text-white px-4 w-full font-medium py-2 rounded-md shadow-md'>
+                    <span>Sign in</span>
+                    {isLoading? 
+                    <Spinner />
+                    :""
+                  }
+                   </button>
                </form>
                <div className='flex  justify-between w-full'> 
                <small className='self-start'>Dont have an account? <Link href='/account/register' >

@@ -2,11 +2,23 @@ import React, {createContext, useContext, useState } from 'react'
 
 export const StateContext = createContext();
 
+const initialState = {
+  register:false,
+  login:false,
+}
 
 
 function ContextProvider({children}) {
     const [ currentMode, setCurrentMode ] = useState('Light');
     const [ userInfo, setUserInfo ] = useState();
+    const [isLoading,setIsLoading ] = useState(initialState);
+
+    const loading = (click,state)=>{
+      setIsLoading({
+        ...initialState,
+        [click]:state,
+      })
+    }
 
    const setCurrentUser = (userInfo)=>{
     setUserInfo(userInfo)
@@ -21,7 +33,10 @@ function ContextProvider({children}) {
       currentMode,
       setCurrentMode,
       userInfo,
-      setCurrentUser,   
+      setCurrentUser, 
+      loading,
+      isLoading
+
     }}>
       {children}
     </StateContext.Provider>
