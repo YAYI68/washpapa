@@ -27,5 +27,6 @@ export const authvalidator = (result, setMessage,)=>{
         },10000)
      }
 
-
 }
+
+

@@ -33,7 +33,7 @@ export const signup = async (data)=>{
         if(error.code==="auth/weak-password"){
          return{
             loading:false,
-            errorMessage: "Password should be at least 6 characters"
+            errorMessage: "Password should be at least 7 characters"
          }
         }
         else if(error.code === "auth/email-already-in-use"){
