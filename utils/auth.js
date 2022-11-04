@@ -17,15 +17,23 @@ export async function verifyEmail(newEmail){
 
     const dbRef = ref(db,`Users`);
    
-    // const data = dataSnapshot
-    // dataSnapshot.forEach((snapshot)=>{
-    //   console.log(snapshot.val())
-    // })
+   //  const data = dataSnapshot
+   //  dataSnapshot.forEach((snapshot)=>{
+   //    console.log(snapshot.val())
+   //  })
 
    const q = query(ref(db, 'Users'),orderByChild("email"),equalTo(`${newEmail}`));
-   const user  = await get(q)
-   const {...userInfo} = user.val();
-   console.log(userInfo)
-   console.log(user.exists())
+   const users  = await get(q)
+   const userList = []
+   users.forEach((user)=>{   
+      userList.push(user.val())
+   })
+   const user = userList[0]
+   console.log(user)
+   return {
+      isValid:users.exists(),
+      user:user,
+   }
+   // console.log(users.exists())
 
 }
