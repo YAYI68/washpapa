@@ -13,7 +13,7 @@ import { authvalidator } from '../../utils/validator';
 const Login = () => {
   const router =  useRouter()
   const [ isLoading , setIsLoading ] = useState(false)
-  const { userInfo, setCurrentUser } =  useStateContext();
+  const { userInfo, setUserInfo } =  useStateContext();
   const [ message, setMessage] = useState({error:"",success:""})
   const [showPassword, setShowPassword] = useState(false)
   const [ validate, setValidate] = useState("")
@@ -28,7 +28,7 @@ const Login = () => {
       }
    }, [userInfo,router])
 
-   
+
  const handleSubmit = async(e)=>{
    e.preventDefault();
    setIsLoading(true)
@@ -38,9 +38,8 @@ const Login = () => {
     const result =  await logIn({email, password})
     authvalidator(result,setMessage)
     if(result.user){
-      setCurrentUser(result.user)
+      localStorage.setItem('userInfo',result.user)
     }
-
   setIsLoading(result.loading)
  }
 

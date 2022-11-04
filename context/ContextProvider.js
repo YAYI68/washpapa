@@ -1,5 +1,6 @@
-import React, {createContext, useContext, useState } from 'react'
-
+import { onAuthStateChanged } from 'firebase/auth';
+import React, {createContext, useContext, useEffect, useState } from 'react'
+import { auth } from '../config/firebaseConfig';
 export const StateContext = createContext();
 
 const initialState = {
@@ -10,7 +11,9 @@ const initialState = {
 
 function ContextProvider({children}) {
     const [ currentMode, setCurrentMode ] = useState('Light');
-    const [ userInfo, setUserInfo ] = useState();
+ 
+    const [ userInfo, setUserInfo ] = useState("");
+   
     const [isLoading,setIsLoading ] = useState(initialState);
 
     const loading = (click,state)=>{
@@ -20,10 +23,28 @@ function ContextProvider({children}) {
       })
     }
 
-   const setCurrentUser = (userInfo)=>{
-    setUserInfo(userInfo)
-    localStorage.setItem("userInfo", JSON.stringify(userInfo))
-   } 
+    useEffect(() => {
+      const unSub = onAuthStateChanged(auth,(user)=>{
+        if(user){
+          setUserInfo(user)      
+        }
+        else{
+          setUserInfo("")
+        }
+      })
+      return () => {
+        unSub();
+     }
+      }, [])
+  //   useEffect(() => {
+  //     const user= localStorage.getItem('userInfo')
+  //     setUserInfo(user)
+  //   }, [userInfo])
+
+  useEffect(() => {
+    const user= localStorage.getItem('userInfo')
+    setUserInfo(user)
+  }, [])
 
 
 
@@ -33,7 +54,7 @@ function ContextProvider({children}) {
       currentMode,
       setCurrentMode,
       userInfo,
-      setCurrentUser, 
+      setUserInfo,
       loading,
       isLoading
 

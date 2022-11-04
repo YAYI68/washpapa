@@ -91,7 +91,6 @@ export const logIn = async({email,password})=>{
 export const logOut = async()=>{
     await signOut (auth)
     localStorage.removeItem("userInfo")
-    window.location.reload();
 }
 
 
