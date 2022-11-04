@@ -3,9 +3,12 @@ import Main from '../../components/Main'
 import Link from 'next/link';
 import { forgetPasswordReset } from '../../db/auth';
 import { authvalidator } from '../../utils/validator';
+import { Spinner } from '../../components/Spinner';
 
 const ForgetPassword = () => {
+  const [ isLoading , setIsLoading ] = useState(false)
   const [ validate, setValidate] = useState({email:"",password:""})
+  const [ message, setMessage] = useState({error:"",success:""})
   const emailRef = useRef()
 
   const emailBlur = ()=>{
@@ -30,6 +33,14 @@ const ForgetPassword = () => {
   return (
     <Main className=' mt-[5rem]'>
         <section className='h-[80vh] w-full flex flex-col items-center justify-center '>
+        { message.error ?    
+           <p className={`text-white w-[30%] bg-red-600 mb-[1rem] p-2`}>{message.error}</p>
+           :""
+           }
+             { message.success ? 
+           <p className='text-white w-[30%] bg-green-500 mb-[1rem] p-2'>{ message.success}</p>
+           :""
+         }
            <div className='w-[30%] bg-white shadow-md rounded-md border-2 dark:bg-gray-700 p-4'>
             <div className='w-full h-full flex flex-col gap-5 items-center'>
                <h4 className='text-light-blue text-[2rem] '>Reset Password</h4>
@@ -45,8 +56,14 @@ const ForgetPassword = () => {
                       {validate.email &&    
                         <small className='text-red-500 ml-4'>{validate.email} *</small>
                       } 
-                  </div>  
-                  <button type="submit" className='bg-light-blue mt-[1rem] text-white px-4 w-full font-medium py-2 rounded-md shadow-md'>Reset password</button>
+                  </div> 
+                  <button type="submit" className='bg-light-blue mt-[1rem] flex items-center justify-center gap-5 text-white px-4 w-full font-medium py-2 rounded-md shadow-md'>
+                   <span> Reset password</span>
+                  {isLoading ? 
+                    <Spinner />
+                    :""
+                  }
+                   </button>
                </form>
             </div>
            </div>

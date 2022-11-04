@@ -28,12 +28,7 @@ const Login = () => {
       }
    }, [userInfo,router])
 
-   // useEffect(()=>{
-   //    if(message.error || message.success){
-   //       loading("login",false)
-   //     }
-   // },[message.error,message.success])
-  
+   
  const handleSubmit = async(e)=>{
    e.preventDefault();
    setIsLoading(true)

@@ -1,6 +1,9 @@
 import { auth, db } from "../config/firebaseConfig";
-import { createUserWithEmailAndPassword, sendEmailVerification, signInWithEmailAndPassword,signOut,sendPasswordResetEmail   } from "firebase/auth";
+import { createUserWithEmailAndPassword, sendEmailVerification, signInWithEmailAndPassword,signOut,sendPasswordResetEmail, updatePassword   } from "firebase/auth";
 import { ref, set } from "firebase/database";
+
+
+
 
 export const signup = async (data)=>{
     const { email, password, phone } = data;
@@ -44,6 +47,8 @@ export const signup = async (data)=>{
     }   
    
 }
+
+
 
 export const logIn = async({email,password})=>{
 
@@ -100,7 +105,6 @@ export async function forgetPasswordReset(email){
             }
            }
        await  sendPasswordResetEmail(auth, email)
-       localStorage.setItem("emailSent",email)
        return {
         loading:false,
         success: "Password reset email sent"
@@ -115,5 +119,39 @@ export async function forgetPasswordReset(email){
           }
  
        }
+    }
+ }
+
+
+
+ export async function resetPassword(newPassword){
+    try{
+        if(!newPassword || !newPassword.trim().length < 7){
+            return{
+               loading:false,
+               inValidMessage: "Password should be at least 7 characters"
+            }
+           }
+          const user = auth.currentUser 
+       await  updatePassword(user, newPassword)
+       return {
+        loading:false,
+        success: "Password reset email set successfully"
+       }
+    }
+    catch(error){
+       const errorCode = error.code;
+       console.log({errorCode})
+        return {
+            loading:false,
+            errorMessage:errorCode,
+        }
+    //    if(errorCode === "auth/user-not-found"){
+    //       return{
+    //          loading:false,
+    //          errorMessage:"User not found",
+    //       }
+ 
+    //    }
     }
  }
