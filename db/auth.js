@@ -1,7 +1,6 @@
 import { auth, db } from "../config/firebaseConfig";
-import { createUserWithEmailAndPassword, sendEmailVerification, signInWithEmailAndPassword,signOut   } from "firebase/auth";
+import { createUserWithEmailAndPassword, sendEmailVerification, signInWithEmailAndPassword,signOut,sendPasswordResetEmail   } from "firebase/auth";
 import { ref, set } from "firebase/database";
-
 
 export const signup = async (data)=>{
     const { email, password, phone } = data;
@@ -49,12 +48,6 @@ export const signup = async (data)=>{
 export const logIn = async({email,password})=>{
 
     try{
-        if(!email || !email.includes("@")){
-         return{
-            loading:false,
-            inValidMessage: "Invalid email address / Password"
-         }
-        }
       const userCredential = await signInWithEmailAndPassword(auth,email,password)
       if(!userCredential.user.emailVerified){
           return {
@@ -89,8 +82,38 @@ export const logIn = async({email,password})=>{
     return{  loading:true,} 
 }
 
+
 export const logOut = async()=>{
     await signOut (auth)
     localStorage.removeItem("userInfo")
     window.location.reload();
 }
+
+
+
+export async function forgetPasswordReset(email){
+    try{
+        if(!email || !email.includes("@")){
+            return{
+               loading:false,
+               inValidMessage: "Invalid email address / Password"
+            }
+           }
+       await  sendPasswordResetEmail(auth, email)
+       localStorage.setItem("emailSent",email)
+       return {
+        loading:false,
+        success: "Password reset email sent"
+       }
+    }
+    catch(error){
+       const errorCode = error.code;
+       if(errorCode === "auth/user-not-found"){
+          return{
+             loading:false,
+             errorMessage:"User not found",
+          }
+ 
+       }
+    }
+ }

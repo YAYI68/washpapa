@@ -14,7 +14,7 @@ export const authvalidator = (result, setMessage,)=>{
         },10000)
      }
      
-      if(result.user){
+      if(result.success){
         setMessage({success:result.success})
         setTimeout(()=>{
             setMessage({success:""})
@@ -26,7 +26,8 @@ export const authvalidator = (result, setMessage,)=>{
             setMessage("")
         },10000)
      }
-
 }
+
+
 
 
