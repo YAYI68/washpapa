@@ -8,6 +8,10 @@ import { useStateContext } from '../../context/ContextProvider';
 import { useRouter } from 'next/router';
 import { Spinner } from '../../components/Spinner';
 import { authvalidator } from '../../utils/validator';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../../config/firebaseConfig';
+
+
 
 
 const Login = () => {
@@ -56,9 +60,6 @@ const Login = () => {
       }
      
    }
-
-   
-  
 
   return (
     <Main className=' mt-[5rem]'>
@@ -128,4 +129,6 @@ const Login = () => {
   )
 }
 
+
 export default Login
+

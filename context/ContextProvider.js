@@ -1,4 +1,5 @@
 import { onAuthStateChanged } from 'firebase/auth';
+import Cookies from 'js-cookie';
 import React, {createContext, useContext, useEffect, useState } from 'react'
 import { auth } from '../config/firebaseConfig';
 export const StateContext = createContext();
@@ -24,12 +25,13 @@ function ContextProvider({children}) {
     }
 
     useEffect(() => {
-      const unSub = onAuthStateChanged(auth,(user)=>{
+      const unSub = onAuthStateChanged(auth,async(user)=>{
         if(user){
-          setUserInfo(user)      
+          setUserInfo(user)          
         }
         else{
           setUserInfo("")
+    
         }
       })
       return () => {

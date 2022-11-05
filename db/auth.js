@@ -1,6 +1,7 @@
 import { auth, db } from "../config/firebaseConfig";
 import { createUserWithEmailAndPassword, sendEmailVerification, signInWithEmailAndPassword,signOut,sendPasswordResetEmail, updatePassword   } from "firebase/auth";
 import { ref, set } from "firebase/database";
+import Cookies from 'js-cookie';
 
 
 
@@ -61,6 +62,8 @@ export const logIn = async({email,password})=>{
           }
       }
       else{
+        const token = await userCredential.user.getIdToken()
+        Cookies.set("authToken",token,{expires:15})
         return {
             loading:false,
             user:userCredential.user,
@@ -91,6 +94,7 @@ export const logIn = async({email,password})=>{
 export const logOut = async()=>{
     await signOut (auth)
     localStorage.removeItem("userInfo")
+    Cookies.remove("authToken")
 }
 
 
