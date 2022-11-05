@@ -10,7 +10,7 @@ import { Spinner } from '../../components/Spinner';
 import { authvalidator } from '../../utils/validator';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../../config/firebaseConfig';
-
+import Cookies from 'js-cookie';
 
 
 
@@ -44,6 +44,9 @@ const Login = () => {
     if(result.user){
       localStorage.setItem('userInfo',JSON.stringify(result.user))
       setUserInfo(result.user)
+      setTimeout(()=>{
+                  router.push("/wash")
+               },200)
     }
   setIsLoading(result.loading)
  }
@@ -129,6 +132,21 @@ const Login = () => {
   )
 }
 
+export async function getServerSideProps(context) {
+  const token =  Cookies.get("authToken")
+  console.log({token})
+ if(token){
+   return {
+    redirect: {
+      destination: '/',
+      permanent: false,
+    },
+   }
+ }
 
+  return {
+    props: {}, // will be passed to the page component as props
+  }
+}
 export default Login
 

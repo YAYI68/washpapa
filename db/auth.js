@@ -64,6 +64,9 @@ export const logIn = async({email,password})=>{
       else{
         const token = await userCredential.user.getIdToken()
         Cookies.set("authToken",token,{expires:15})
+        // if(typeof window !== "undefined"){
+        //     window.location.reload()
+        // }
         return {
             loading:false,
             user:userCredential.user,
@@ -95,6 +98,9 @@ export const logOut = async()=>{
     await signOut (auth)
     localStorage.removeItem("userInfo")
     Cookies.remove("authToken")
+    // if(typeof window !== "undefined"){
+    //     window.location.reload()
+    // }
 }
 
 
