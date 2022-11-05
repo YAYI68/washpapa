@@ -1,6 +1,7 @@
 
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Main from '../../components/Main'
+import { useStateContext } from '../../context/ContextProvider';
 import { resetPassword } from '../../db/auth';
 import { authvalidator } from '../../utils/validator';
 
@@ -10,6 +11,12 @@ function ResetPassword() {
     const [ validate, setValidate] = useState({email:"",password:""})
     const [ message, setMessage] = useState({error:"",success:""})
     const  passwordRef = useRef();
+    const { userInfo } = useStateContext();
+
+    useEffect(()=>{
+      
+
+    },[])
 
 
     const handleSubmit = async (e)=>{

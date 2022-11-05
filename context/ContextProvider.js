@@ -11,8 +11,8 @@ const initialState = {
 
 function ContextProvider({children}) {
     const [ currentMode, setCurrentMode ] = useState('Light');
- 
-    const [ userInfo, setUserInfo ] = useState("");
+
+    const [ userInfo, setUserInfo ] = useState();
    
     const [isLoading,setIsLoading ] = useState(initialState);
 
@@ -42,7 +42,7 @@ function ContextProvider({children}) {
   //   }, [userInfo])
 
   useEffect(() => {
-    const user= localStorage.getItem('userInfo')
+    const user= JSON.parse(localStorage.getItem('userInfo'))
     setUserInfo(user)
   }, [])
 
@@ -56,7 +56,7 @@ function ContextProvider({children}) {
       userInfo,
       setUserInfo,
       loading,
-      isLoading
+      isLoading,
 
     }}>
       {children}

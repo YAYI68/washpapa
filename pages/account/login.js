@@ -20,13 +20,13 @@ const Login = () => {
    const emailRef = useRef()
    const passwordRef = useRef()
     
-   useEffect(() => {    
-      if(userInfo){
-         setTimeout(()=>{
-            router.push("/wash")
-         },200)
-      }
-   }, [userInfo,router])
+   // useEffect(() => {    
+   //    if(userInfo){
+   //       setTimeout(()=>{
+   //          router.push("/wash")
+   //       },200)
+   //    }
+   // }, [userInfo,router])
 
 
  const handleSubmit = async(e)=>{
@@ -38,7 +38,8 @@ const Login = () => {
     const result =  await logIn({email, password})
     authvalidator(result,setMessage)
     if(result.user){
-      localStorage.setItem('userInfo',result.user)
+      localStorage.setItem('userInfo',JSON.stringify(result.user))
+      setUserInfo(result.user)
     }
   setIsLoading(result.loading)
  }
