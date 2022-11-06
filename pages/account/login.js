@@ -132,21 +132,5 @@ const Login = () => {
   )
 }
 
-export async function getServerSideProps(context) {
-  const token =  Cookies.get("authToken")
-  console.log({token})
- if(token){
-   return {
-    redirect: {
-      destination: '/',
-      permanent: false,
-    },
-   }
- }
-
-  return {
-    props: {}, // will be passed to the page component as props
-  }
-}
 export default Login
 

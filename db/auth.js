@@ -1,6 +1,6 @@
 import { auth, db } from "../config/firebaseConfig";
 import { createUserWithEmailAndPassword, sendEmailVerification, signInWithEmailAndPassword,signOut,sendPasswordResetEmail, updatePassword   } from "firebase/auth";
-import { ref, set } from "firebase/database";
+import { child, get, ref, set } from "firebase/database";
 import Cookies from 'js-cookie';
 
 
@@ -64,12 +64,12 @@ export const logIn = async({email,password})=>{
       else{
         const token = await userCredential.user.getIdToken()
         Cookies.set("authToken",token,{expires:15})
-        // if(typeof window !== "undefined"){
-        //     window.location.reload()
-        // }
+        const userRef = ref(db)
+        const snapshot = await get(child(userRef,`Users/${userCredential.user.uid}`))
+        const user = snapshot.val();
         return {
             loading:false,
-            user:userCredential.user,
+            user:user,
             success:"User signed in successfully"
         }
       }
@@ -98,9 +98,6 @@ export const logOut = async()=>{
     await signOut (auth)
     localStorage.removeItem("userInfo")
     Cookies.remove("authToken")
-    // if(typeof window !== "undefined"){
-    //     window.location.reload()
-    // }
 }
 
 

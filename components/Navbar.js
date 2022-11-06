@@ -28,6 +28,8 @@ function Navbar() {
   if (!mounted) {
     return null
   }
+
+  console.log({userInfo})
    
   const logUserOut = ()=>{
     setAccountDropdown(false)
@@ -66,7 +68,7 @@ function Navbar() {
           :
           <div className=' cursor-pointer relative'>
             <button type="button" className='flex items-center gap-4  border-2 p-2 rounded-md border-light-blue' onClick={() => setAccountDropdown(!accountDropdown)}>
-              <p className="font-semibold text-light-blue">W500</p>
+              <p className="font-semibold text-light-blue">W{userInfo.balance}</p>
               <button type="button"> <IoCaretDownCircle className='fill-light-blue' /> </button>
             </button>
             {accountDropdown &&    
