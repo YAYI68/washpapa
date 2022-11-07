@@ -5,6 +5,11 @@ import {IoCaretForwardCircleSharp, IoCaretDownCircle } from "react-icons/io5";
 function Wash({service,tab,toggleTab,tabNum}) {
   const service_slug = service.name ? service.name.replaceAll(" ", "_") :""
 
+
+  const submit = ()=>{
+    
+  }
+
   return (
     <div className=' w-full flex p-4 gap-4 '   >
         <div onClick={()=>toggleTab(tab)} className={`w-[47%] h-[7rem] cursor-pointer  dark:text-white rounded-md border border-l-4 ${tabNum === tab ? 'bg-light-blue text-white border-l-black' :'' }  border-l-light-blue p-4 flex justify-between flex-col`}>

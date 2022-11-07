@@ -21,6 +21,25 @@ function WashDetail({wash}) {
   const noteRef = useRef();
   const pictureRef = useRef();
 
+  // data class Order(
+  //   val orderID: String,
+  //   val buyerID: String,
+  //   val buyerEmail: String,
+  //   val category: String,
+  //   val typeOfWash: String,
+  //   val dryClean: Boolean,
+  //   val price: Int,
+  //   val deliveryPhone: String,
+  //   val nearestBusStop: String,
+  //   val notes: String,
+  //   val date: String,
+  //   val paymentType: String,
+  //   val status: Int,
+  //   val timeStamp: MutableMap<String, String>,
+  //   val isComplete: Boolean = false,
+
+  //   )
+
   if(errorMessage){
     setTimeout(() => {
       setErrorMessage("")
