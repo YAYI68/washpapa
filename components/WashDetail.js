@@ -3,42 +3,32 @@ import React, { useRef, useState } from 'react';
 import { IoBus } from "react-icons/io5";
 import { FaTimes } from "react-icons/fa";
 import { VscNotebook } from "react-icons/vsc";
+import { child, get, ref, serverTimestamp, set } from 'firebase/database'
+import { auth, db } from '../config/firebaseConfig';
 
 import Main from './Main'
+import { useStateContext } from '../context/ContextProvider';
 
 
 
 
 function WashDetail({wash}) {
+  const { Order ,setOrder } = useStateContext();
   const router = useRouter()
   const [errorMessage,setErrorMessage] = useState("")
   const [ validate, setValidate] = useState({
     phoneRequired:"",
     busRequired:"",
   })
+
+  console.log({Order})
   const phoneRef = useRef();
   const busRef = useRef();
   const noteRef = useRef();
   const pictureRef = useRef();
 
-  // data class Order(
-  //   val orderID: String,
-  //   val buyerID: String,
-  //   val buyerEmail: String,
-  //   val category: String,
-  //   val typeOfWash: String,
-  //   val dryClean: Boolean,
-  //   val price: Int,
-  //   val deliveryPhone: String,
-  //   val nearestBusStop: String,
-  //   val notes: String,
-  //   val date: String,
-  //   val paymentType: String,
-  //   val status: Int,
-  //   val timeStamp: MutableMap<String, String>,
-  //   val isComplete: Boolean = false,
 
-  //   )
+
 
   if(errorMessage){
     setTimeout(() => {
@@ -46,7 +36,7 @@ function WashDetail({wash}) {
     }, 10000);
   }
 
-  const handleSubmit = (e)=>{
+  const handleSubmit = async(e)=>{
     e.preventDefault();
     const phoneNumber = phoneRef.current.value;
     const busStop = busRef.current.value;
@@ -64,9 +54,17 @@ function WashDetail({wash}) {
     }
 
     if(phoneNumber && busStop && takePic){
-      // router.push(`/wash/${wash.typeofWash}/${wash.name}/payment`)
+      setOrder({
+        ...Order,
+        deliveryPhone:phoneNumber,
+        nearestBusStop:busStop,
+        notes:note,
+        date: date,
+        status: 1,
+     });
+      // router.push(`/wash/${Order.category}/${wash.name}/payment`)
     }
-
+  
 
   }
   const phoneBlur = ()=>{

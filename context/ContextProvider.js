@@ -10,12 +10,31 @@ const initialState = {
 }
 
 
+const initialOrderState = {
+   orderID: "",
+   buyerID: "",
+   buyerEmail: "",
+   category: "",
+   typeOfWash: "",
+   dryClean: null,
+    price: null,
+    deliveryPhone: "",
+    nearestBusStop: "",
+    notes: "",
+    date: "",
+    paymentType: "",
+    status: 1,
+    timeStamp: null,
+    complete:false,
+}
+
 function ContextProvider({children}) {
     const [ currentMode, setCurrentMode ] = useState('Light');
-
     const [ userInfo, setUserInfo ] = useState();
-   
     const [isLoading,setIsLoading ] = useState(initialState);
+    const [ Order, setOrder ] = useState(initialOrderState)
+
+    
 
     const loading = (click,state)=>{
       setIsLoading({
@@ -59,6 +78,7 @@ function ContextProvider({children}) {
       setUserInfo,
       loading,
       isLoading,
+      Order, setOrder,
 
     }}>
       {children}

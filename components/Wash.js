@@ -1,38 +1,40 @@
 import Link from 'next/link';
-import React, { useState } from 'react';
-import { child, get, ref, serverTimestamp, set } from 'firebase/database'
+import React, { useEffect, useState } from 'react';
 import {IoCaretForwardCircleSharp, IoCaretDownCircle } from "react-icons/io5";
-import { auth, db } from '../config/firebaseConfig';
+import { serverTimestamp } from 'firebase/database'
+import { auth} from '../config/firebaseConfig';
 import { currentDate, generateId } from '../utils/order';
+import { useStateContext } from '../context/ContextProvider';
+import Router, { useRouter } from 'next/router';
 
 
 function Wash({service,tab,toggleTab,tabNum}) {
+  const {Order,setOrder,userInfo} =  useStateContext();
   const service_slug = service.name ? service.name.replaceAll(" ", "_") :""
-  const [orderId, setOrderID ] = useState("")
+  const [orderid, setOrderID ] = useState("")
+  const router =  useRouter()
 
   const submit = async()=>{
     const date = currentDate()
     const orderId = generateId(auth.currentUser.email)
-    setOrderID(orderId)
-    await set(ref(db, 'Orders/' + orderId), {
-       buyerEmail: auth.currentUser.email,
-       buyerID: auth.currentUser.uid,
+   setOrderID(orderId)
+   setOrder({
+      ...Order,
+       buyerEmail: userInfo.email,
+       buyerID: userInfo.uid,
        category:service.category,
        complete:false,
-       deliveryPhone:"",
        orderID: orderId,
        typeOfWash: service.name,
        dryClean: service.isDryCleaning,
        price: service.TotalCost,
-       nearestBusStop: "",
-       notes: "",
        date: date,
-       paymentType: "",
-       status: 1,
-       timeStamp: serverTimestamp(),
-       isComplete:false,
     });
+    if(orderId){
+        router.push(`/wash/${service.category}/${orderId}`)
+      }
     console.log("Submit is Clicked")
+
   }
     
 
@@ -71,9 +73,7 @@ function Wash({service,tab,toggleTab,tabNum}) {
           <p className='text-[1.2rem] font-medium'>Quantity</p>
           <p className='dark:text-slate-300'>NGN {service.TotalCost}</p>
         </div>
-          <Link href={`/wash/${service.typeofWash}/${orderId}`} >
-            <a onClick={submit} className='w-full block p-2 text-center bg-light-blue mt-4 text-white font-medium text-[1.1rem]'>Continue</a> 
-            </Link>
+            <button onClick={submit} className='w-full block p-2 text-center bg-light-blue mt-4 text-white font-medium text-[1.1rem]'>Continue</button> 
          </div>
         </div>
        
