@@ -1,4 +1,4 @@
-import { child, get, ref } from 'firebase/database'
+
 import Head from 'next/head'
 import Image from 'next/image'
 import { Fragment, useEffect } from 'react'

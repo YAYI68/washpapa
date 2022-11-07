@@ -1,14 +1,40 @@
 import Link from 'next/link';
-import React from 'react'
+import React, { useState } from 'react';
+import { child, get, ref, serverTimestamp, set } from 'firebase/database'
 import {IoCaretForwardCircleSharp, IoCaretDownCircle } from "react-icons/io5";
+import { auth, db } from '../config/firebaseConfig';
+import { currentDate, generateId } from '../utils/order';
+
 
 function Wash({service,tab,toggleTab,tabNum}) {
   const service_slug = service.name ? service.name.replaceAll(" ", "_") :""
+  const [orderId, setOrderID ] = useState("")
 
-
-  const submit = ()=>{
-    
+  const submit = async()=>{
+    const date = currentDate()
+    const orderId = generateId(auth.currentUser.email)
+    setOrderID(orderId)
+    await set(ref(db, 'Orders/' + orderId), {
+       buyerEmail: auth.currentUser.email,
+       buyerID: auth.currentUser.uid,
+       category:service.category,
+       complete:false,
+       deliveryPhone:"",
+       orderID: orderId,
+       typeOfWash: service.name,
+       dryClean: service.isDryCleaning,
+       price: service.TotalCost,
+       nearestBusStop: "",
+       notes: "",
+       date: date,
+       paymentType: "",
+       status: 1,
+       timeStamp: serverTimestamp(),
+       isComplete:false,
+    });
+    console.log("Submit is Clicked")
   }
+    
 
   return (
     <div className=' w-full flex p-4 gap-4 '   >
@@ -45,8 +71,8 @@ function Wash({service,tab,toggleTab,tabNum}) {
           <p className='text-[1.2rem] font-medium'>Quantity</p>
           <p className='dark:text-slate-300'>NGN {service.TotalCost}</p>
         </div>
-          <Link href={`/wash/${service.typeofWash}/${service.name }`} >
-            <a className='w-full block p-2 text-center bg-light-blue mt-4 text-white font-medium text-[1.1rem]'>Continue</a> 
+          <Link href={`/wash/${service.typeofWash}/${orderId}`} >
+            <a onClick={submit} className='w-full block p-2 text-center bg-light-blue mt-4 text-white font-medium text-[1.1rem]'>Continue</a> 
             </Link>
          </div>
         </div>

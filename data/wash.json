@@ -4,6 +4,7 @@
         {
             "name":"Single Wash (Max. 6 clothes)",
             "typeofWash":"cloth",
+            "category":"Cloth Wash",
             "cost":1200,
             "details":"Order a quality wash and get your cloth (max. 6 pieces) returned to you in less than 48 hours for NGN 1,200. You also recieve 200 bonus Wash Papa points!! You can use these to get discounted washes. T'c and C's apply ",
             "quantity":" 1-6 Clothes",
@@ -15,6 +16,7 @@
         {
             "name":"Single Wash (Max. 6 clothes)",
             "typeofWash":"cloth",
+            "category":"Cloth Wash",
             "cost":1500,
             "details":"Order a quality wash and get your cloth (max. 6 pieces) washed, dry-cleaned and returned to you in less than 48 hours for NGN 1,500. You also recieve 200 bonus Wash Papa points!! You can use these to get discounted washes. T'c and C's apply ",
             "quantity":" 1-6 Clothes",
@@ -26,6 +28,7 @@
         {
             "name":"Single Wash (Max. 10 clothes)",
             "typeofWash":"cloth",
+            "category":"Cloth Wash",
             "cost":2000,
             "details":"Order a quality wash and get your cloth (max. 10 pieces)  returned to you in less than 48 hours for NGN 2,000. You also recieve 200 bonus Wash Papa points!! You can use these to get discounted washes. T'c and C's apply ",
             "quantity":" 1- 6 Clothes",
@@ -37,6 +40,7 @@
         {
             "name":"Single Wash (Max. 10 clothes)",
             "typeofWash":"cloth",
+            "category":"Cloth Wash",
             "cost":2500,
             "details":"Order a quality wash and get your cloth (max. 10 pieces) washed, dry-cleaned and returned to you in less than 48 hours for NGN 2,000. You also recieve 200 bonus Wash Papa points!! You can use these to get discounted washes. T'c and C's apply ",
             "quantity":" 1- 6 Clothes",
@@ -49,6 +53,7 @@
         {
             "name":"Single Wash ( 1 Shoe )",
             "typeofWash":"shoe",
+            "category":"Shoe Wash",
             "cost":800,
             "details":"Order a quality shoe wash and get your shoes clean (1 pair )  returned to you in less than 48 hours for NGN 800. You also recieve 200 bonus Wash Papa points!! You can use these to get discounted washes. T'c and C's apply ",
             "quantity":" 1 Shoe",
@@ -60,6 +65,7 @@
         {
             "name":"Single Wash ( 2 Shoes )",
             "typeofWash":"shoe",
+            "category":"Shoe Wash",
             "cost":1500,
             "details":"Order a quality shoe wash and get your shoes clean (2 pairs )  returned to you in less than 48 hours for NGN 1,500. You also recieve 200 bonus Wash Papa points!! You can use these to get discounted washes. T'c and C's apply ",
             "quantity":" 2 Shoes",
@@ -72,6 +78,7 @@
         {
             "name":"Single Wash ( 3 Shoes )",
             "typeofWash":"shoe",
+            "category":"Shoe Wash",
             "cost":2000,
             "details":"Order a quality shoe wash and get your shoes clean (2 pairs )  returned to you in less than 48 hours for NGN 2,000. You also recieve 200 bonus Wash Papa points!! You can use these to get discounted washes. T'c and C's apply ",
             "quantity":" 3 Shoes",
@@ -83,6 +90,7 @@
         {
             "name":"Single Wash ( 1 Blanket )",
             "typeofWash":"blanket",
+            "category":"Blanket Wash",
             "cost":800,
             "details":"Order a quality blanket/curtain/bedsheet wash and get your shoes clean (1 blanket ), sorted and returned to you in less than 48 hours for NGN 800. You also recieve 200 bonus Wash Papa points!! You can use these to get discounted washes. T'c and C's apply ",
             "quantity":" 1 blanket",
@@ -95,6 +103,7 @@
         {
             "name":"Single Wash ( Max. 3 Blanket )",
             "typeofWash":"blanket",
+            "category":"Blanket Wash",
             "cost":800,
             "details":"Order a quality blanket/curtain/bedsheet wash and get your shoes clean (Max. 3 Blanket ), sorted and returned to you in less than 48 hours for NGN 2000. You also recieve 200 bonus Wash Papa points!! You can use these to get discounted washes. T'c and C's apply ",
             "quantity":" 1-3 blanket",
@@ -106,6 +115,7 @@
         {
             "name":"Single Wash ( 1 Bag )",
             "typeofWash":"bag",
+            "category":"Bag Wash",
             "cost":800,
             "details":"Order a quality blanket/curtain/bedsheet wash and get your shoes clean (1 Bag ), sorted and returned to you in less than 48 hours for NGN 800. You also recieve 200 bonus Wash Papa points!! You can use these to get discounted washes. T'c and C's apply ",
             "quantity":" 1-3 blanket",
@@ -117,6 +127,7 @@
         {
             "name":"Single Wash ( Max.3 Bag )",
             "typeofWash":"bag",
+            "category":"Bag Wash",
             "cost":2000,
             "details":"Order a quality blanket/curtain/bedsheet wash and get your shoes clean (Max.3 Bag ), sorted and returned to you in less than 48 hours for NGN 2000. You also recieve 200 bonus Wash Papa points!! You can use these to get discounted washes. T'c and C's apply ",
             "quantity":" 1-3 blanket",
