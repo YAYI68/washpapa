@@ -59,10 +59,8 @@ function WashDetail({wash}) {
         deliveryPhone:phoneNumber,
         nearestBusStop:busStop,
         notes:note,
-        date: date,
-        status: 1,
      });
-      // router.push(`/wash/${Order.category}/${wash.name}/payment`)
+      router.push(`/wash/${Order.category}/${Order.orderID}/payment`)
     }
   
 
