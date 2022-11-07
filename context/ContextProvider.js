@@ -27,7 +27,7 @@ function ContextProvider({children}) {
     useEffect(() => {
       const unSub = onAuthStateChanged(auth,async(user)=>{
         if(user){
-          setUserInfo(user)          
+              
         }
         else{
           setUserInfo("")

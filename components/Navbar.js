@@ -28,8 +28,6 @@ function Navbar() {
   if (!mounted) {
     return null
   }
-
-  console.log({userInfo})
    
   const logUserOut = ()=>{
     setAccountDropdown(false)

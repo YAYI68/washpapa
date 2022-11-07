@@ -20,13 +20,11 @@ export function middleware(request){
       }
 
      if( !authToken && wash ){
-      return NextResponse.redirect(new URL('/', request.url))
+     const loginUrl = new URL('/account/login', request.url)
+     loginUrl.searchParams.set('from', request.nextUrl.pathname)
+     return NextResponse.redirect(loginUrl)
      }
 
-    //  const loginUrl = new URL('/acctount/login', request.url)
-    //  loginUrl.searchParams.set('from', request.nextUrl.pathname)
-   
-    //  return NextResponse.redirect(loginUrl)
 }
 
 // export const config = {

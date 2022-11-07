@@ -8,26 +8,18 @@ import Header from '../components/Header'
 import Main from '../components/Main'
 import Services from '../components/Services'
 import { auth, db } from '../config/firebaseConfig'
+import {  currentDate, generateId } from '../utils/order'
 
 
 
 export default function Home() {
 
-  useEffect(() => {
-  (async()=>{
-    const dbRef = ref(db,`Users`);
-    const dataSnapshot = await get(dbRef)
-    const data = dataSnapshot
-    
-    // dataSnapshot.forEach((snapshot)=>{
-    //   console.log(snapshot.val())
-    // })
-  })()  
-
-  }, [])
-  
+ 
   return (
     <Fragment>
+      <Head>
+       <title>Wash Papa</title>
+      </Head>
       <Header/>
       <Main className={`dark:bg-black`}>
         <Services/>
