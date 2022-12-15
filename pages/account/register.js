@@ -14,10 +14,6 @@ const Register = () => {
     const phoneRef = useRef()
     const passwordRef = useRef()
      
-   //  useEffect(() => {  
- 
-   //  }, [])
-
   const handleSubmit = async(e)=>{
     e.preventDefault();
    const email = emailRef.current.value
@@ -49,7 +45,6 @@ const Register = () => {
       },7000)
    }
 
-   //  console.log(" User registered successfully")
   }
 
 

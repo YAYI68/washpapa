@@ -11,12 +11,6 @@ function ResetPassword() {
     const [ validate, setValidate] = useState({email:"",password:""})
     const [ message, setMessage] = useState({error:"",success:""})
     const  passwordRef = useRef();
-    const { userInfo } = useStateContext();
-
-    useEffect(()=>{
-      
-
-    },[])
 
 
     const handleSubmit = async (e)=>{
