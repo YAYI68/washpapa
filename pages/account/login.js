@@ -1,37 +1,25 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Formik } from 'formik';
 import Main from '../../components/Main'
 import Link from 'next/link';
-import Image from 'next/image';
 import { logIn } from '../../db/auth';
 import { useStateContext } from '../../context/ContextProvider';
 import { useRouter } from 'next/router';
 import { Spinner } from '../../components/Spinner';
 import { authvalidator } from '../../utils/validator';
-import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from '../../config/firebaseConfig';
-import Cookies from 'js-cookie';
+
 
 
 
 const Login = () => {
   const router =  useRouter()
   const [ isLoading , setIsLoading ] = useState(false)
-  const { userInfo, setUserInfo } =  useStateContext();
+  const {setUserInfo } =  useStateContext();
   const [ message, setMessage] = useState({error:"",success:""})
   const [showPassword, setShowPassword] = useState(false)
   const [ validate, setValidate] = useState("")
    const emailRef = useRef()
    const passwordRef = useRef()
     
-   // useEffect(() => {    
-   //    if(userInfo){
-   //       setTimeout(()=>{
-   //          router.push("/wash")
-   //       },200)
-   //    }
-   // }, [userInfo,router])
-
 
  const handleSubmit = async(e)=>{
    e.preventDefault();

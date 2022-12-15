@@ -17,12 +17,12 @@ const HeaderContent = () => {
           Wash, dry and iron your clothes and shoes at affordable prices.
         </p>  
         <ul className='text-[1.3rem] font-semibold dark:text-white'>
-           <li className='flex items-center gap-4'> <GoTriangleRight className="fill-light-blue" /> <span> We'll collect your laundry</span> </li> 
+           <li className='flex items-center gap-4'> <GoTriangleRight className="fill-light-blue" /> <span> We &apos;ll collect your laundry</span> </li> 
            <li className='flex items-center gap-4'> <GoTriangleRight className="fill-light-blue" /> <span> hygienically clean it,</span></li>
            <li className='flex items-center gap-4'> <GoTriangleRight className="fill-light-blue" /> <span> deliver it back to you freshly cleaned </span></li>
            <li className='flex items-center gap-4'><GoTriangleRight className="fill-light-blue" /> <span> ironed and nicely packaged.</span> </li>
         </ul>
-        <button type="" className="w-fit px-4 py-2 text-center bg-light-blue text-white ml-[3rem] text-[1.3rem] font-semibold rounded-md">Let's clean</button>
+        <button type="" className="w-fit px-4 py-2 text-center bg-light-blue text-white ml-[3rem] text-[1.3rem] font-semibold rounded-md">Let &apos;s clean</button>
         </div>
       </div>
       <div className='w-[40%] h-full z-[3]'>

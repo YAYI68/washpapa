@@ -2,7 +2,6 @@ import React, { useState, useRef } from 'react';
 import Main from '../../components/Main'
 import Link from 'next/link';
 import { signup } from '../../db/auth';
-import { useRouter } from 'next/router';
 
 
 
