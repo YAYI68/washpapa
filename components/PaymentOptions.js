@@ -1,26 +1,30 @@
 
-import { child, get, ref, serverTimestamp, set } from 'firebase/database'
+import { ref, serverTimestamp, set, update } from 'firebase/database'
+import { useState } from 'react';
+import { useRouter } from 'next/router';
 import { auth, db } from '../config/firebaseConfig';
 import { useStateContext } from '../context/ContextProvider';
 import { discountAmount, stringDate } from '../utils/order';
 
 function PaymentOptions() {
-
+   const router = useRouter();
+   const [ disCount, setDisCount ] = useState(false);
    const {Order,setOrder,userInfo,setUserInfo} = useStateContext();
-   const {discountPoint,discountPrice} = discountAmount(userInfo.balance,Order.price)
    const currentDate = stringDate()
-   console.log({currentDate})
+   const {discountPoint,discountPrice} = discountAmount(userInfo.balance,Order.price)
 
-   const activateDiscount = ()=>{
-      setOrder({
-         ...Order,
-         price: userInfo.balance?discountPrice:Order.price,
-      })
-      setUserInfo({
-         ...userInfo,
-         balance:userInfo.balance?discountPoint:userInfo.balance
-      })
-      console.log('Activation is Pressed')
+   const activateDiscount = ()=>{     
+      if(!disCount){
+         setOrder({
+            ...Order,
+            price: userInfo.balance?discountPrice:Order.price,
+         })
+         setUserInfo({
+            ...userInfo,
+            balance:userInfo.balance?discountPoint:userInfo.balance
+         })
+      }
+      setDisCount(true)
    }
 
    const payWithCash = async()=>{
@@ -42,15 +46,17 @@ function PaymentOptions() {
                "email":Order.buyerEmail,
                "phone":Order.deliveryPhone,
                "cash value given":`NGN ${Order.price}`,
-               "verifiedPayment":false
+               "verifiedPayment?":false
              });
 
-      await  set(ref(db, 'Users/' + userInfo.uid), {
+      await  update(ref(db, 'Users/' + userInfo.uid), {
                balance:userInfo.balance?discountPoint:userInfo.balance,
              });
+      router.push('/')
       console.log("Payment in Cash or transfer is pressed ")
+      
    }
-    
+
   return (
     <section className='h-[80vh] w-full flex flex-col items-center justify-center relative '>
      <div className='w-[30%]  bg-white shadow-md rounded-md border-2 dark:bg-gray-700 p-4'>
