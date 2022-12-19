@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import {IoCaretForwardCircleSharp, IoCaretDownCircle } from "react-icons/io5";
-import { serverTimestamp } from 'firebase/database'
 import { auth} from '../config/firebaseConfig';
 import { currentDate, generateId } from '../utils/order';
 import { useStateContext } from '../context/ContextProvider';
@@ -16,7 +15,7 @@ function Wash({service,tab,toggleTab,tabNum}) {
 
   const submit = async()=>{
     const date = currentDate()
-    const orderId = generateId(auth.currentUser.email)
+    const orderId = generateId(userInfo.email)
    setOrderID(orderId)
    setOrder({
       ...Order,

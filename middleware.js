@@ -1,4 +1,4 @@
-import Cookies from "js-cookie";
+
 import { NextResponse } from "next/server";
 
 
@@ -7,7 +7,6 @@ import { NextResponse } from "next/server";
 
 
 export function middleware(request){
-
     const login = request.nextUrl.pathname.endsWith("/login")
     const register = request.nextUrl.pathname.endsWith("/register")
     const forgetPassword = request.nextUrl.pathname.endsWith("/forget_password")

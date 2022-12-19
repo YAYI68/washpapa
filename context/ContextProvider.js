@@ -32,7 +32,7 @@ function ContextProvider({children}) {
     const [ currentMode, setCurrentMode ] = useState('Light');
     const [ userInfo, setUserInfo ] = useState();
     const [isLoading,setIsLoading ] = useState(initialState);
-    const [ Order, setOrder ] = useState(initialOrderState)
+    const [ Order, setOrder ] = useState(initialOrderState);
 
     
 

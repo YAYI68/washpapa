@@ -3,8 +3,7 @@ import React, { useRef, useState } from 'react';
 import { IoBus } from "react-icons/io5";
 import { FaTimes } from "react-icons/fa";
 import { VscNotebook } from "react-icons/vsc";
-import { child, get, ref, serverTimestamp, set } from 'firebase/database'
-import { auth, db } from '../config/firebaseConfig';
+
 
 import Main from './Main'
 import { useStateContext } from '../context/ContextProvider';
@@ -21,14 +20,10 @@ function WashDetail({wash}) {
     busRequired:"",
   })
 
-  console.log({Order})
   const phoneRef = useRef();
   const busRef = useRef();
   const noteRef = useRef();
   const pictureRef = useRef();
-
-
-
 
   if(errorMessage){
     setTimeout(() => {
@@ -62,7 +57,6 @@ function WashDetail({wash}) {
      });
       router.push(`/wash/${Order.category}/${Order.orderID}/payment`)
     }
-  
 
   }
   const phoneBlur = ()=>{

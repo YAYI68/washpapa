@@ -7,6 +7,7 @@ import { getAllService, getService } from "../../../../lib/utils"
 
 
 const BagDetail = ({washService}) => {
+  
     return (
       <Main className=' mt-[5rem]'>
        <WashDetail wash={washService} />
