@@ -59,7 +59,7 @@ function PaymentOptions() {
 
   return (
     <section className='h-[80vh] w-full flex flex-col items-center justify-center relative '>
-     <div className='w-[30%]  bg-white shadow-md rounded-md border-2 dark:bg-gray-700 p-4'>
+     <div className='w-[30%] lg:w-[50%] md:w-[70%]  bg-white shadow-md rounded-md border-2 dark:bg-gray-700 p-4'>
       <div className='w-full h-full flex flex-col gap-2  items-center'>
          <p className='text-light-blue text-[1.1rem] font-semibold'>Wash papa Payment</p>
          <div className='w-full bg-white h-[15rem] dark:bg-slate-200 flex flex-col items-center justify-center gap-4'>

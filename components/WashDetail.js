@@ -79,13 +79,13 @@ function WashDetail({wash}) {
   return (
     <section className='h-[80vh] w-full flex flex-col items-center justify-center relative '>
       {errorMessage&& 
-       <div className='flex items-center w-[30%] p-4 absolute right-4 top-4 bg-red-600 mb-[1rem]'>
+       <div className='flex items-center w-[30%]  p-4 absolute right-4 top-4 bg-red-600 mb-[1rem]'>
         <button onClick={()=>setErrorMessage("")} type="" className='h-6 w-6 '><FaTimes className='fill-white'/> </button> <p className='text-white   p-2 '>{errorMessage}</p>
        </div>
       }
        
        
-       <div className='w-[30%]  bg-white shadow-md rounded-md border-2 dark:bg-gray-700 p-4'>
+       <div className='w-[30%] lg:w-[50%] md:w-[80%]  bg-white shadow-md rounded-md border-2 dark:bg-gray-700 p-4'>
         <div className='w-full h-full flex flex-col gap-2 '>
            <p className='text-light-blue text-[1.1rem]'>Please fill in regular delivery details to complete the order</p>
            <form onSubmit={handleSubmit} className="w-full flex flex-col items-center gap-2">

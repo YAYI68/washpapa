@@ -66,7 +66,7 @@ const Contact = () => {
     }
      
      
-     <div className='w-[30%]  bg-white shadow-md rounded-md border-2 dark:bg-gray-700 p-4'>
+     <div className='w-[30%] lg:w-[50%] md:w-[75%]  bg-white shadow-md rounded-md border-2 dark:bg-gray-700 p-4'>
       <div className='w-full h-full flex flex-col gap-2 '>
          <p className='text-light-blue text-[1.5rem] text-center font-semibold'>Help and Support</p>
          <form onSubmit={handleSubmit} className="w-full flex flex-col items-center gap-2">

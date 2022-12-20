@@ -1,7 +1,6 @@
-import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
+
+import React, { useState } from 'react';
 import {IoCaretForwardCircleSharp, IoCaretDownCircle } from "react-icons/io5";
-import { auth} from '../config/firebaseConfig';
 import { currentDate, generateId } from '../utils/order';
 import { useStateContext } from '../context/ContextProvider';
 import Router, { useRouter } from 'next/router';
@@ -38,19 +37,19 @@ function Wash({service,tab,toggleTab,tabNum}) {
     
 
   return (
-    <div className=' w-full flex p-4 gap-4 '   >
-        <div onClick={()=>toggleTab(tab)} className={`w-[47%] h-[7rem] cursor-pointer  dark:text-white rounded-md border border-l-4 ${tabNum === tab ? 'bg-light-blue text-white border-l-black' :'' }  border-l-light-blue p-4 flex justify-between flex-col`}>
-          <div  className='flex justify-between items-center'>
-            <p className='text-[1.5rem] font-semibold'>{service.name}</p>
-            <button type="button" className='w-6 h-6 flex items-center justify-center'><IoCaretDownCircle  className={`fill-light-blue ${tabNum === tab ? 'fill-white' :'' } h-full w-full`}/></button>
+    <div className=' w-full lg:flex-col lg:items-center flex p-4 gap-4 '   >
+        <div onClick={()=>toggleTab(tab)} className={`w-[47%] sm:w-full lg:w-[80%] md:w-[90%]  h-[7rem] cursor-pointer  dark:text-white rounded-md border border-l-4 ${tabNum === tab ? 'bg-light-blue text-white border-l-black' :'' }  border-l-light-blue p-4 flex justify-between flex-col`}>
+          <div  className='flex justify-between items-center '>
+            <p className='text-[1.5rem] md:text-[1.2rem] font-semibold'>{service.name}</p>
+            <button type="button" className='w-6 h-6 flex items-center justify-center'><IoCaretDownCircle  className={` ${tabNum === tab ? 'fill-white' :'fill-light-blue' } h-full w-full`}/></button>
           </div>
           <div className='flex justify-between items-center'>
-            <p className={`${tabNum === tab ? 'text-black' :'' } text-main-blue font-medium dark:text-slate-300`}>{service.isDryCleaning && 'DRY CLEANING'} </p>
-            <p className='font-semibold place-items-end text-right'>NGN {service.cost}</p>
+            <p className={`${tabNum === tab ? 'text-black' :'' } text-blue-200 md:text-[.8rem] font-semibold dark:text-slate-300`}>{service.isDryCleaning && 'DRY CLEANING'} </p>
+            <p className='font-semibold place-items-end text-right md:text-[1rem]'>NGN {service.cost}</p>
           </div>       
         </div>
-        <div  className={`w-[47%]  rounded-md border absolute right-5 top-6 ${tabNum === tab ? 'translate-y-0' :'hidden -translate-y-[100%]' }  `}>
-          <p className='shadow-md w-full p-4 text-center rounded text-light-blue text-[1.2rem] font-semibold'>{service.name}</p>
+        <div  className={`w-[47%] lg:w-[80%] sm:w-full lg:right-0 lg:top-0  rounded-md border absolute lg:static right-5 top-6 ${tabNum === tab ? 'translate-y-0' :'hidden -translate-y-[100%]' }  `}>
+          <p className='shadow-md w-full p-4 text-center rounded text-light-blue text-[1.2rem] sm:text-[1rem] font-semibold'>{service.name}</p>
          <div className='w-full p-2 dark:text-white'>
          <div  className=' p-2 border-b '>
             <p className='text-[1.2rem] font-medium'>Details</p>
