@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useTheme } from 'next-themes';
 import { MdDarkMode, MdLightMode } from "react-icons/md";
@@ -72,13 +72,13 @@ function Navbar() {
             {accountDropdown &&    
             <ul className='top-[110%] absolute bg-white dark:bg-black w-[15rem] border-2 border-light-blue dark:border-light-blue rounded-md py-1'>
               <li className=" rounded-sm">
-                <Link href={``}>
+                <Link href={`/order`}>
                   <a onClick={()=>setAccountDropdown(false)} className=' py-2 px-4 w-full block dark:hover:text-light-blue hover:text-light-blue dark:text-white gap-2 font-semibold dark:hover:bg-slate-800  hover:bg-slate-300'>Orders</a>
                 </Link>
               </li>
               <li className=" rounded-sm">
                 <Link href={``}>
-                  <a onClick={()=>setAccountDropdown(false)} className=' py-2 px-4 w-full block dark:hover:text-light-blue hover:text-light-blue dark:text-white gap-2 font-semibold dark:hover:bg-slate-800  hover:bg-slate-300'>Login with Another Account</a>
+                  <a onClick={logUserOut} className=' py-2 px-4 w-full block dark:hover:text-light-blue hover:text-light-blue dark:text-white gap-2 font-semibold dark:hover:bg-slate-800  hover:bg-slate-300'>Login with Another Account</a>
                 </Link>
               </li>
               <li className="  rounded-sm">
