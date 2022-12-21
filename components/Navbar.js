@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useTheme } from 'next-themes';
 import { MdDarkMode, MdLightMode } from "react-icons/md";
 import {IoCaretForwardCircleSharp, IoCaretDownCircle } from "react-icons/io5";
+import { FaBars } from "react-icons/fa";
 import { logOut } from '../db/auth';
 import { useStateContext } from '../context/ContextProvider';
 import { useRouter } from 'next/router';
@@ -36,8 +37,9 @@ function Navbar() {
 
 
   return (
-    <nav className='lg:hidden h-[10vh] dark:bg-slate-900 bg-white flex items-center justify-end px-[4rem] w-screen fixed z-20 top-0 left-0'>
-      <div className='w-[100%] flex items-center justify-between'>
+    <nav className='h-[10vh] dark:bg-slate-900 bg-white  px-[4rem] lg:p-[.5rem]  w-screen fixed z-20 top-0 left-0'>
+      <div className='flex lg:hidden items-center justify-end h-full w-full'>
+      <div className='w-[100%]  flex items-center justify-between'>
        <Link href="/">
         <a className='text-[2rem] font-semibold  text-light-blue w-fit'> AnyWash </a>
         </Link>
@@ -111,6 +113,38 @@ function Navbar() {
        }
        </div>
       </div>
+      </div>
+      </div>  
+      <div className={` flex items-center w-full h-full`}>
+        <div className=" h-full w-full relative flex  justify-between items-center">
+          <Link href={'/'}>
+            <h2 className='text-[1.5rem] font-semibold  text-light-blue w-fit'>AnyWash</h2>
+          </Link>
+          <div className=' flex items-center gap-5 '>
+           <div className='relative'>
+            <button onClick={()=>setModeDropdown(!modeDropdown)} type="">
+        {theme === "dark" ?
+        <MdDarkMode className={`fill-light-blue h-6 w-6`} />
+        :<MdLightMode className={`fill-light-blue h-6 w-6`} />
+         }
+            </button>
+      
+         {modeDropdown && 
+          <ul className='absolute z-10 top-[100%] border-light-blue dark:border-light-blue translate-x-[-2rem] border-2 w-fit bg-white dark:bg-black shadow-xl rounded-md py-1'>
+           <li onClick={()=>toggleMode('light')} className='flex items-center cursor-pointer py-2 px-4 dark:text-white gap-2 font-semibold dark:hover:bg-slate-800  hover:bg-slate-300 rounded-sm'><MdLightMode className={`${theme === 'light' &&  'fill-light-blue' }`} /><span  className={`${theme === 'light' &&  'text-light-blue' }`}>Light</span></li>
+          <li onClick={()=>toggleMode('dark')} className={`flex items-center cursor-pointer py-2 px-4 dark:text-white gap-2 font-semibold dark:hover:bg-slate-800  hover:bg-slate-300 rounded-sm`}><MdDarkMode className={`${theme === 'dark' &&  'fill-light-blue' }`} /><span className={`${theme === 'dark' &&  'text-light-blue' }`}>Dark</span></li>
+         </ul>
+       }
+           </div>
+           <button type="">
+             <FaBars className='fill-light-blue h-7 w-7' />
+           </button>
+          </div>
+          <div className='absolute top-[100%] right-0 h-[100vh] w-full bg-blue-400'>
+
+          </div>
+          
+        </div>
       </div>  
     </nav>
   )

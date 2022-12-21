@@ -4,7 +4,6 @@ import Navbar from '../Navbar';
 
 
 function Layout({children}) {
-  const {currentMode}= useStateContext()
   return (
     <Fragment>  
      <Navbar />
