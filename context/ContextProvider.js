@@ -32,6 +32,7 @@ function ContextProvider({children}) {
     const [ currentMode, setCurrentMode ] = useState('Light');
     const [ userInfo, setUserInfo ] = useState();
     const [isLoading,setIsLoading ] = useState(initialState);
+    const [ clientOrders, setClientOrders ] = useState([])
     const [ Order, setOrder ] = useState(initialOrderState);
 
     
@@ -79,6 +80,7 @@ function ContextProvider({children}) {
       loading,
       isLoading,
       Order, setOrder,
+      clientOrders, setClientOrders
 
     }}>
       {children}
