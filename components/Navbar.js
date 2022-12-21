@@ -14,6 +14,7 @@ function Navbar() {
   const { userInfo } = useStateContext();
   const [ accountDropdown, setAccountDropdown ] = useState(false)
   const [ modeDropdown, setModeDropdown ] = useState(false)
+  const [ slideIn, setSlideIn  ] = useState(false)
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
@@ -37,7 +38,7 @@ function Navbar() {
 
 
   return (
-    <nav className='h-[10vh] dark:bg-slate-900 bg-white  px-[4rem] lg:p-[.5rem]  w-screen fixed z-20 top-0 left-0'>
+    <nav className='h-[10vh] dark:bg-slate-900 bg-white  px-[4rem] lg:p-0  w-screen fixed z-20 top-0 left-0'>
       <div className='flex lg:hidden items-center justify-end h-full w-full'>
       <div className='w-[100%]  flex items-center justify-between'>
        <Link href="/">
@@ -50,7 +51,7 @@ function Navbar() {
              <a className='font-semibold  block dark:text-white w-full hover:text-light-blue dark:hover:text-light-blue'>Wash</a> 
           </Link>
           </li>
-         <li> <Link href="">
+         <li> <Link href="/">
          <a className='font-semibold block dark:text-white w-full hover:text-light-blue dark:hover:text-light-blue'>About</a> 
           </Link></li>
          <li>
@@ -116,7 +117,7 @@ function Navbar() {
       </div>
       </div>  
       <div className={` flex items-center w-full h-full`}>
-        <div className=" h-full w-full relative flex  justify-between items-center">
+        <div className="p-[.5rem] h-full w-full relative flex  justify-between items-center">
           <Link href={'/'}>
             <h2 className='text-[1.5rem] font-semibold  text-light-blue w-fit'>AnyWash</h2>
           </Link>
@@ -136,12 +137,74 @@ function Navbar() {
          </ul>
        }
            </div>
-           <button type="">
+           <button type="button" onClick={()=>setSlideIn(!slideIn)}>
              <FaBars className='fill-light-blue h-7 w-7' />
            </button>
           </div>
-          <div className='absolute top-[100%] right-0 h-[100vh] w-full bg-blue-400'>
-
+          <div className={`absolute top-[100%] right-0  w-full bg-white dark:bg-black transition-[transform]  ${slideIn?'translate-x-0':'translate-x-[100%]'}`}>
+               <div className='w-full h-full p-[1rem]'>
+                 <ul className='list-none w-full'>
+                    <li className='w-full my-[.5rem]'>
+                      <Link href={`/wash`}>
+                       <a  className='p-[.5rem] font-semibold text-[1.3rem] w-full hover:bg-blue-700 hover:text-white block'>Wash</a> 
+                       </Link>
+                    </li>
+                    <li className='w-full my-[.5rem]'>
+                      <Link href={`/about`}>
+                       <a onClick={()=>setSlideIn(false)} className='p-[.5rem] font-semibold text-[1.3rem] w-full hover:bg-blue-700 hover:text-white block'>About</a> 
+                       </Link>
+                    </li>
+                    <li className='w-full my-[.5rem]'>
+                      <Link href={`/contact`}>
+                       <a onClick={()=>setSlideIn(false)} className='p-[.5rem] font-semibold text-[1.3rem]  w-full hover:bg-blue-700 hover:text-white block'>Contact</a> 
+                       </Link>
+                    </li>
+                    {!userInfo ? 
+                       <li className='w-full my-[.5rem]'>
+                       <Link href={`/account/login`}>
+                          <a onClick={()=>setSlideIn(false)} className='p-[.5rem] rounded font-medium text-[1.3rem] w-full bg-blue-700 text-white block text-center'>LogIn</a> 
+                        </Link>
+                     </li>
+                     :
+                    <li  className='w-full my-[.5rem]' >
+                         <button onClick={()=>setAccountDropdown(!accountDropdown)} className='p-[.5rem] rounded font-semibold text-[1.3rem] w-full border-2 border-blue-500 flex items-center justify-between   text-blue-700 '>
+                           <p>W 500</p>
+                           <button >
+                             <IoCaretDownCircle />
+                           </button>
+                         </button>
+                      
+                       {accountDropdown &&       
+                      <ul className='w-full ml-[2rem] border-l-2 mt-2 px-[1rem]'>
+                        <li className='w-full my-[.5rem] p-[1rem]'>
+                          <Link href={`/orders`}>
+                          <a onClick={()=>setAccountDropdown(false)} className='p-[.2rem] rounded font-medium text-[1.2rem] w-full hover:bg-blue-700 hover:text-white block '>Orders</a> 
+                          </Link>
+                        </li>
+                        <li className='w-full my-[.5rem] p-[1rem]'>
+                          <Link href={`/account/forget_password`}>
+                          <a  onClick={()=>setAccountDropdown(false)} className='p-[.2rem] rounded font-medium text-[1.2rem] w-full hover:bg-blue-700 hover:text-white block '>Forget Password</a> 
+                          </Link>
+                        </li>
+                        <li className='w-full my-[.5rem] p-[1rem]'>
+                          <a onClick={logOut}  className='p-[.2rem] rounded font-medium text-[1.2rem] w-full hover:bg-blue-700 hover:text-white block '>
+                           Login with Another Account  
+                          </a> 
+                        </li>
+                        <li className='w-full my-[.5rem] p-[1rem]'>
+                          <Link href={`/`}>
+                          <a   onClick={logOut} className='p-[.2rem] rounded font-medium text-[1.2rem] w-full hover:bg-blue-700 hover:text-white block '>
+                           Logout  
+                          </a> 
+                          </Link>
+                        </li>
+                      </ul>
+                       }
+                    </li>
+                  }
+                 
+                 </ul>
+               </div>
           </div>
           
         </div>
