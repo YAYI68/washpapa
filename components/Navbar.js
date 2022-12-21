@@ -10,7 +10,6 @@ import { useRouter } from 'next/router';
 
 function Navbar() {
   const router = useRouter();
-  const [ isLogin, setIsLogin ] = useState(true) 
   const { userInfo } = useStateContext();
   const [ accountDropdown, setAccountDropdown ] = useState(false)
   const [ modeDropdown, setModeDropdown ] = useState(false)
@@ -40,7 +39,7 @@ function Navbar() {
     <nav className='lg:hidden h-[10vh] dark:bg-slate-900 bg-white flex items-center justify-end px-[4rem] w-screen fixed z-20 top-0 left-0'>
       <div className='w-[100%] flex items-center justify-between'>
        <Link href="/">
-        <a className='text-[2rem] font-semibold  text-light-blue w-fit'> washpapa </a>
+        <a className='text-[2rem] font-semibold  text-light-blue w-fit'> AnyWash </a>
         </Link>
       <div className='items-center flex justify-around w-[60%]'>  
        <ul className='list-none flex items-center gap-8 '>
