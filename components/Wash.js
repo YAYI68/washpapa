@@ -48,7 +48,7 @@ function Wash({service,tab,toggleTab,tabNum}) {
             <p className='font-semibold place-items-end text-right md:text-[1rem]'>NGN {service.cost}</p>
           </div>       
         </div>
-        <div  className={`w-[47%] lg:w-[80%] sm:w-full lg:right-0 lg:top-0  rounded-md border absolute lg:static right-5 top-6 ${tabNum === tab ? 'translate-y-0' :'hidden -translate-y-[100%]' }  `}>
+        <div  className={`w-[47%] lg:w-[80%] sm:w-full lg:right-0 lg:top-0  rounded-md border absolute lg:static right-5 top-6 ${tabNum === tab ? 'translate-y-0' :'hidden -translate-y-[100%]' } transition-[transform] `}>
           <p className='shadow-md w-full p-4 text-center rounded text-light-blue text-[1.2rem] sm:text-[1rem] font-semibold'>{service.name}</p>
          <div className='w-full p-2 dark:text-white'>
          <div  className=' p-2 border-b '>

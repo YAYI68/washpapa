@@ -23,6 +23,25 @@ module.exports = {
       // => @media (max-width: 639px) { ... }
     },
     extend: {
+      keyframes: {
+        moveLeft: {
+          'from': {   transform:'translateX(-100%)' },
+          'to': {  transform:'translateX(0)' },
+        },
+        moveRight: {
+          'from': {   transform:'translateX(100%)' },
+          'to': {  transform:'translateX(0)' },
+        },
+        moveTop:{
+          'from': {   transform:'translateY(70%)' },
+          'to': {  transform:'translateY(0)' },
+        }
+      },
+      animation: {
+        left: 'moveLeft 1s ease-in-out',
+        right: 'moveRight 1s ease-in-out',
+        top: 'moveTop 1s ease-in-out',
+      },
       colors:{
          'main-blue':'#3700bb',
          'light-blue':'#6200ee',

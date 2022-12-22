@@ -43,7 +43,7 @@ function ResetPassword() {
            <p className='text-white w-[30%] bg-green-500 mb-[1rem] p-2'>{ message.success}</p>
            :""
          }
-       <div className='w-[30%] lg:w-[50%] md:w-[80%] bg-white shadow-md rounded-md border-2 dark:bg-gray-700 p-4'>
+       <div className='w-[30%] lg:w-[50%] md:w-[80%] bg-white shadow-md rounded-md border-2 dark:bg-gray-700 p-4 animate-top'>
         <div className='w-full h-full flex flex-col gap-5 items-center'>
            <h4 className='text-light-blue text-[2rem] '>Reset Password</h4>
            <form onSubmit={handleSubmit} className="w-full flex flex-col items-center gap-2">

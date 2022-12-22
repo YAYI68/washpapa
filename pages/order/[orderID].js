@@ -20,7 +20,7 @@ const OrderDetail = () => {
     
   return (
     <Main className='w-full mt-[12vh] '>
-    <div className='w-[80%] mx-auto mt-[2rem] border-2 dark:bg-gray-800 rounded-md flex items-center justify-center h-[100%]   p-4 '>
+    <div className='w-[80%] mx-auto mt-[2rem]  dark:bg-gray-800  flex items-center justify-center h-[100%]   p-4 '>
     <div  className={`w-[47%] lg:w-[80%] sm:w-full lg:right-0 lg:top-0  rounded-md border lg:static `}>
       <p className='shadow-md w-full p-4 text-center rounded text-light-blue text-[1.2rem] sm:text-[1rem] font-semibold'>{orderId}</p>
     <div className='w-full p-2 dark:text-white'>

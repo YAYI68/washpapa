@@ -1,7 +1,7 @@
 
 import Head from 'next/head'
 import Image from 'next/image'
-import { Fragment, useEffect } from 'react'
+import { Fragment } from 'react'
 import Footer from '../components/Footer'
 import GetApp from '../components/GetApp'
 import Header from '../components/Header'

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useTheme } from 'next-themes';
 import { MdDarkMode, MdLightMode } from "react-icons/md";
 import {IoCaretForwardCircleSharp, IoCaretDownCircle } from "react-icons/io5";
-import { FaBars } from "react-icons/fa";
+import { FaBars,FaTimes } from "react-icons/fa";
 import { logOut } from '../db/auth';
 import { useStateContext } from '../context/ContextProvider';
 import { useRouter } from 'next/router';
@@ -32,6 +32,7 @@ function Navbar() {
    
   const logUserOut = ()=>{
     setAccountDropdown(false)
+    setSlideIn(false)
     logOut()
     router.push("/account/login")
   }
@@ -116,53 +117,61 @@ function Navbar() {
       </div>
       </div>
       </div>  
-      <div className={` flex items-center w-full h-full`}>
+      <div className={`  items-center w-full h-full hidden lg:flex`}>
         <div className="p-[.5rem] h-full w-full relative flex  justify-between items-center">
-          <Link href={'/'}>
-            <h2 className='text-[1.5rem] font-semibold  text-light-blue w-fit'>AnyWash</h2>
-          </Link>
-          <div className=' flex items-center gap-5 '>
-           <div className='relative'>
+        <div className='relative'>
             <button onClick={()=>setModeDropdown(!modeDropdown)} type="">
         {theme === "dark" ?
         <MdDarkMode className={`fill-light-blue h-6 w-6`} />
         :<MdLightMode className={`fill-light-blue h-6 w-6`} />
          }
             </button>
-      
          {modeDropdown && 
-          <ul className='absolute z-10 top-[100%] border-light-blue dark:border-light-blue translate-x-[-2rem] border-2 w-fit bg-white dark:bg-black shadow-xl rounded-md py-1'>
+          <ul className='absolute z-10 top-[100%] border-light-blue dark:border-light-blue translate-x-0 border-2 w-fit bg-white dark:bg-black shadow-xl rounded-md py-1'>
            <li onClick={()=>toggleMode('light')} className='flex items-center cursor-pointer py-2 px-4 dark:text-white gap-2 font-semibold dark:hover:bg-slate-800  hover:bg-slate-300 rounded-sm'><MdLightMode className={`${theme === 'light' &&  'fill-light-blue' }`} /><span  className={`${theme === 'light' &&  'text-light-blue' }`}>Light</span></li>
           <li onClick={()=>toggleMode('dark')} className={`flex items-center cursor-pointer py-2 px-4 dark:text-white gap-2 font-semibold dark:hover:bg-slate-800  hover:bg-slate-300 rounded-sm`}><MdDarkMode className={`${theme === 'dark' &&  'fill-light-blue' }`} /><span className={`${theme === 'dark' &&  'text-light-blue' }`}>Dark</span></li>
          </ul>
        }
-           </div>
-           <button type="button" onClick={()=>setSlideIn(!slideIn)}>
-             <FaBars className='fill-light-blue h-7 w-7' />
+        </div>
+          <Link href={'/'}>
+            <h2 className='text-[1.5rem] font-semibold  text-light-blue w-fit'>AnyWash</h2>
+          </Link>
+          <div className=' flex items-center gap-5 '>
+          
+           {!slideIn ? 
+            <button type="button" onClick={()=>setSlideIn(true)}>
+             <FaBars className='fill-light-blue h-7 w-7'  />
            </button>
+           :
+           <button onClick={()=>setSlideIn(false)}>
+            <FaTimes className='fill-light-blue h-7 w-7'/>
+           </button>
+          }
+         
+          
           </div>
           <div className={`absolute top-[100%] right-0  w-full bg-white dark:bg-black transition-[transform]  ${slideIn?'translate-x-0':'translate-x-[100%]'}`}>
                <div className='w-full h-full p-[1rem]'>
                  <ul className='list-none w-full'>
                     <li className='w-full my-[.5rem]'>
                       <Link href={`/wash`}>
-                       <a  className='p-[.5rem] font-semibold text-[1.3rem] w-full hover:bg-blue-700 hover:text-white block'>Wash</a> 
+                       <a onClick={()=>setSlideIn(false)} className='p-[.5rem] font-semibold text-[1.3rem] w-full hover:bg-light-blue hover:text-white block'>Wash</a> 
                        </Link>
                     </li>
                     <li className='w-full my-[.5rem]'>
                       <Link href={`/about`}>
-                       <a onClick={()=>setSlideIn(false)} className='p-[.5rem] font-semibold text-[1.3rem] w-full hover:bg-blue-700 hover:text-white block'>About</a> 
+                       <a onClick={()=>setSlideIn(false)} className='p-[.5rem] font-semibold text-[1.3rem] w-full hover:bg-light-blue hover:text-white block'>About</a> 
                        </Link>
                     </li>
                     <li className='w-full my-[.5rem]'>
                       <Link href={`/contact`}>
-                       <a onClick={()=>setSlideIn(false)} className='p-[.5rem] font-semibold text-[1.3rem]  w-full hover:bg-blue-700 hover:text-white block'>Contact</a> 
+                       <a onClick={()=>setSlideIn(false)} className='p-[.5rem] font-semibold text-[1.3rem]  w-full hover:bg-light-blue hover:text-white block'>Contact</a> 
                        </Link>
                     </li>
                     {!userInfo ? 
                        <li className='w-full my-[.5rem]'>
                        <Link href={`/account/login`}>
-                          <a onClick={()=>setSlideIn(false)} className='p-[.5rem] rounded font-medium text-[1.3rem] w-full bg-blue-700 text-white block text-center'>LogIn</a> 
+                          <a onClick={()=>setSlideIn(false)} className='p-[.5rem] rounded font-medium text-[1.3rem] w-full bg-light-blue text-white block text-center'>LogIn</a> 
                         </Link>
                      </li>
                      :
@@ -178,22 +187,22 @@ function Navbar() {
                       <ul className='w-full ml-[2rem] border-l-2 mt-2 px-[1rem]'>
                         <li className='w-full my-[.5rem] p-[1rem]'>
                           <Link href={`/orders`}>
-                          <a onClick={()=>setAccountDropdown(false)} className='p-[.2rem] rounded font-medium text-[1.2rem] w-full hover:bg-blue-700 hover:text-white block '>Orders</a> 
+                          <a onClick={()=>setAccountDropdown(false)} className='p-[.2rem] rounded font-medium text-[1.2rem] w-full hover:bg-light-blue hover:text-white block '>Orders</a> 
                           </Link>
                         </li>
                         <li className='w-full my-[.5rem] p-[1rem]'>
                           <Link href={`/account/forget_password`}>
-                          <a  onClick={()=>setAccountDropdown(false)} className='p-[.2rem] rounded font-medium text-[1.2rem] w-full hover:bg-blue-700 hover:text-white block '>Forget Password</a> 
+                          <a  onClick={()=>setAccountDropdown(false)} className='p-[.2rem] rounded font-medium text-[1.2rem] w-full hover:bg-light-blue hover:text-white block '>Forget Password</a> 
                           </Link>
                         </li>
                         <li className='w-full my-[.5rem] p-[1rem]'>
-                          <a onClick={logOut}  className='p-[.2rem] rounded font-medium text-[1.2rem] w-full hover:bg-blue-700 hover:text-white block '>
+                          <a onClick={logOut}  className='p-[.2rem] rounded font-medium text-[1.2rem] w-full hover:bg-light-blue hover:text-white block '>
                            Login with Another Account  
                           </a> 
                         </li>
                         <li className='w-full my-[.5rem] p-[1rem]'>
                           <Link href={`/`}>
-                          <a   onClick={logOut} className='p-[.2rem] rounded font-medium text-[1.2rem] w-full hover:bg-blue-700 hover:text-white block '>
+                          <a   onClick={logOut} className='p-[.2rem] rounded font-medium text-[1.2rem] w-full hover:bg-light-blue hover:text-white block '>
                            Logout  
                           </a> 
                           </Link>

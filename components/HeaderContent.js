@@ -8,7 +8,7 @@ const HeaderContent = () => {
   
   return (
     <div className='w-[90%] h-[90%] mt-4  flex ' >
-      <div className='w-[60%] lg:w-full h-full pt-12 flex flex-col items-center justify-center'>
+      <div className='w-[60%] lg:w-full h-full pt-12 flex flex-col items-center justify-center animate-right'>
         <div className='w-[80%] md:w-full h-[90%]  flex flex-col gap-5'>       
         <h1 className='text-[2.5rem] md:text-[2rem]  font-bold dark:text-white '>
           Get laundry services at your doorstep.
@@ -25,7 +25,7 @@ const HeaderContent = () => {
            <button type="" className="w-fit px-4 py-2 text-center bg-light-blue md:mx-auto text-white ml-[3rem] text-[1.3rem] font-semibold rounded-md">Let &apos;s clean</button>
         </div>
       </div>
-      <div className='w-[40%] h-full z-[3] lg:hidden'>
+      <div className='w-[40%] h-full z-[3] lg:hidden animate-left'>
         <div className=' h-full w-full flex flex-col items-center justify-center'>       
         <Image src="/images/laundrry.jpg" alt="" height={480} width={480} className="rounded-full shadow-xl border-2  object-cover " />
         </div>
