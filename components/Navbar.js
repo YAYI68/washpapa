@@ -52,7 +52,7 @@ function Navbar() {
              <a className='font-semibold  block dark:text-white w-full hover:text-light-blue dark:hover:text-light-blue'>Wash</a> 
           </Link>
           </li>
-         <li> <Link href="/">
+         <li> <Link href="/about">
          <a className='font-semibold block dark:text-white w-full hover:text-light-blue dark:hover:text-light-blue'>About</a> 
           </Link></li>
          <li>
