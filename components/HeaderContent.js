@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 import { GoTriangleRight } from "react-icons/go";
 
@@ -22,7 +23,9 @@ const HeaderContent = () => {
            <li className='flex items-center gap-4'> <GoTriangleRight className="fill-light-blue" /> <span> deliver it back to you freshly cleaned </span></li>
            <li className='flex items-center gap-4'><GoTriangleRight className="fill-light-blue" /> <span> ironed and nicely packaged.</span> </li>
         </ul>
-           <button type="" className="w-fit px-4 py-2 text-center bg-light-blue md:mx-auto text-white ml-[3rem] text-[1.3rem] font-semibold rounded-md">Let &apos;s clean</button>
+           <Link href={`/wash`}>
+             <a  className="w-fit cursor-pointer px-4 py-2 text-center bg-light-blue md:mx-auto text-white ml-[3rem] text-[1.3rem] font-semibold rounded-md">Let &apos;s clean</a>
+           </Link>
         </div>
       </div>
       <div className='w-[40%] h-full z-[3] lg:hidden animate-left'>
