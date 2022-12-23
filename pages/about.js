@@ -1,10 +1,11 @@
 import Main from "../components/Main"
+import Image from "next/Image"
 
 
 function About() {
   return (
     <Main className="mt-[5rem] flex flex-col items-center justify-center">
-      <section id="about" className="w-[50%] mt-[3rem]">
+      <section id="about" className="w-[50%] mt-[3rem] lg:w-[70%] md:w-[90%]">
         <div className="">
          <h3 className="text-[2.5rem] font-semibold ">About AnyWash</h3>
          <p>Wash Papa is a setup headquater in lagos, Nigeria. We aim to achieve the provision of free access to quick, structured and regulated laundry 
@@ -19,8 +20,15 @@ function About() {
         <div className="mt-[2rem]">
            <h3 className="text-[2.5rem]">Business Enquiries</h3>
            <p>For business enquiries and dealings. Kindly message us on.</p>
+           <div className="">
+            <button type="" className="mx-[1rem]">
+              <Image src={'/images/gmail.png'} width={50} height={50} />
+            </button>
+            <button type="" className="mx-[1rem]">
+              <Image src={'/images/whatsapp.jpeg'} width={50} height={50} />
+            </button>
+           </div>
         </div>
-
       </section>
 
     </Main>
