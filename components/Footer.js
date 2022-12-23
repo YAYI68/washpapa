@@ -6,9 +6,9 @@ const Footer = () => {
   return (
     <footer className=' w-full bg-blue-200 dark:bg-slate-900 px-[3rem] py-[2rem]'>
      <div className='h-full w-full flex flex-col items-center '>
-        <div className='w-[70%] flex items-center md:flex-col md:justify-start  justify-between'>
+        <div className='w-[70%] md:w-[90%] flex items-center md:flex-col md:items-start  justify-between'>
           <p className='text-light-blue  text-[2rem] font-semibold'>AnyWash</p>
-          <ul className='list-none flex md:flex-col items-center gap-4 text-white text-[1.2rem]'>
+          <ul className='list-none md:w-full flex md:flex-col items-center md:items-start gap-4 text-white text-[1.2rem]'>
             <li>
               <Link href={``}>
                <a className='hover:border-b-2 border-b-light-blue text-light-blue'>Wash</a>
