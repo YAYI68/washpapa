@@ -1,14 +1,12 @@
 
 import Head from 'next/head'
-import Image from 'next/image'
 import { Fragment } from 'react'
 import Footer from '../components/Footer'
 import GetApp from '../components/GetApp'
 import Header from '../components/Header'
 import Main from '../components/Main'
 import Services from '../components/Services'
-import { auth, db } from '../config/firebaseConfig'
-import {  currentDate, generateId } from '../utils/order'
+
 
 
 

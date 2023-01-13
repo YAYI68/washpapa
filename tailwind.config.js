@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const { fontFamily } = require('tailwindcss/defaultTheme')
+
 module.exports = {
   darkMode: 'class',
   content: [
@@ -23,6 +25,10 @@ module.exports = {
       // => @media (max-width: 639px) { ... }
     },
     extend: {
+      fontFamily: {
+        sans: ['var(--font-quicksand)', ...fontFamily.sans],
+        avant: ["Avant", "cursive"],
+      },
       keyframes: {
         moveLeft: {
           'from': {   transform:'translateX(-100%)' },

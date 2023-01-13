@@ -25,7 +25,6 @@ function Order() {
                 snapShot.forEach((snap)=>{
                     dbOrders.push(snap.toJSON())
                 })
-            console.log(dbOrders)
             setClientOrders(dbOrders)
             }
         } 
@@ -44,7 +43,7 @@ function Order() {
 
         <div className=' w-full lg:flex-col lg:items-center flex flex-col p-4 gap-4 '>
         {clientOrders.map((order)=>(
-            <Link href={`/order/${order.orderID}`}>
+            <Link key={order.orderID} href={`/order/${order.orderID}`}>
             <div key={order.orderID} className={`w-[47%] sm:w-full lg:w-[80%] md:w-[90%]  h-[7rem] cursor-pointer  dark:text-white rounded-md border border-l-4 border-l-light-blue p-4 flex justify-between flex-col`}>
              <div  className='flex justify-between items-center '>
                <p className='text-[1.5rem] md:text-[1.2rem] font-semibold'>{order.typeOfWash}</p>

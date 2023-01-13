@@ -43,7 +43,7 @@ function Navbar() {
       <div className='flex lg:hidden items-center justify-end h-full w-full'>
       <div className='w-[100%]  flex items-center justify-between'>
        <Link href="/">
-        <a className='text-[2rem] font-semibold  text-light-blue w-fit'> AnyWash </a>
+        <a className='text-[2rem] font-semibold  text-light-blue w-fit font-avant'> anywash </a>
         </Link>
       <div className='items-center flex justify-around w-[60%]'>  
        <ul className='list-none flex items-center gap-8 '>
@@ -134,7 +134,7 @@ function Navbar() {
        }
         </div>
           <Link href={'/'}>
-            <h2 className='text-[1.5rem] font-semibold  text-light-blue w-fit'>AnyWash</h2>
+            <h2 className='text-[1.5rem] font-semibold  text-light-blue w-fit font-avant'>anywash</h2>
           </Link>
           <div className=' flex items-center gap-5 '>
           
