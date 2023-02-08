@@ -15,7 +15,7 @@ const OrderDetail = () => {
     const order = clientOrders.find((order)=>order.orderID===orderId)
 
     const submit = ()=>{
-
+      router.push('/order')
     }
     
   return (
