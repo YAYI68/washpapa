@@ -1,4 +1,4 @@
-import React from 'react'
+
 import HeaderContent from './HeaderContent'
 
 function Header() {

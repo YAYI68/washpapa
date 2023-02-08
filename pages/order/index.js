@@ -29,7 +29,7 @@ function Order() {
             }
         } 
      })()
-  },[user])
+  },[user,userInfo,setClientOrders])
 
   if(clientOrders.length===0){
     return (
@@ -39,7 +39,7 @@ function Order() {
     return (
      <Main className='w-full mt-[12vh] '>   
        <div className='w-[80%] mx-auto mt-[2rem] border-2 dark:bg-gray-800 rounded-md  relative md:static  p-4  lg:h-[100%]'>
-        <p className="text-[1.5rem] text-light-blue ">Your Recent Order's</p>  
+        <p className="text-[1.5rem] text-light-blue ">Your Recent Order&apos;s</p>  
 
         <div className=' w-full lg:flex-col lg:items-center flex flex-col p-4 gap-4 '>
         {clientOrders.map((order)=>(

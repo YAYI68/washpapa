@@ -1,6 +1,6 @@
 
-import { ref, serverTimestamp, set, update } from 'firebase/database'
-import { useEffect, useState } from 'react';
+import { ref, serverTimestamp, update } from 'firebase/database'
+import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { useFlutterwave, closePaymentModal } from 'flutterwave-react-v3';
 import { db } from '../config/firebaseConfig';

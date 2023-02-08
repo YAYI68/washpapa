@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
 import { GoTriangleRight } from "react-icons/go";
 // import { Quicksand } from '@next/font/google'
 
