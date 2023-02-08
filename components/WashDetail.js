@@ -11,7 +11,7 @@ import { useStateContext } from '../context/ContextProvider';
 
 
 
-function WashDetail({wash}) {
+function WashDetail() {
   const { Order ,setOrder } = useStateContext();
   const router = useRouter()
   const [errorMessage,setErrorMessage] = useState("")
@@ -62,9 +62,6 @@ function WashDetail({wash}) {
   const phoneBlur = ()=>{
     if(phoneRef.current.value === ""){
        setValidate({...validate,phoneRequired:"Required"}) 
-    }
-    else if( typeof phoneRef.current.value === "string"){
-      setValidate({...validate,phoneRequired:"Input a valid phone number"}) 
     }
  }
 

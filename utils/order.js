@@ -26,9 +26,9 @@ export const discountAmount = (point,price)=>{
     let discountPrice;
     let discountPoint;
 
-    if(point > 200){
+    if(point > 2000){
         discountPrice = price - 500
-        discountPoint = point - 200
+        discountPoint = point - 2000
         return {discountPoint,discountPrice}
     }
     discountPoint= point;

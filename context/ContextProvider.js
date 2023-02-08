@@ -1,6 +1,6 @@
 import { onAuthStateChanged } from 'firebase/auth';
 import Cookies from 'js-cookie';
-import React, {createContext, useContext, useEffect, useState } from 'react'
+import React, {createContext, useContext, useEffect, useMemo, useState } from 'react'
 import { auth } from '../config/firebaseConfig';
 export const StateContext = createContext();
 
@@ -36,6 +36,10 @@ function ContextProvider({children}) {
     const [ Order, setOrder ] = useState(initialOrderState);
 
     
+    const saveLocalUser = (user)=>{
+      localStorage.setItem('userInfo',JSON.stringify(user))
+      setUserInfo(user)
+     }
 
     const loading = (click,state)=>{
       setIsLoading({
@@ -44,29 +48,12 @@ function ContextProvider({children}) {
       })
     }
 
-    useEffect(() => {
-      const unSub = onAuthStateChanged(auth,async(user)=>{
-        if(user){
-              
-        }
-        else{
-          setUserInfo("")
-    
-        }
-      })
-      return () => {
-        unSub();
-     }
-      }, [])
-  //   useEffect(() => {
-  //     const user= localStorage.getItem('userInfo')
-  //     setUserInfo(user)
-  //   }, [userInfo])
+    const user = useMemo(()=>{userInfo},[userInfo])
 
-  useEffect(() => {
-    const user= JSON.parse(localStorage.getItem('userInfo'))
-    setUserInfo(user)
-  }, [])
+    useEffect(() => {
+      const user= JSON.parse(localStorage.getItem('userInfo'))
+      setUserInfo(user)
+    }, [user])
 
 
 
@@ -77,6 +64,7 @@ function ContextProvider({children}) {
       setCurrentMode,
       userInfo,
       setUserInfo,
+      saveLocalUser,
       loading,
       isLoading,
       Order, setOrder,

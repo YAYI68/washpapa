@@ -1,42 +1,41 @@
 
 import Main from "../../../../components/Main"
 import WashDetail from "../../../../components/WashDetail"
-import { getAllService, getService } from "../../../../lib/utils"
 
 
 
 
-const BagDetail = ({washService}) => {
+const BagDetail = () => {
   
     return (
       <Main className=' mt-[5rem]'>
-       <WashDetail wash={washService} />
+       <WashDetail  />
       </Main>
     )
   }
   
 
 
-export async function getStaticPaths(){
+// export async function getStaticPaths(){
 
-  const data = await getAllService()
-  return {
-      paths:data.map((wash)=>({params:{slug:wash.typeofWash,serviceId:wash.name}})),
-      fallback: false,
-  }
-}  
+//   const data = await getAllService()
+//   return {
+//       paths:data.map((wash)=>({params:{slug:wash.typeofWash,serviceId:wash.name}})),
+//       fallback: false,
+//   }
+// }  
 
-export async function getStaticProps(context){
-    const { params } = context;
-    const { serviceId } = params;
-    const data = await getService(serviceId)
+// export async function getStaticProps(context){
+//     const { params } = context;
+//     const { serviceId } = params;
+//     const data = await getService(serviceId)
 
-  return {
-    props:{
-      washService:data
-    }
-  }
+//   return {
+//     props:{
+//       washService:data
+//     }
+//   }
 
-}
+// }
 
   export default BagDetail

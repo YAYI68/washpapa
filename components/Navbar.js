@@ -11,12 +11,13 @@ import { useRouter } from 'next/router';
 
 function Navbar() {
   const router = useRouter();
-  const { userInfo } = useStateContext();
+  const { userInfo,setUserInfo } = useStateContext();
   const [ accountDropdown, setAccountDropdown ] = useState(false)
   const [ modeDropdown, setModeDropdown ] = useState(false)
   const [ slideIn, setSlideIn  ] = useState(false)
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
+
 
   const toggleMode = (mode)=>{
     setTheme(mode);
@@ -33,6 +34,7 @@ function Navbar() {
   const logUserOut = ()=>{
     setAccountDropdown(false)
     setSlideIn(false)
+    setUserInfo("")
     logOut()
     router.push("/account/login")
   }
@@ -69,7 +71,7 @@ function Navbar() {
           :
           <div className=' cursor-pointer relative'>
             <button type="button" className='flex items-center gap-4  border-2 p-2 rounded-md border-light-blue' onClick={() => setAccountDropdown(!accountDropdown)}>
-              <p className="font-semibold text-light-blue">W{userInfo.balance}</p>
+              <p className="font-semibold text-light-blue">W {userInfo.balance}</p>
               <button type="button"> <IoCaretDownCircle className='fill-light-blue' /> </button>
             </button>
             {accountDropdown &&    

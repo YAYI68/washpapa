@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <Fragment>
       <Head>
-       <title>Any Wash</title>
+       <title className="font-avant">anywash</title>
       </Head>
       <Header/>
       <Main className={`dark:bg-black`}>

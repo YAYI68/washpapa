@@ -14,7 +14,7 @@ import { GoTriangleRight } from "react-icons/go";
 const HeaderContent = () => {
   
   return (
-    <div className='w-[90%] h-[90%] mt-4  flex ' >
+    <div className='w-[90%] h-[90%] mt-4  flex z-10 ' >
       <div className='w-[60%] lg:w-full h-full pt-12 flex flex-col items-center justify-center animate-right'>
         <div className='w-[80%] md:w-full h-[90%]  flex flex-col gap-5'>       
         <h1 className={`text-[2.5rem] md:text-[2rem]  font-bold dark:text-white   `}>
