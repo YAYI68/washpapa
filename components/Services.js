@@ -1,6 +1,9 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { ServiceData } from '../data';
+
+
 
 
 
@@ -9,21 +12,24 @@ const Services = () => {
     <section id="service" className='w-full my-[2rem] md:my-[3rem]  animate-top'>
         <h2 className='my-[2rem] text-[2rem] md:text-[1.8rem] font-semibold text-center dark:text-white dark:bg-black'>What do you want us to wash?</h2>
        <div className='w-[80%] md:flex-col md:items-center mx-auto lg:flex-wrap  flex gap-5 p-1'>
-        <Link href={'/wash/cloth'}>
+        {ServiceData.map((service, i) =>(
+             <Link key={i} href={service.url}>
+             <div className='bg-white dark:bg-gray-800 border-2 lg:w-[45%] border-light-blue cursor-pointer w-[25%] sm:w-full md:w-[70%] h-[22rem] items-center rounded-md shadow-md p-2 flex flex-col gap-2'>
+              <div className='w-[40%] h-[30%] p-1 relative'>
+                <Image src={service.image} alt="shirt" layout='fill' />
+              </div>
+              <div className='w-full  h-[60%] p-2 flex flex-col gap-2'>
+                  <h4 className='text-[2rem] text-light-blue  font-semibold text-center'>{service.title}</h4>
+                  <p className='text-[1.2rem] font-medium dark:text-white'>{service.description}</p>
+              </div>
+             </div>
+            </Link>
+        ))}
+      
+        {/* <Link href={'/wash/blanket'}>
          <div className='bg-white dark:bg-gray-800 border-2 lg:w-[45%] border-light-blue cursor-pointer w-[25%] sm:w-full md:w-[70%] h-[22rem] items-center rounded-md shadow-md p-2 flex flex-col gap-2'>
           <div className='w-[40%] h-[30%] p-1 relative'>
-            <Image src="/icons/shirts.png" alt="shit" layout='fill' />
-          </div>
-          <div className='w-full  h-[60%] p-2 flex flex-col gap-2'>
-              <h4 className='text-[2rem] text-light-blue  font-semibold text-center'>Clothes</h4>
-              <p className='text-[1.2rem] font-medium dark:text-white'>Shirts, jeans, trousers and other wearble fabrics</p>
-          </div>
-         </div>
-        </Link>
-        <Link href={'/wash/blanket'}>
-         <div className='bg-white dark:bg-gray-800 border-2 lg:w-[45%] border-light-blue cursor-pointer w-[25%] sm:w-full md:w-[70%] h-[22rem] items-center rounded-md shadow-md p-2 flex flex-col gap-2'>
-          <div className='w-[40%] h-[30%] p-1 relative'>
-            <Image src="/icons/blanket.png" alt="blanket" layout='fill' />
+            <Image src={Blanket} alt="blanket" layout='fill' />
           </div>
           <div className='w-full  h-[60%] p-2 flex flex-col gap-2'>
               <h4 className='text-[2rem] text-light-blue  font-semibold text-center'>Blanket</h4>
@@ -34,7 +40,7 @@ const Services = () => {
         <Link href={'/wash/bag'}>
          <div className='bg-white dark:bg-gray-800 border-2 lg:w-[45%] border-light-blue cursor-pointer w-[25%] sm:w-full md:w-[70%] h-[22rem] items-center rounded-md shadow-md p-2 flex flex-col gap-2'>
           <div className='w-[40%] h-[30%] p-1 relative'>
-            <Image src="/icons/baggage.png" alt="bag" layout='fill' />
+            <Image src={Baggage} alt="bag" layout='fill' />
           </div>
           <div className='w-full  h-[60%] p-2 flex flex-col gap-2'>
               <h4 className='text-[2rem] text-light-blue  font-semibold text-center'>Bags</h4>
@@ -45,14 +51,14 @@ const Services = () => {
         <Link href={'/wash/shoe'}>
          <div className='bg-white dark:bg-gray-800 border-2 lg:w-[45%] border-light-blue cursor-pointer w-[25%] sm:w-full md:w-[70%] h-[22rem] items-center rounded-md shadow-md p-2 flex flex-col gap-2'>
           <div className='w-[40%] h-[30%] p-1 relative'>
-            <Image src="/icons/shoes.png" alt="shoe" layout='fill' />
+            <Image src={Shoe} alt="shoe" layout='fill' />
           </div>
           <div className='w-full  h-[60%] p-2 flex flex-col gap-2'>
               <h4 className='text-[2rem] text-light-blue  font-semibold text-center'>Shoes</h4>
               <p className='text-[1.2rem] font-medium dark:text-white'>All kind of cleanable footwear</p>
           </div>
          </div>
-        </Link>
+        </Link> */}
        </div>
     </section>
   )

@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { GoTriangleRight } from "react-icons/go";
+import Laundry from '/public/images/laundrry.jpg';
 
 
 const HeaderContent = () => {
@@ -28,7 +29,7 @@ const HeaderContent = () => {
       </div>
       <div className='w-[40%] h-full z-[3] lg:hidden animate-left'>
         <div className=' h-full w-full flex flex-col items-center justify-center'>       
-        <Image src="/images/laundrry.jpg" alt="" height={480} width={480} className="rounded-full shadow-xl border-2  object-cover " />
+        <Image src={Laundry} alt="" height={480} width={480} className="rounded-full shadow-xl border-2  object-cover " />
         </div>
       </div>
     </div>

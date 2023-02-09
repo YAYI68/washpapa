@@ -1,4 +1,15 @@
 import Image from 'next/image';
+import Apple from "/public/images/ios.png";
+import PlayStore from "/public/images/playstore.png"
+
+const DownloadApp = [
+  {
+      image:Apple
+  },
+  {
+      image:PlayStore
+  }
+]
 
 
 function GetApp() {
@@ -9,12 +20,11 @@ function GetApp() {
             <h2 className='text-light-blue text-[4rem] font-bold text-center md:text-[2rem]'>Download the app!</h2>
             <p className='text-[2rem] text-white md:text-[1.2rem]'>It takes less than 5 minutes to sign up!</p>
             <div className='flex gap-2 w-full md:flex-col items-center justify-center'>
-            <button type="button" className='h-[5rem] w-[20%] md:w-[45%] relative '>
-                <Image src="/images/playstore.png" alt="playstore" layout='fill'  />
-            </button>
-            <button type="button" className='h-[3.2rem] w-[20%] md:w-[45%] relative'>
-                <Image src="/images/ios.png" alt="apple" layout='fill' />
-            </button>
+              {DownloadApp.map((app,i)=>(
+                <button key={i} type="button" className='h-[5rem] w-[20%] md:w-[45%] relative '>
+                  <Image src={app.image} alt="playstore" layout='fill'  />
+              </button>
+              ))}
             </div>
         </div>
        </div>
