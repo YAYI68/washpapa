@@ -13,10 +13,10 @@ const HeaderContent = () => {
         <h1 className={`text-[2.5rem] md:text-[2rem] sm:text-[1.5rem] font-bold dark:text-white   `}>
           Get laundry services at your doorstep.
         </h1>
-        <p className='text-[1.3rem] md:text-[1.1rem] md:my-[1rem] font-semibold sm:my-[.5rem] text-light-blue'>
+        <p className='text-[1.3rem] md:text-[1.1rem] md:my-[.7rem] font-semibold sm:my-[.5rem] text-light-blue'>
           Wash, dry and iron your clothes and shoes at affordable prices.
         </p>  
-        <ul className='text-[1.3rem]  md:text-[1rem] md:my-[1rem]  font-semibold dark:text-white'>
+        <ul className='text-[1.3rem]  md:text-[1rem] md:my-[.7rem]   font-semibold dark:text-white'>
            <li className='flex items-center gap-4'> <GoTriangleRight className="fill-light-blue" /> <span> We &apos;ll collect your laundry</span> </li> 
            <li className='flex items-center gap-4'> <GoTriangleRight className="fill-light-blue" /> <span> hygienically clean it,</span></li>
            <li className='flex items-center gap-4'> <GoTriangleRight className="fill-light-blue" /> <span> deliver it back to you freshly cleaned </span></li>
