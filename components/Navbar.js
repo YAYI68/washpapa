@@ -149,8 +149,6 @@ function Navbar() {
             <FaTimes className='fill-light-blue h-7 w-7'/>
            </button>
           }
-         
-          
           </div>
           <div className={`absolute top-[100%] right-0  w-full bg-white dark:bg-black transition-[transform]  ${slideIn?'translate-x-0':'translate-x-[100%]'}`}>
                <div className='w-full h-full p-[1rem]'>
@@ -198,13 +196,13 @@ function Navbar() {
                           </Link>
                         </li>
                         <li className='w-full my-[.5rem] p-[1rem]'>
-                          <a onClick={logOut}  className='p-[.2rem] rounded font-medium text-[1.2rem] w-full hover:bg-light-blue hover:text-white block '>
+                          <a onClick={logUserOut}  className='p-[.2rem] rounded font-medium text-[1.2rem] w-full hover:bg-light-blue hover:text-white block '>
                            Login with Another Account  
                           </a> 
                         </li>
                         <li className='w-full my-[.5rem] p-[1rem]'>
                           <Link href={`/`}>
-                          <a   onClick={logOut} className='p-[.2rem] rounded font-medium text-[1.2rem] w-full hover:bg-light-blue hover:text-white block '>
+                          <a   onClick={logUserOut} className='p-[.2rem] rounded font-medium text-[1.2rem] w-full hover:bg-light-blue hover:text-white block '>
                            Logout  
                           </a> 
                           </Link>
