@@ -13,7 +13,7 @@ const HeaderContent = () => {
         <h1 className={`text-[2.5rem] md:text-[2rem] sm:text-[1.5rem] font-bold dark:text-white   `}>
           Get laundry services at your doorstep.
         </h1>
-        <p className='text-[1.3rem] md:text-[1.1rem] md:my-[.7rem] font-semibold sm:my-[.5rem] text-light-blue'>
+        <p className='text-[1.3rem] md:text-[1.1rem] md:my-[.7rem] font-semibold sm:my-[.5rem] text-light-blue font-avant'>
           Wash, dry and iron your clothes and shoes at affordable prices.
         </p>  
         <ul className='text-[1.3rem]  md:text-[1rem] md:my-[.7rem]   font-semibold dark:text-white'>
@@ -23,11 +23,11 @@ const HeaderContent = () => {
            <li className='flex items-center gap-4'><GoTriangleRight className="fill-light-blue" /> <span> ironed and nicely packaged.</span> </li>
         </ul>
            <Link href={`/wash`}>
-             <a  className="w-fit cursor-pointer px-4 py-2 text-center bg-light-blue md:mx-auto text-white ml-[3rem] text-[1.3rem] font-semibold rounded-md">Let &apos;s clean</a>
+             <a  className="w-fit cursor-pointer px-4 py-2 text-center bg-light-blue md:mx-auto text-white ml-[3rem] font-avant text-[1.3rem] font-semibold rounded-md">Let &apos;s clean</a>
            </Link>
         </div>
       </div>
-      <div className='w-[40%] h-full z-[3] lg:hidden animate-left'>
+      <div className='w-[40%] h-full z-[3] lg:hidden animate-grow'>
         <div className=' h-full w-full flex flex-col items-center justify-center'>       
         <Image src={Laundry} alt="" height={480} width={480} className="rounded-full shadow-xl border-2  object-cover " />
         </div>

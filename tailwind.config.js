@@ -28,6 +28,8 @@ module.exports = {
       fontFamily: {
         sans: ['var(--font-quicksand)', ...fontFamily.sans],
         avant: ["Avant", "cursive"],
+        quickbold:["QuickBold","cursive"],
+        quicksand:["Quicksand","cursive"],
       },
       keyframes: {
         moveLeft: {
@@ -41,12 +43,18 @@ module.exports = {
         moveTop:{
           'from': {   transform:'translateY(70%)' },
           'to': {  transform:'translateY(0)' },
-        }
+        },
+        scaleUp:{
+          'from': { transform:'scale(.5)'},
+          'to': {  transform:'scale(1)' },
+        },
+        
       },
       animation: {
         left: 'moveLeft 1s ease-in-out',
         right: 'moveRight 1s ease-in-out',
         top: 'moveTop 1s ease-in-out',
+        grow: 'scaleUp 1s ease-in-out',
       },
       colors:{
          'main-blue':'#3700bb',
@@ -65,3 +73,8 @@ module.exports = {
   },
   plugins: [],
 }
+
+// scaleUp:{
+//   'from': { transform:'scale(.5)'},
+//    'to': { transform:'scale(1)'
+// }

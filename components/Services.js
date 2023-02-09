@@ -11,7 +11,7 @@ import { ServiceData } from '../data';
 const Services = () => {
   return (
     <section id="service" className='w-full my-[2rem] md:my-[3rem]  animate-top'>
-        <h2 className='my-[2rem] text-[2rem] md:text-[1.8rem] font-semibold text-center dark:text-white dark:bg-black'>What do you want us to wash?</h2>
+        <h2 className='my-[2rem] text-[2rem] md:text-[1.8rem] font-semibold text-center dark:text-white dark:bg-black '>What do you want us to wash?</h2>
        <div className='w-[80%] md:flex-col md:items-center mx-auto lg:flex-wrap  flex gap-5 p-1'>
         {ServiceData.map((service, i) =>(
              <Link key={i} href={service.url}>

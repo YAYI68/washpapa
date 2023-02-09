@@ -6,13 +6,13 @@ import { getAuth } from "firebase/auth";
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC4EAYDke8L6aojUovOmp0HofBt8vb4dEU",
-  authDomain: "wash-papa.firebaseapp.com",
-  databaseURL: "https://wash-papa-default-rtdb.firebaseio.com",
-  projectId: "wash-papa",
-  storageBucket: "wash-papa.appspot.com",
-  messagingSenderId: "926525150262",
-  appId: "1:926525150262:web:dd6972477592d817f1f497"
+  apiKey: process.env.NEXT_PUBLIC_APIKEY,
+  authDomain:process.env.NEXT_PUBLIC_AUTHDOMAIN,
+  databaseURL:process.env.NEXT_PUBLIC_DATABASEURL,
+  projectId: process.env.NEXT_PUBLIC_PROJECTID,
+  storageBucket: process.env.NEXT_PUBLIC_STORAGEBUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_MESSAGESENDERID,
+  appId: process.env.NEXT_PUBLIC_APPID
 };
 
 // Initialize Firebase

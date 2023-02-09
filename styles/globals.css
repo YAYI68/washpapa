@@ -8,6 +8,15 @@
     font-family: 'Avant';
     src: url('../public/font/avant/ITCAvantGardeStd-BkCnObl.otf');
 }
+@font-face {
+    font-family: 'QuickBold';
+    src: url('../public/font/quiksand/Quicksand-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'Quicksand';
+    src: url('../public/font/quiksand/Quicksand-Regular.ttf');
+}
 
 *{
     margin: 0;

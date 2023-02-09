@@ -19,7 +19,7 @@ function PaymentOptions() {
    const {discountPoint,discountPrice} = discountAmount(userInfo.balance,Order.price)
 
    const config = {
-      public_key: process.env.FLUTTERWAVE_PUBLIC_KEY,
+      public_key: process.env.NEXT_PUBLIC_FLUTTERWAVE_PUBLIC_KEY,
       tx_ref: Date.now(),
       amount: Order.price,
       currency: 'NGN',
@@ -27,7 +27,6 @@ function PaymentOptions() {
       customer: {
         email: Order.buyerEmail,
         phone_number: Order.deliveryPhone,
-        name: 'john doe',
       },
       customizations: {
         title: Order.category,
