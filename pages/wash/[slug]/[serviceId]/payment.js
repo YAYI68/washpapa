@@ -1,12 +1,16 @@
 
+import dynamic from 'next/dynamic'
 import Main from '../../../../components/Main'
-import PaymentOptions from '../../../../components/PaymentOptions';
 
+
+const PaymentDetail = dynamic(() => import('../../../../components/PaymentOptions'), {
+  ssr: false,
+})
 
 function Payment() {
   return (
     <Main  className='mt-[5rem]'>
-       <PaymentOptions  />
+       <PaymentDetail  />
     </Main>
   )
 }

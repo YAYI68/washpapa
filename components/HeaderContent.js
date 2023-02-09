@@ -1,13 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { GoTriangleRight } from "react-icons/go";
-// import { Quicksand } from '@next/font/google'
-
-// const Quick = Quicksand({
-//   subsets: ['latin'],
-//   weight: ['400', '700','900'],
-//   variable: '--font-quicksand',
-// })
 
 
 const HeaderContent = () => {

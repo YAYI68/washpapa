@@ -1,4 +1,4 @@
-import React from 'react'
+
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -12,7 +12,7 @@ const Services = () => {
         <Link href={'/wash/cloth'}>
          <div className='bg-white dark:bg-gray-800 border-2 lg:w-[45%] border-light-blue cursor-pointer w-[25%] sm:w-full md:w-[70%] h-[22rem] items-center rounded-md shadow-md p-2 flex flex-col gap-2'>
           <div className='w-[40%] h-[30%] p-1 relative'>
-            <Image src="/icons/shirts.png" alt="" layout='fill' />
+            <Image src="/icons/shirts.png" alt="shit" layout='fill' />
           </div>
           <div className='w-full  h-[60%] p-2 flex flex-col gap-2'>
               <h4 className='text-[2rem] text-light-blue  font-semibold text-center'>Clothes</h4>
@@ -23,7 +23,7 @@ const Services = () => {
         <Link href={'/wash/blanket'}>
          <div className='bg-white dark:bg-gray-800 border-2 lg:w-[45%] border-light-blue cursor-pointer w-[25%] sm:w-full md:w-[70%] h-[22rem] items-center rounded-md shadow-md p-2 flex flex-col gap-2'>
           <div className='w-[40%] h-[30%] p-1 relative'>
-            <Image src="/icons/blanket.png" alt="" layout='fill' />
+            <Image src="/icons/blanket.png" alt="blanket" layout='fill' />
           </div>
           <div className='w-full  h-[60%] p-2 flex flex-col gap-2'>
               <h4 className='text-[2rem] text-light-blue  font-semibold text-center'>Blanket</h4>
@@ -34,7 +34,7 @@ const Services = () => {
         <Link href={'/wash/bag'}>
          <div className='bg-white dark:bg-gray-800 border-2 lg:w-[45%] border-light-blue cursor-pointer w-[25%] sm:w-full md:w-[70%] h-[22rem] items-center rounded-md shadow-md p-2 flex flex-col gap-2'>
           <div className='w-[40%] h-[30%] p-1 relative'>
-            <Image src="/icons/baggage.png" alt="" layout='fill' />
+            <Image src="/icons/baggage.png" alt="bag" layout='fill' />
           </div>
           <div className='w-full  h-[60%] p-2 flex flex-col gap-2'>
               <h4 className='text-[2rem] text-light-blue  font-semibold text-center'>Bags</h4>
@@ -45,7 +45,7 @@ const Services = () => {
         <Link href={'/wash/shoe'}>
          <div className='bg-white dark:bg-gray-800 border-2 lg:w-[45%] border-light-blue cursor-pointer w-[25%] sm:w-full md:w-[70%] h-[22rem] items-center rounded-md shadow-md p-2 flex flex-col gap-2'>
           <div className='w-[40%] h-[30%] p-1 relative'>
-            <Image src="/icons/shoes.png" alt="" layout='fill' />
+            <Image src="/icons/shoes.png" alt="shoe" layout='fill' />
           </div>
           <div className='w-full  h-[60%] p-2 flex flex-col gap-2'>
               <h4 className='text-[2rem] text-light-blue  font-semibold text-center'>Shoes</h4>

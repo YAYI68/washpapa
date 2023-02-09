@@ -3,12 +3,10 @@
 // import { useState } from 'react';
 import { get, ref } from "firebase/database";
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
-import {IoCaretForwardCircleSharp, IoCaretDownCircle } from "react-icons/io5";
+import { useEffect, useMemo} from "react";
 import Main from "../../components/Main";
 import { db } from "../../config/firebaseConfig";
 import { useStateContext } from "../../context/ContextProvider";
-// import Router, { useRouter } from 'next/router';
 
 
 function Order() {
