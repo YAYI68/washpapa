@@ -10,13 +10,13 @@ const HeaderContent = () => {
     <div className='w-[90%] h-[90%] mt-4  flex z-10 ' >
       <div className='w-[60%] lg:w-full h-full pt-12 flex flex-col items-center justify-center animate-right'>
         <div className='w-[80%] md:w-full h-[90%]  flex flex-col gap-5'>       
-        <h1 className={`text-[2.5rem] md:text-[2rem]  font-bold dark:text-white   `}>
+        <h1 className={`text-[2.5rem] md:text-[2rem] sm:text-[1.5rem] font-bold dark:text-white   `}>
           Get laundry services at your doorstep.
         </h1>
-        <p className='text-[1.3rem]  md:my-[1rem] font-semibold text-light-blue'>
+        <p className='text-[1.3rem] md:text-[1.1rem] md:my-[1rem] font-semibold sm:my-[.5rem] text-light-blue'>
           Wash, dry and iron your clothes and shoes at affordable prices.
         </p>  
-        <ul className='text-[1.3rem] md:text-[1rem] md:my-[1rem]  font-semibold dark:text-white'>
+        <ul className='text-[1.3rem]  md:text-[1rem] md:my-[1rem]  font-semibold dark:text-white'>
            <li className='flex items-center gap-4'> <GoTriangleRight className="fill-light-blue" /> <span> We &apos;ll collect your laundry</span> </li> 
            <li className='flex items-center gap-4'> <GoTriangleRight className="fill-light-blue" /> <span> hygienically clean it,</span></li>
            <li className='flex items-center gap-4'> <GoTriangleRight className="fill-light-blue" /> <span> deliver it back to you freshly cleaned </span></li>
