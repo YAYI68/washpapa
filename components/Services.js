@@ -7,6 +7,7 @@ import { ServiceData } from '../data';
 
 
 
+
 const Services = () => {
   return (
     <section id="service" className='w-full my-[2rem] md:my-[3rem]  animate-top'>
