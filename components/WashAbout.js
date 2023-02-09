@@ -1,4 +1,4 @@
-import Image from "next/Image";
+import Image from "next/image";
 import Gmail from '/public/images/gmail.png';
 import Whatsapp from "/public/images/whatsapp.jpeg"
 
