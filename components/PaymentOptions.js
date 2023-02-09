@@ -18,6 +18,8 @@ function PaymentOptions() {
    const currentDate = stringDate()
    const {discountPoint,discountPrice} = discountAmount(userInfo.balance,Order.price)
 
+
+
    const config = {
       public_key: process.env.NEXT_PUBLIC_FLUTTERWAVE_PUBLIC_KEY,
       tx_ref: Date.now(),
@@ -45,6 +47,7 @@ function PaymentOptions() {
             ...userInfo,
             balance:userInfo.balance?discountPoint:userInfo.balance
          })
+         alert('Sorry You dont have enough points for your discount')
       }
       setDisCount(true)
    }
@@ -89,19 +92,22 @@ function PaymentOptions() {
 
    const payOnline = async()=>{
      handleFlutterPayment({
-            callback: (response) => {
-               console.log({response});
-                closePaymentModal() // this will close the modal programmatically
+            callback: async(response) => {
+                closePaymentModal()
+                await payment("ONLINE") 
+               const status = confirm("Payment is made successfully Online. Thanks for using anywash")
+                if(status || !status){
+                router.push('/')
+                }   // this will close the modal programmatically
             },
             onClose: () => {
-                
+               const status = confirm("Your order has been cancelled")
+               if(status || !status){
+               router.push('/')
+               } 
             },
           });
-          await payment("ONLINE")
-          const status = confirm("Payment is made successfully Online. Thanks for using anywash")
-          if(status || !status){
-               router.push('/')
-          }
+             
    }
 
   return (

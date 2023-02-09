@@ -8,7 +8,7 @@
             "cost":1200,
             "details":"Order a quality wash and get your cloth (max. 6 pieces) returned to you in less than 48 hours for NGN 1,200. You also recieve 200 bonus any wash points!! You can use these to get discounted washes. T'c and C's apply ",
             "quantity":" 1-6 Clothes",
-            "period":"less than 48 hours",
+            "period":"less than 4 days",
             "DeliveryFee" : 500,
             "TotalCost" : 1700,
             "isDryCleaning" : false
@@ -20,7 +20,7 @@
             "cost":1500,
             "details":"Order a quality wash and get your cloth (max. 6 pieces) washed, dry-cleaned and returned to you in less than 48 hours for NGN 1,500. You also recieve 200 bonus any wash points!! You can use these to get discounted washes. T'c and C's apply ",
             "quantity":" 1-6 Clothes",
-            "period":"less than 48 hours",
+            "period":"less than 4 days",
             "DeliveryFee" : 500,
             "TotalCost" : 2000,
             "isDryCleaning" : true
@@ -32,7 +32,7 @@
             "cost":2000,
             "details":"Order a quality wash and get your cloth (max. 10 pieces)  returned to you in less than 48 hours for NGN 2,000. You also recieve 200 bonus any wash points!! You can use these to get discounted washes. T'c and C's apply ",
             "quantity":" 1- 6 Clothes",
-            "period":"less than 48 hours",
+            "period":"less than 4 days",
             "DeliveryFee" : 500,
             "TotalCost" : 2500,
             "isDryCleaning" : false
@@ -44,7 +44,7 @@
             "cost":2500,
             "details":"Order a quality wash and get your cloth (max. 10 pieces) washed, dry-cleaned and returned to you in less than 48 hours for NGN 2,000. You also recieve 200 bonus any wash points!! You can use these to get discounted washes. T'c and C's apply ",
             "quantity":" 1- 6 Clothes",
-            "period":"less than 48 hours",
+            "period":"less than 4 days",
             "DeliveryFee" : 500,
             "TotalCost" : 3000,
             "isDryCleaning" : true
@@ -57,7 +57,7 @@
             "cost":800,
             "details":"Order a quality shoe wash and get your shoes clean (1 pair )  returned to you in less than 48 hours for NGN 800. You also recieve 200 bonus any wash points!! You can use these to get discounted washes. T'c and C's apply ",
             "quantity":" 1 Shoe",
-            "period":"less than 48 hours",
+            "period":"less than 4 days",
             "DeliveryFee" : 500,
             "TotalCost" : 1300,
             "isDryCleaning" : false
@@ -69,7 +69,7 @@
             "cost":1500,
             "details":"Order a quality shoe wash and get your shoes clean (2 pairs )  returned to you in less than 48 hours for NGN 1,500. You also recieve 200 bonus any wash points!! You can use these to get discounted washes. T'c and C's apply ",
             "quantity":" 2 Shoes",
-            "period":"less than 48 hours",
+            "period":"less than 4 days",
             "DeliveryFee" : 500,
             "TotalCost" : 2000,
             "isDryCleaning" : false
@@ -82,7 +82,7 @@
             "cost":2000,
             "details":"Order a quality shoe wash and get your shoes clean (2 pairs )  returned to you in less than 48 hours for NGN 2,000. You also recieve 200 bonus any wash points!! You can use these to get discounted washes. T'c and C's apply ",
             "quantity":" 3 Shoes",
-            "period":"less than 48 hours",
+            "period":"less than 4 days",
             "DeliveryFee" : 500,
             "TotalCost" : 2500,
             "isDryCleaning" : false
@@ -94,7 +94,7 @@
             "cost":800,
             "details":"Order a quality blanket/curtain/bedsheet wash and get your shoes clean (1 blanket ), sorted and returned to you in less than 48 hours for NGN 800. You also recieve 200 bonus any wash points!! You can use these to get discounted washes. T'c and C's apply ",
             "quantity":" 1 blanket",
-            "period":"less than 48 hours",
+            "period":"less than 4 days",
             "DeliveryFee" : 500,
             "TotalCost" : 1300,
             "isDryCleaning" : false
@@ -107,7 +107,7 @@
             "cost":800,
             "details":"Order a quality blanket/curtain/bedsheet wash and get your shoes clean (Max. 3 Blanket ), sorted and returned to you in less than 48 hours for NGN 2000. You also recieve 200 bonus any wash points!! You can use these to get discounted washes. T'c and C's apply ",
             "quantity":" 1-3 blanket",
-            "period":"less than 48 hours",
+            "period":"less than 4 days",
             "DeliveryFee" : 500,
             "TotalCost" : 2500,
             "isDryCleaning" : false
@@ -119,7 +119,7 @@
             "cost":800,
             "details":"Order a quality blanket/curtain/bedsheet wash and get your shoes clean (1 Bag ), sorted and returned to you in less than 48 hours for NGN 800. You also recieve 200 bonus any wash points!! You can use these to get discounted washes. T'c and C's apply ",
             "quantity":" 1-3 blanket",
-            "period":"less than 48 hours",
+            "period":"less than 4 days",
             "DeliveryFee" : 500,
             "TotalCost" : 1300,
             "isDryCleaning" : false
@@ -131,7 +131,7 @@
             "cost":2000,
             "details":"Order a quality blanket/curtain/bedsheet wash and get your shoes clean (Max.3 Bag ), sorted and returned to you in less than 48 hours for NGN 2000. You also recieve 200 bonus any wash points!! You can use these to get discounted washes. T'c and C's apply ",
             "quantity":" 1-3 blanket",
-            "period":"less than 48 hours",
+            "period":"less than 4 days",
             "DeliveryFee" : 500,
             "TotalCost" : 2500,
             "isDryCleaning" : false

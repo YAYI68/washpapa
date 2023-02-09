@@ -64,11 +64,11 @@ function Wash({service,tab,toggleTab,tabNum}) {
           <p className='dark:text-slate-300'>{service.period}</p>
         </div>
         <div className='p-2 border-b '>
-          <p className='text-[1.2rem] font-medium'>Delivery Fee</p>
+          <p className='text-[1.2rem] font-medium'>Total Delivery Fee</p>
           <p className='dark:text-slate-300'>NGN {service.DeliveryFee}</p>
         </div>
         <div className='p-2 border-b '>
-          <p className='text-[1.2rem] font-medium'>Quantity</p>
+          <p className='text-[1.2rem] font-medium'>Total Cost</p>
           <p className='dark:text-slate-300'>NGN {service.TotalCost}</p>
         </div>
             <button onClick={submit} className='w-full block p-2 text-center bg-light-blue mt-4 text-white font-medium text-[1.1rem]'>Continue</button> 
