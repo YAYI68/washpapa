@@ -177,7 +177,7 @@ function Navbar() {
                      :
                     <li  className='w-full my-[.5rem]' >
                          <button onClick={()=>setAccountDropdown(!accountDropdown)} className='p-[.5rem] rounded font-semibold text-[1.3rem] w-full border-2 border-blue-500 flex items-center justify-between   text-blue-700 '>
-                           <p>W 500</p>
+                           <p>W {userInfo.balance}</p>
                            <button >
                              <IoCaretDownCircle />
                            </button>
