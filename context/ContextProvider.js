@@ -1,7 +1,8 @@
 import { onAuthStateChanged } from 'firebase/auth';
+import { onValue, ref } from 'firebase/database';
 import Cookies from 'js-cookie';
 import React, {createContext, useContext, useEffect, useMemo, useState } from 'react'
-import { auth } from '../config/firebaseConfig';
+import { auth, db } from '../config/firebaseConfig';
 export const StateContext = createContext();
 
 const initialState = {
@@ -35,18 +36,12 @@ function ContextProvider({children}) {
     const [ clientOrders, setClientOrders ] = useState([])
     const [ Order, setOrder ] = useState(initialOrderState);
 
-    
     const saveLocalUser = (user)=>{
       localStorage.setItem('userInfo',JSON.stringify(user))
       setUserInfo(user)
      }
 
-    const loading = (click,state)=>{
-      setIsLoading({
-        ...initialState,
-        [click]:state,
-      })
-    }
+     
 
     const user = useMemo(()=>{userInfo},[userInfo])
 
@@ -64,9 +59,9 @@ function ContextProvider({children}) {
       setCurrentMode,
       userInfo,
       setUserInfo,
-      saveLocalUser,
-      loading,
+      setIsLoading,
       isLoading,
+      saveLocalUser,
       Order, setOrder,
       clientOrders, setClientOrders
 

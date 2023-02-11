@@ -1,6 +1,6 @@
 import { auth, db } from "../config/firebaseConfig";
 import { createUserWithEmailAndPassword, sendEmailVerification, signInWithEmailAndPassword,signOut,sendPasswordResetEmail, updatePassword   } from "firebase/auth";
-import { child, get, ref, set } from "firebase/database";
+import { ref, set } from "firebase/database";
 import Cookies from 'js-cookie';
 
 
@@ -21,7 +21,7 @@ export const signup = async (data)=>{
         email,
         phone,
         userName:"",
-        balance:500,
+        balance:100,
         uid:userCredential.user.uid,
       });
      await sendEmailVerification(auth.currentUser)
@@ -64,9 +64,9 @@ export const logIn = async({email,password})=>{
       else{
         const token = await userCredential.user.getIdToken()
         Cookies.set("authToken",token,{expires:15})
-        const userRef = ref(db)
-        const snapshot = await get(child(userRef,`Users/${userCredential.user.uid}`))
-        const user = snapshot.val();
+        const baseUrl = process.env.NEXT_PUBLIC_API_URL
+        const res = await fetch(`${baseUrl}/${userCredential.user.uid}.json`)
+        const user = await res.json();
         return {
             loading:false,
             user:user,
@@ -75,7 +75,6 @@ export const logIn = async({email,password})=>{
       }
     }
     catch(error){
-        console.log({error})
         if(error.code === "auth/wrong-password"){
             return {
                 loading:false,

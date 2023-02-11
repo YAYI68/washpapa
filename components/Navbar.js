@@ -72,7 +72,7 @@ function Navbar() {
           <div className=' cursor-pointer relative'>
             <button type="button" className='flex items-center gap-4  border-2 p-2 rounded-md border-light-blue' onClick={() => setAccountDropdown(!accountDropdown)}>
               <p className="font-semibold text-light-blue">W {userInfo.balance}</p>
-              <button type="button"> <IoCaretDownCircle className='fill-light-blue' /> </button>
+              <IoCaretDownCircle className='fill-light-blue' /> 
             </button>
             {accountDropdown &&    
             <ul className='top-[110%] absolute bg-white dark:bg-black w-[15rem] border-2 border-light-blue dark:border-light-blue rounded-md py-1'>
@@ -178,11 +178,8 @@ function Navbar() {
                     <li  className='w-full my-[.5rem]' >
                          <button onClick={()=>setAccountDropdown(!accountDropdown)} className='p-[.5rem] rounded font-semibold text-[1.3rem] w-full border-2 border-blue-500 flex items-center justify-between   text-blue-700 '>
                            <p>W {userInfo.balance}</p>
-                           <button >
                              <IoCaretDownCircle />
-                           </button>
                          </button>
-                      
                        {accountDropdown &&       
                       <ul className='w-full ml-[2rem] border-l-2 mt-2 px-[1rem]'>
                         <li className='w-full my-[.5rem] p-[1rem]'>
