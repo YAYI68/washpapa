@@ -4,10 +4,12 @@ import Link from 'next/link';
 import { signup } from '../../db/auth';
 import { authvalidator } from '../../utils/validator';
 import { useRouter } from 'next/router';
+import { Spinner } from '../../components/Spinner';
 
 
 
 const Register = () => {
+   const [ isLoading , setIsLoading ] = useState(false)
    const router =  useRouter()
    const [ message, setMessage] = useState({error:"",success:""})
    const [showPassword, setShowPassword] = useState(false)
@@ -18,15 +20,18 @@ const Register = () => {
      
   const handleSubmit = async(e)=>{
     e.preventDefault();
+    setIsLoading(true)
    const email = emailRef.current.value
    const phone = phoneRef.current.value
    const password = passwordRef.current.value
    const result =  await signup({email, phone, password})
    authvalidator(result,setMessage)
+   setIsLoading(result.loading)
    if(result.user){
          setTimeout(()=>{
           router.push("/account/login")
       },1000)
+     
    }
 
   }
@@ -47,10 +52,10 @@ const Register = () => {
     <Main className=' mt-[5rem]'>
         <section className='h-[80vh] w-full flex flex-col items-center justify-center '>
           { message.error &&    
-           <p className='text-white w-[30%] bg-red-600 mb-[1rem] p-2'>{message.error}</p>
+           <p className='text-white w-[30%] lg:w-[50%] md:w-[80%] bg-red-600 mb-[1rem] p-2'>{message.error}</p>
          }
          { message.success ? 
-           <p className='text-white w-[30%] bg-green-500 mb-[1rem] p-2'>{message.success}</p>
+           <p className='text-white w-[30%] lg:w-[50%] md:w-[80%] bg-green-500 mb-[1rem] p-2'>{message.success}</p>
            :""
          }
            <div className='w-[30%] lg:w-[50%] md:w-[80%]  bg-white shadow-md rounded-md border-2 dark:bg-gray-700 p-4 animate-top'>
@@ -98,7 +103,12 @@ const Register = () => {
                     </div>
                    <small>By clicking create account, you are accepting our</small>
                     <small className='text-light-blue'>terms and conditions</small>
-                  <button  type="submit" className='bg-light-blue text-white px-4 w-full font-medium py-2 rounded-md shadow-md'>Create account</button>
+                  <button  type="submit" className='bg-light-blue text-white px-4 w-full font-medium py-2 rounded-md shadow-md flex justify-center items-center gap-2'>
+                     <span> Create account</span>
+                     {isLoading? 
+                     <Spinner />
+                        :""}
+                     </button>
                </form>
                <div className='flex  justify-between w-full'> 
                <small className='self-start'>Already have an account? <Link href='/account/login' >

@@ -7,16 +7,18 @@ import  { useRouter } from 'next/router';
 
 
 function Wash({service,tab,toggleTab,tabNum}) {
-  const {Order,setOrder,userInfo} =  useStateContext();
+  const {Order,saveOrder,userInfo} =  useStateContext();
   const service_slug = service.name ? service.name.replaceAll(" ", "_") :""
   const [orderid, setOrderID ] = useState("")
   const router =  useRouter()
+
+  // const Order = sessionStorage.getItem('order')
 
   const submit = async()=>{
     const date = currentDate()
     const orderId = generateId(userInfo.email)
    setOrderID(orderId)
-   setOrder({
+   saveOrder({
       ...Order,
        buyerEmail: userInfo.email,
        buyerID: userInfo.uid,

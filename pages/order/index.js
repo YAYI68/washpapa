@@ -31,7 +31,11 @@ function Order() {
 
   if(clientOrders.length===0){
     return (
-        <h1>You havnt make any wash order yet </h1>
+        <Main  className={'mt-[5rem]'}>
+          <section className='h-[80vh] w-full flex flex-col items-center justify-center '>
+             <h1 className="text-[2rem] lg:text-[1.5rem] font-semibold font-quickbold"> You dont currently have an order yet </h1>
+          </section>
+        </Main>
     )
   }
     return (

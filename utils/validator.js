@@ -1,4 +1,4 @@
-import { StateContext } from "../context/ContextProvider"
+
 
 export const authvalidator = (result, setMessage,)=>{
     if(result.inValidMessage) {

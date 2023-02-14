@@ -4,7 +4,7 @@ import { ref, set } from "firebase/database";
 import Cookies from 'js-cookie';
 
 
-
+const baseUrl = process.env.NEXT_PUBLIC_API_URL
 
 export const signup = async (data)=>{
     const { email, password, phone } = data;
@@ -16,15 +16,22 @@ export const signup = async (data)=>{
             inValidMessage: "Invalid email address"
          }
         }
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password) 
-      await  set(ref(db, 'Users/' + userCredential.user.uid), {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password)
+      await sendEmailVerification(auth.currentUser) 
+      const res = await fetch(`${baseUrl}/Users/${userCredential.user.uid}.json`,{
+        method: 'PUT',
+        headers:{
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
         email,
         phone,
         userName:"",
         balance:100,
         uid:userCredential.user.uid,
-      });
-     await sendEmailVerification(auth.currentUser)
+        })
+      })
+      
        return {
         loading:false,
         user : userCredential.user,
@@ -64,8 +71,7 @@ export const logIn = async({email,password})=>{
       else{
         const token = await userCredential.user.getIdToken()
         Cookies.set("authToken",token,{expires:15})
-        const baseUrl = process.env.NEXT_PUBLIC_API_URL
-        const res = await fetch(`${baseUrl}/${userCredential.user.uid}.json`)
+        const res = await fetch(`${baseUrl}/Users/${userCredential.user.uid}.json`)
         const user = await res.json();
         return {
             loading:false,

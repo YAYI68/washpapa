@@ -59,11 +59,11 @@ function LoginForm() {
   return (
     <section className='h-[80vh] w-full flex flex-col items-center justify-center  '>
     { message.error ?    
-    <p className={`text-white w-[30%] bg-red-600 mb-[1rem] p-2`}>{message.error}</p>
+    <p className={`text-white w-[30%] lg:w-[50%] md:w-[80%] bg-red-600 mb-[1rem] p-2`}>{message.error}</p>
     :""
     }
       { message.success? 
-    <p className='text-white w-[30%] bg-green-500 mb-[1rem] p-2'>{ message.success}</p>
+    <p className='text-white w-[30%] lg:w-[50%] md:w-[80%] bg-green-500 mb-[1rem] p-2'>{ message.success}</p>
     :""
   }
     <div className='w-[30%] lg:w-[50%] md:w-[80%] bg-white shadow-md rounded-md border-2 dark:bg-gray-700 p-4 animate-top'>

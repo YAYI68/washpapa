@@ -13,6 +13,7 @@ export function middleware(request){
     const wash = request.nextUrl.pathname.startsWith("/wash")
 
    const authToken =  request.cookies.get('authToken')
+   
     
     if(!!authToken && (login || register || forgetPassword)) {
         return NextResponse.redirect(new URL('/', request.url))

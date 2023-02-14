@@ -35,10 +35,21 @@ function ContextProvider({children}) {
     const [isLoading,setIsLoading ] = useState(initialState);
     const [ clientOrders, setClientOrders ] = useState([])
     const [ Order, setOrder ] = useState(initialOrderState);
+   
 
     const saveLocalUser = (user)=>{
       localStorage.setItem('userInfo',JSON.stringify(user))
       setUserInfo(user)
+     }
+     
+    //  useEffect(()=>{
+    //   const currentOrder = sessionStorage.getItem('order')
+    //   setOrder(currentOrder)
+    //  },[Order.orderID])
+
+     const saveOrder = (order)=>{
+      sessionStorage.setItem('order',JSON.stringify(order))
+      setOrder(order)
      }
 
      
@@ -61,8 +72,9 @@ function ContextProvider({children}) {
       setUserInfo,
       setIsLoading,
       isLoading,
+      saveOrder,
       saveLocalUser,
-      Order, setOrder,
+      Order,
       clientOrders, setClientOrders
 
     }}>

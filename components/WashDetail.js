@@ -12,7 +12,7 @@ import { useStateContext } from '../context/ContextProvider';
 
 
 function WashDetail() {
-  const { Order ,setOrder } = useStateContext();
+  const {Order, saveOrder } = useStateContext();
   const router = useRouter()
   const [errorMessage,setErrorMessage] = useState("")
   const [ validate, setValidate] = useState({
@@ -49,7 +49,7 @@ function WashDetail() {
     }
 
     if(phoneNumber && busStop && takePic){
-      setOrder({
+      saveOrder({
         ...Order,
         deliveryPhone:phoneNumber,
         nearestBusStop:busStop,

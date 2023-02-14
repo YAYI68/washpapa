@@ -1,5 +1,10 @@
+import dynamic from 'next/dynamic'
 import {useState} from 'react'
 import Wash from './Wash'
+ 
+// const Wash = dynamic(()=>import('./Wash'),{
+//   ssr:false,
+// })
 
 const ProductContainer = ({products}) => {
 const [ tabNum, setTabNum] = useState("")

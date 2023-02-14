@@ -42,10 +42,10 @@ function Navbar() {
 
   return (
     <nav className='h-[10vh] dark:bg-slate-900 bg-white  px-[4rem] lg:p-0  w-screen fixed z-20 top-0 left-0'>
-      <div className='flex lg:hidden items-center justify-end h-full w-full'>
-      <div className='w-[100%]  flex items-center justify-between'>
+      <div className='flex lg:hidden items-center justify-center h-full w-full'>
+      <div className='w-[86%] flex items-center justify-between'>
        <Link href="/">
-        <a className='text-[2rem] font-semibold  text-light-blue w-fit font-avant'> anywash </a>
+        <a className='text-[2rem] font-semibold  text-light-blue w-fit font-quicksand'> anywash </a>
         </Link>
       <div className='items-center flex justify-around w-[60%]'>  
        <ul className='list-none flex items-center gap-8 '>
