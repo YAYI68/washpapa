@@ -36,7 +36,7 @@ function Navbar() {
     setSlideIn(false)
     setUserInfo("")
     logOut()
-    router.push("/account/login")
+    window.location.reload()
   }
 
 

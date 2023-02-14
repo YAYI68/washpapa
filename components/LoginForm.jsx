@@ -35,9 +35,11 @@ function LoginForm() {
     if(result.user){
       localStorage.setItem('userInfo',JSON.stringify(result.user))
       saveLocalUser(result.user)
-      setTimeout(()=>{
-          router.push("/wash")
-      },200)
+      // setTimeout(()=>{
+      //     router.push("/wash")
+      // },200)
+      // router.replace("/wash")
+      window.location.replace("/wash")
     } 
     setIsLoading(result.loading)
  }
