@@ -8,6 +8,7 @@ import Main from "../../components/Main";
 import { db } from "../../config/firebaseConfig";
 import { useStateContext } from "../../context/ContextProvider";
 
+const baseUrl = process.env.NEXT_PUBLIC_API_URL
 
 function Order() {
     const { userInfo, clientOrders, setClientOrders } = useStateContext();
@@ -16,15 +17,10 @@ function Order() {
   useEffect(()=>{
      (async()=>{
         if(userInfo && userInfo.uid){
-            const orderRef = ref(db, `OrderP/${userInfo.uid}`);
-            const snapShot = await get(orderRef)
-            const dbOrders = [];
-            if(snapShot.exists()){
-                snapShot.forEach((snap)=>{
-                    dbOrders.push(snap.toJSON())
-                })
-            setClientOrders(dbOrders)
-            }
+          const res = await fetch(`${baseUrl}/OrderP/${userInfo.uid}.json`)
+          const result = await res.json()
+          const client =  Object.values(result)
+          setClientOrders(client)
         } 
      })()
   },[user,userInfo,setClientOrders])
