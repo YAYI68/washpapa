@@ -144,7 +144,7 @@ function PaymentOptions() {
              <p  className='text-light-blue font-semibold text-[2rem]'>NGN {curOrder.price}</p>
           </div>
           <button type="submit" onClick={activateDiscount} className='bg-white border-light-blue border-2 text-light-blue px-4 w-full font-medium py-2 rounded-md shadow-md'>Activate Discount</button>
-          <button type="submit" onClick={payWithCash} className='bg-light-blue text-white px-4 w-full flex justify-center items-center gap- font-medium py-2 rounded-md shadow-md'>
+          <button type="submit" onClick={payWithCash} className='bg-light-blue text-white px-4 w-full flex justify-center items-center gap-3 font-medium py-2 rounded-md shadow-md'>
            <span> Pay Cash </span>
            {isLoading? 
             <Spinner />

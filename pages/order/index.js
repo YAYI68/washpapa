@@ -33,7 +33,7 @@ function Order() {
     return (
         <Main  className={'mt-[5rem]'}>
           <section className='h-[80vh] w-full flex flex-col items-center justify-center '>
-             <h1 className="text-[2rem] lg:text-[1.5rem] font-semibold font-quickbold"> You dont currently have an order yet </h1>
+             <h1 className="text-[2rem] lg:text-[1.5rem] font-semibold font-quickbold"> You dont currently have any order yet </h1>
           </section>
         </Main>
     )
