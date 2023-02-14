@@ -27,10 +27,14 @@ const Register = () => {
    const result =  await signup({email, phone, password})
    authvalidator(result,setMessage)
    setIsLoading(result.loading)
+   const status = confirm('Account signUp Successfully check your email inbox or spam to verify your account and sign in')
+   if(status || !status){
+      router.push('/account/login')
+    }
    if(result.user){
          setTimeout(()=>{
           router.push("/account/login")
-      },1000)
+      },1500)
      
    }
 
