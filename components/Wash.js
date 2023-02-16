@@ -40,9 +40,9 @@ function Wash({service,tab,toggleTab,tabNum}) {
 
   return (
     <div className=' w-full lg:flex-col lg:items-center flex p-4 gap-4 '   >
-        <div onClick={()=>toggleTab(tab)} className={`w-[47%] sm:w-full lg:w-[80%] md:w-[90%]  h-[7rem] cursor-pointer  dark:text-white rounded-md border border-l-4 ${tabNum === tab ? 'bg-light-blue text-white border-l-black' :'' }  border-l-light-blue p-4 flex justify-between flex-col`}>
+        <div onClick={()=>toggleTab(tab)} className={`w-[47%] sm:w-full lg:w-[80%] md:w-[95%]  h-[7rem] cursor-pointer  dark:text-white rounded-md border border-l-4 ${tabNum === tab ? 'bg-light-blue text-white border-l-black' :'' }  border-l-light-blue p-4 flex justify-between flex-col`}>
           <div  className='flex justify-between items-center '>
-            <p className='text-[1.5rem] md:text-[1.2rem] font-semibold'>{service.name}</p>
+            <p className='text-[1.5rem] md:text-[1.1rem] font-semibold'>{service.name}</p>
             <button type="button" className='w-6 h-6 flex items-center justify-center'><IoCaretDownCircle  className={` ${tabNum === tab ? 'fill-white' :'fill-light-blue' } h-full w-full`}/></button>
           </div>
           <div className='flex justify-between items-center'>
@@ -54,23 +54,23 @@ function Wash({service,tab,toggleTab,tabNum}) {
           <p className='shadow-md w-full p-4 text-center rounded text-light-blue text-[1.2rem] sm:text-[1rem] font-semibold'>{service.name}</p>
          <div className='w-full p-2 dark:text-white'>
          <div  className=' p-2 border-b '>
-            <p className='text-[1.2rem] font-medium'>Details</p>
+            <p className='text-[1.2rem] md:text-[1.1rem] font-medium'>Details</p>
             <p className='dark:text-slate-300'>{service.details}</p>
           </div>
           <div className='p-2 border-b '>
-          <p className='text-[1.2rem] font-medium'>Quantity</p>
+          <p className='text-[1.2rem] md:text-[1.1rem] font-medium'>Quantity</p>
           <p className='dark:text-slate-300'>{service.quantity}</p>
         </div>
         <div className='p-2 border-b '>
-          <p className='text-[1.2rem] font-medium'>Return Time</p>
+          <p className='text-[1.2rem] md:text-[1.1rem] font-medium'>Return Time</p>
           <p className='dark:text-slate-300'>{service.period}</p>
         </div>
         <div className='p-2 border-b '>
-          <p className='text-[1.2rem] font-medium'>Total Delivery Fee</p>
+          <p className='text-[1.2rem] md:text-[1.1rem] font-medium'>Total Delivery Fee</p>
           <p className='dark:text-slate-300'>NGN {service.DeliveryFee}</p>
         </div>
         <div className='p-2 border-b '>
-          <p className='text-[1.2rem] font-medium'>Total Cost</p>
+          <p className='text-[1.2rem] md:text-[1.1rem] font-medium'>Total Cost</p>
           <p className='dark:text-slate-300'>NGN {service.TotalCost}</p>
         </div>
             <button onClick={submit} className='w-full block p-2 text-center bg-light-blue mt-4 text-white font-medium text-[1.1rem]'>Continue</button> 

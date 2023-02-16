@@ -136,7 +136,7 @@ function Navbar() {
        }
         </div>
           <Link href={'/'}>
-            <h2 className='text-[1.5rem] font-semibold  text-light-blue w-fit font-avant'>anywash</h2>
+            <h2 className='text-[1.5rem] font-semibold  text-light-blue w-fit font-quicksand'>anywash</h2>
           </Link>
           <div className=' flex items-center gap-5 '>
           
