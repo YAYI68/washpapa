@@ -1,9 +1,10 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, Fragment } from 'react';
 import Main from '../../components/Main'
 import Link from 'next/link';
 import { forgetPasswordReset } from '../../db/auth';
 import { authvalidator } from '../../utils/validator';
 import { Spinner } from '../../components/Spinner';
+import Head from 'next/head';
 
 const ForgetPassword = () => {
   const [ isLoading , setIsLoading ] = useState(false)
@@ -31,7 +32,11 @@ const ForgetPassword = () => {
  }
    
   return (
-    <Main className=' mt-[5rem]'>
+    <Fragment>
+        <Head>
+         <title className="font-avant">anywash/password</title>
+        </Head>
+     <Main className=' mt-[5rem]'>
         <section className='h-[80vh] w-full flex flex-col items-center justify-center '>
         { message.error ?    
            <p className={`text-white w-[30%] bg-red-600 mb-[1rem] p-2`}>{message.error}</p>
@@ -69,6 +74,8 @@ const ForgetPassword = () => {
            </div>
         </section>
     </Main>
+    </Fragment>
+    
   )
 }
 

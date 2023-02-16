@@ -1,4 +1,5 @@
-import React, { useRef, useState } from 'react';
+import Head from 'next/head';
+import React, { Fragment, useRef, useState } from 'react';
 import { FaTimes } from "react-icons/fa";
 import Main from '../../components/Main';
 
@@ -57,7 +58,11 @@ const Contact = () => {
    }
   
   return (
-    <Main className="mt-[5rem] flex flex-col items-center justify-center">
+    <Fragment>
+      <Head>
+        <title>anywash/contact</title>
+      </Head>
+      <Main className="mt-[5rem] flex flex-col items-center justify-center">
     <section className='h-[80vh] w-full flex flex-col items-center justify-center relative '>
     {errorMessage&& 
      <div className='flex items-center w-[30%] p-4 absolute right-4 top-4 bg-red-600 mb-[1rem]'>
@@ -109,6 +114,8 @@ const Contact = () => {
      </div>
   </section>
     </Main>
+    </Fragment>
+
   )
 }
 

@@ -1,11 +1,11 @@
 
 
 // import { useState } from 'react';
-import { get, ref } from "firebase/database";
+
+import Head from "next/head";
 import Link from "next/link";
-import { useEffect, useMemo} from "react";
+import { Fragment, useEffect, useMemo} from "react";
 import Main from "../../components/Main";
-import { db } from "../../config/firebaseConfig";
 import { useStateContext } from "../../context/ContextProvider";
 
 const baseUrl = process.env.NEXT_PUBLIC_API_URL
@@ -27,11 +27,17 @@ function Order() {
 
   if(clientOrders.length===0){
     return (
-        <Main  className={'mt-[5rem]'}>
+       <Fragment>
+           <Head>
+             <title className="font-avant">anywash/order</title>
+           </Head>
+           <Main  className={'mt-[5rem]'}>
           <section className='h-[80vh] w-full flex flex-col items-center justify-center '>
              <h1 className="text-[2rem] lg:text-[1.5rem] font-semibold font-quickbold"> You dont currently have any order yet </h1>
           </section>
         </Main>
+       </Fragment>
+       
     )
   }
     return (

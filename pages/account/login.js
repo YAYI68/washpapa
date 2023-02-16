@@ -1,5 +1,6 @@
 import dynamic from 'next/dynamic';
-import React, { useState, useRef, useEffect } from 'react';
+import Head from 'next/head';
+import React, { useState, useRef, useEffect, Fragment } from 'react';
 import Main from '../../components/Main'
 
 
@@ -11,9 +12,15 @@ const LoginForm = dynamic(() => import('../../components/LoginForm'),{
 const Login = () => {
 
   return (
-    <Main className=' mt-[5rem]'>
-      <LoginForm />
-    </Main>
+    <Fragment>
+       <Head>
+         <title className="font-avant">anywash/login</title>
+        </Head>
+        <Main className=' mt-[5rem]'>
+         <LoginForm />
+        </Main>
+    </Fragment>
+   
   )
 }
 

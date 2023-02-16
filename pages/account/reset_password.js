@@ -1,5 +1,6 @@
 
-import React, { useEffect, useRef, useState } from 'react'
+import Head from 'next/head';
+import React, { Fragment, useEffect, useRef, useState } from 'react'
 import Main from '../../components/Main'
 import { useStateContext } from '../../context/ContextProvider';
 import { resetPassword } from '../../db/auth';
@@ -33,7 +34,11 @@ function ResetPassword() {
       }
 
   return (
-    <Main className=' mt-[5rem]'>
+    <Fragment>
+       <Head>
+         <title className="font-avant">anywash/password</title>
+        </Head>
+        <Main className=' mt-[5rem]'>
     <section className='h-[80vh] w-full flex flex-col items-center justify-center '>
     { message.error ?    
            <p className={`text-white w-[30%] bg-red-600 mb-[1rem] p-2`}>{message.error}</p>
@@ -66,7 +71,9 @@ function ResetPassword() {
         </div>
        </div>
     </section>
-</Main>
+    </Main>
+    </Fragment>
+    
   )
 }
 

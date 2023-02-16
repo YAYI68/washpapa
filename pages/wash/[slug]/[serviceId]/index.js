@@ -1,4 +1,6 @@
 
+import Head from "next/head"
+import { Fragment } from "react"
 import Main from "../../../../components/Main"
 import WashDetail from "../../../../components/WashDetail"
 
@@ -8,9 +10,15 @@ import WashDetail from "../../../../components/WashDetail"
 const BagDetail = () => {
   
     return (
-      <Main className=' mt-[5rem]'>
-       <WashDetail  />
-      </Main>
+      <Fragment>
+          <Head>
+          <title className="font-avant">anywash/wash</title>
+         </Head>
+         <Main className=' mt-[5rem]'>
+          <WashDetail  />
+         </Main>
+      </Fragment>
+    
     )
   }
 
