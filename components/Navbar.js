@@ -51,6 +51,11 @@ function Navbar() {
        <ul className='list-none flex items-center gap-8 '>
          <li className='w-fit'> 
           <Link href="/wash" >
+             <a className='font-semibold  block dark:text-white w-full hover:text-light-blue dark:hover:text-light-blue'>Home</a> 
+          </Link>
+          </li>
+          <li className='w-fit'> 
+          <Link href="/wash" >
              <a className='font-semibold  block dark:text-white w-full hover:text-light-blue dark:hover:text-light-blue'>Wash</a> 
           </Link>
           </li>
