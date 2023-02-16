@@ -50,7 +50,7 @@ function Navbar() {
       <div className='items-center flex justify-around w-[60%]'>  
        <ul className='list-none flex items-center gap-8 '>
          <li className='w-fit'> 
-          <Link href="/wash" >
+          <Link href="/" >
              <a className='font-semibold  block dark:text-white w-full hover:text-light-blue dark:hover:text-light-blue'>Home</a> 
           </Link>
           </li>
