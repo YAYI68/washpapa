@@ -150,9 +150,15 @@ function Navbar() {
            </button>
           }
           </div>
+          <div className={`w-full h-screen absolute top-[100%] ${slideIn?'block':'hidden'}`} onClick={()=>setSlideIn(false)}></div>
           <div className={`absolute top-[100%] right-0  w-full bg-white dark:bg-black transition-[transform]  ${slideIn?'translate-x-0':'translate-x-[100%]'}`}>
                <div className='w-full h-full p-[1rem]'>
                  <ul className='list-none w-full'>
+                   <li className='w-full my-[.5rem]'>
+                      <Link href={`/`}>
+                       <a onClick={()=>setSlideIn(false)} className='p-[.5rem] font-semibold text-[1.3rem] w-full hover:bg-light-blue hover:text-white block'>Home</a> 
+                       </Link>
+                    </li>
                     <li className='w-full my-[.5rem]'>
                       <Link href={`/wash`}>
                        <a onClick={()=>setSlideIn(false)} className='p-[.5rem] font-semibold text-[1.3rem] w-full hover:bg-light-blue hover:text-white block'>Wash</a> 
