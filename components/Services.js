@@ -20,8 +20,8 @@ const Services = () => {
                 <Image src={service.image} alt="shirt" layout='fill' />
               </div>
               <div className='w-full  h-[60%] p-2 flex flex-col gap-2'>
-                  <h4 className='text-[2rem] md:text-[1.5rem] sm:text-[1rem] text-light-blue  font-semibold text-center'>{service.title}</h4>
-                  <p className='text-[1.2rem] md:text-[1rem] sm:text-[.8rem] font-medium dark:text-white'>{service.description}</p>
+                  <h4 className='text-[2rem] md:text-[1.5rem] sm:text-[1.2rem] text-light-blue  font-semibold text-center'>{service.title}</h4>
+                  <p className='text-[1.2rem] md:text-[1.2rem] sm:text-[.9rem] font-medium dark:text-white md:text-center'>{service.description}</p>
               </div>
              </div>
             </Link>
