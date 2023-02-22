@@ -1,8 +1,6 @@
-import { onAuthStateChanged } from 'firebase/auth';
-import { onValue, ref } from 'firebase/database';
-import Cookies from 'js-cookie';
+
 import React, {createContext, useContext, useEffect, useMemo, useState } from 'react'
-import { auth, db } from '../config/firebaseConfig';
+
 export const StateContext = createContext();
 
 const initialState = {
