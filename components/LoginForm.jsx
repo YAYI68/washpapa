@@ -5,9 +5,7 @@ import { useStateContext } from '../context/ContextProvider';
 import { useRouter } from 'next/router';
 import { Spinner } from './Spinner';
 import { authvalidator } from '../utils/validator';
-import { useEffect, useRef, useState } from 'react';
-import { child, get, onValue, ref } from 'firebase/database';
-import { db } from '../config/firebaseConfig';
+import { useRef, useState } from 'react';
 
 
 

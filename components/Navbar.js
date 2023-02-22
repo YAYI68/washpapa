@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useTheme } from 'next-themes';
 import { MdDarkMode, MdLightMode } from "react-icons/md";
-import {IoCaretForwardCircleSharp, IoCaretDownCircle } from "react-icons/io5";
+import { IoCaretDownCircle } from "react-icons/io5";
 import { FaBars,FaTimes } from "react-icons/fa";
 import { logOut } from '../db/auth';
 import { useStateContext } from '../context/ContextProvider';

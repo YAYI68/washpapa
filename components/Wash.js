@@ -1,6 +1,6 @@
 
 import  { useState } from 'react';
-import {IoCaretForwardCircleSharp, IoCaretDownCircle } from "react-icons/io5";
+import { IoCaretDownCircle } from "react-icons/io5";
 import { currentDate, generateId } from '../utils/order';
 import { useStateContext } from '../context/ContextProvider';
 import  { useRouter } from 'next/router';
@@ -8,8 +8,8 @@ import  { useRouter } from 'next/router';
 
 function Wash({service,tab,toggleTab,tabNum}) {
   const {Order,saveOrder,userInfo} =  useStateContext();
-  const service_slug = service.name ? service.name.replaceAll(" ", "_") :""
-  const [orderid, setOrderID ] = useState("")
+
+  const [ setOrderID ] = useState("")
   const router =  useRouter()
 
   // const Order = sessionStorage.getItem('order')
