@@ -9,7 +9,6 @@ import  { useRouter } from 'next/router';
 function Wash({service,tab,toggleTab,tabNum}) {
   const {Order,saveOrder,userInfo} =  useStateContext();
 
-  const [ setOrderID ] = useState("")
   const router =  useRouter()
 
   // const Order = sessionStorage.getItem('order')
@@ -17,7 +16,7 @@ function Wash({service,tab,toggleTab,tabNum}) {
   const submit = async()=>{
     const date = currentDate()
     const orderId = generateId(userInfo.email)
-   setOrderID(orderId)
+
    saveOrder({
       ...Order,
        buyerEmail: userInfo.email,
