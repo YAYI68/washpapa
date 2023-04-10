@@ -26,7 +26,6 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: ['var(--font-quicksand)', ...fontFamily.sans],
         avant: ["Avant", "cursive"],
         quickbold:["QuickBold","cursive"],
         quicksand:["Quicksand","cursive"],
