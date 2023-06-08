@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
-import React, { useState, useRef, useEffect, Fragment } from 'react';
+import React, {Fragment } from 'react';
 import Main from '../../components/Main'
 
 

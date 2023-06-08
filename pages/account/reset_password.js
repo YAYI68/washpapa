@@ -1,8 +1,7 @@
 
 import Head from 'next/head';
-import React, { Fragment, useEffect, useRef, useState } from 'react'
+import React, { Fragment, useRef, useState } from 'react'
 import Main from '../../components/Main'
-import { useStateContext } from '../../context/ContextProvider';
 import { resetPassword } from '../../db/auth';
 import { authvalidator } from '../../utils/validator';
 

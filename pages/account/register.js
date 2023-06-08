@@ -1,10 +1,6 @@
-import React, { useState, useRef, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import Main from '../../components/Main'
-import Link from 'next/link';
-import { signup } from '../../db/auth';
-import { authvalidator } from '../../utils/validator';
-import { useRouter } from 'next/router';
-import { Spinner } from '../../components/Spinner';
+
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 
