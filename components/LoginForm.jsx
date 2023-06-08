@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import { Spinner } from './Spinner';
 import { authvalidator } from '../utils/validator';
 import { useRef, useState } from 'react';
+import { toast } from 'react-hot-toast';
 
 
 
@@ -14,7 +15,6 @@ function LoginForm() {
   const router =  useRouter()
   const [ isLoading , setIsLoading ] = useState(false)
   const {saveLocalUser } =  useStateContext();
-  const [ message, setMessage] = useState({error:"",success:""})
   const [showPassword, setShowPassword] = useState(false)
   const [ validate, setValidate] = useState("")
    const emailRef = useRef()
@@ -25,31 +25,24 @@ function LoginForm() {
  const handleSubmit = async(e)=>{
    e.preventDefault();
    setIsLoading(true)
-
    const email = emailRef.current.value;
    const password = passwordRef.current.value;
     const result =  await logIn({email, password})
-    authvalidator(result,setMessage)
+    authvalidator(result,toast)
     if(result.user){
       localStorage.setItem('userInfo',JSON.stringify(result.user))
       saveLocalUser(result.user)
-      // setTimeout(()=>{
-      //     router.push("/wash")
-      // },200)
-      // router.replace("/wash")
       window.location.replace("/wash")
     } 
-    setIsLoading(result.loading)
+    setIsLoading(false)
  }
 
 
    const handleBlur = ()=>{
       if(emailRef.current.value === ""){
-         setValidate( "Required") 
-         console.log("Blurred email")
+         setValidate( "Required")   
       }
       else if (emailRef.current.value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(emailRef.current.value)){
-         console.log(emailRef.current.value);
          setValidate('Invalid email address')  
       }
      
@@ -58,14 +51,6 @@ function LoginForm() {
 
   return (
     <section className='h-[80vh] w-full flex flex-col items-center justify-center  '>
-    { message.error ?    
-    <p className={`text-white w-[30%] lg:w-[50%] md:w-[80%] bg-red-600 mb-[1rem] p-2`}>{message.error}</p>
-    :""
-    }
-      { message.success? 
-    <p className='text-white w-[30%] lg:w-[50%] md:w-[80%] bg-green-500 mb-[1rem] p-2'>{ message.success}</p>
-    :""
-  }
     <div className='w-[30%] lg:w-[50%] md:w-[80%] bg-white shadow-md rounded-md border-2 dark:bg-gray-700 p-4 animate-top'>
      <div className='w-full h-full flex flex-col gap-2 items-center'>
         <h4 className='text-light-blue text-[2rem]'>Sign in</h4>

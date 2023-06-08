@@ -4,6 +4,7 @@ import { signup } from '../db/auth';
 import { authvalidator } from '../utils/validator';
 import { useRouter } from 'next/router';
 import { Spinner } from './Spinner';
+import { toast } from 'react-hot-toast';
 
 function RegisterForm() {
    
@@ -23,14 +24,10 @@ function RegisterForm() {
     const phone = phoneRef.current.value
     const password = passwordRef.current.value
     const result =  await signup({email, phone, password})
-    authvalidator(result,setMessage)
-    setIsLoading(result.loading)
+    authvalidator(result,toast)
+    setIsLoading(false)
     
-    const status = confirm('Account signUp Successfully check your email inbox or spam to verify your account and sign in')
-    if(status || !status){
-       router.push('/account/login')
-     }
-  
+   //  toast.success('Account signUp Successfully check your email inbox or spam to verify your account and sign in')
     if(result.user){
           setTimeout(()=>{
            router.push("/account/login")

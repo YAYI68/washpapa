@@ -39,7 +39,6 @@ export const signup = async (data)=>{
     }    
     }
     catch(error){
-        console.log({error})
         if(error.code==="auth/weak-password"){
          return{
             loading:false,
@@ -60,6 +59,11 @@ export const signup = async (data)=>{
 
 export const logIn = async({email,password})=>{
 
+    if (!email && !password){
+        return {
+            errorMessage:"Invalid email / wrong password"
+        }
+     }
     try{
       const userCredential = await signInWithEmailAndPassword(auth,email,password)
       if(!userCredential.user.emailVerified){
@@ -95,7 +99,6 @@ export const logIn = async({email,password})=>{
         }
         
     }
-    return{  loading:true,} 
 }
 
 
@@ -152,17 +155,9 @@ export async function forgetPasswordReset(email){
     }
     catch(error){
        const errorCode = error.code;
-       console.log({errorCode})
         return {
             loading:false,
             errorMessage:errorCode,
         }
-    //    if(errorCode === "auth/user-not-found"){
-    //       return{
-    //          loading:false,
-    //          errorMessage:"User not found",
-    //       }
- 
-    //    }
     }
  }

@@ -1,30 +1,17 @@
 
 
-export const authvalidator = (result, setMessage,)=>{
+export const authvalidator = (result, toast)=>{
     if(result.inValidMessage) {
-        setMessage({error:result.inValidMessage})
-        setTimeout(()=>{
-            setMessage("")
-        },10000)
+        toast.error(result.inValidMessage)     
       }
       if(result.emailCheck){
-        setMessage({success:result.emailCheck})
-        setTimeout(()=>{
-            setMessage({error:""})
-        },10000)
-     }
-     
+         toast.success(result.emailCheck)
+     }    
       if(result.success){
-        setMessage({success:result.success})
-        setTimeout(()=>{
-            setMessage({success:""})
-        },10000)
+        toast.success(result.success)
       }  
      if(result.errorMessage){  
-        setMessage({error:result.errorMessage})
-        setTimeout(()=>{
-            setMessage("")
-        },10000)
+        toast.error(result.errorMessage)
      }
 }
 

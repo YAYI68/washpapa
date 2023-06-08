@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+::-webkit-scrollbar-thumb{
+    background: #3700bb; 
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3700bb; 
+  }
+  
+  ::-webkit-scrollbar {
+    width: 7px;
+  }
+
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
 @font-face {

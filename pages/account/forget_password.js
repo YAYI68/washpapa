@@ -1,15 +1,14 @@
 import React, { useState, useRef, Fragment } from 'react';
 import Main from '../../components/Main'
-import Link from 'next/link';
 import { forgetPasswordReset } from '../../db/auth';
 import { authvalidator } from '../../utils/validator';
 import { Spinner } from '../../components/Spinner';
 import Head from 'next/head';
+import { toast } from 'react-hot-toast';
 
 const ForgetPassword = () => {
   const [ isLoading , setIsLoading ] = useState(false)
   const [ validate, setValidate] = useState({email:"",password:""})
-  const [ message, setMessage] = useState({error:"",success:""})
   const emailRef = useRef()
 
   const emailBlur = ()=>{
@@ -27,8 +26,8 @@ const ForgetPassword = () => {
        setIsLoading(true)
       const email = emailRef.current.value
       const result = await forgetPasswordReset(email)
-       authvalidator(result,setMessage)
-       setIsLoading(result.loading)
+       authvalidator(result,toast)
+       setIsLoading(false)
  }
    
   return (
@@ -38,17 +37,10 @@ const ForgetPassword = () => {
         </Head>
      <Main className=' mt-[5rem]'>
         <section className='h-[80vh] w-full flex flex-col items-center justify-center '>
-        { message.error ?    
-           <p className={`text-white w-[30%] bg-red-600 mb-[1rem] p-2`}>{message.error}</p>
-           :""
-           }
-             { message.success ? 
-           <p className='text-white w-[30%] bg-green-500 mb-[1rem] p-2'>{ message.success}</p>
-           :""
-         }
+
            <div className='w-[30%] lg:w-[50%] md:w-[80%] bg-white shadow-md rounded-md border-2 dark:bg-gray-700 p-4 animate-top'>
             <div className='w-full h-full flex flex-col gap-5 items-center'>
-               <h4 className='text-light-blue text-[2rem] '>Reset Password</h4>
+               <h4 className='text-light-blue text-[2rem] '>Forget Password</h4>
                <form onSubmit={handleEmailSubmit} className="w-full flex flex-col items-center gap-2">
                   <div className='flex flex-col gap-1 w-full'>
                     <label className='ml-2' htmlFor="email">Email address</label>

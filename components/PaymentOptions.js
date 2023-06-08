@@ -7,6 +7,7 @@ import { useStateContext } from '../context/ContextProvider';
 import { discountAmount, stringDate } from '../utils/order';
 import { saveDataToDb } from '../utils/storeDb';
 import { Spinner } from './Spinner';
+import { toast } from 'react-hot-toast';
 
 const baseUrl = process.env.NEXT_PUBLIC_API_URL
 
@@ -46,10 +47,6 @@ function PaymentOptions() {
     const handleFlutterPayment = useFlutterwave(config);
    const activateDiscount = ()=>{     
       if(!disCount){
-         // setOrder({
-         //    ...Order,
-         //    price: userInfo.balance?discountPrice:Order.price,
-         // })
          saveOrder({
             ...curOrder,
             price: userInfo.balance?discountPrice:Order.price,
@@ -58,7 +55,7 @@ function PaymentOptions() {
             ...userInfo,
             balance:userInfo.balance?discountPoint:userInfo.balance
          })
-         alert('Sorry You dont have enough points for your discount')
+         toast.error('Sorry You dont have enough points for your discount')
       }
       setDisCount(true)
    }
@@ -101,11 +98,8 @@ function PaymentOptions() {
           setIsLoading(true)
           await payment("TRANSFER")
           setIsLoading(false)
-          const status = confirm("Payment is made successfully with Cash. Thanks for using anywash")
-          if(status || !status){
+          toast.success("Payment is made successfully with Cash. Thanks for using anywash")
                router.push('/')
-          }
-    
    }
 
    const payOnline = async()=>{
@@ -114,16 +108,13 @@ function PaymentOptions() {
             callback: async(response) => {
                 closePaymentModal()
                 await payment("ONLINE") 
-               const status = confirm("Payment is made successfully Online. Thanks for using anywash")
-                if(status || !status){
+                toast.success("Payment is made successfully with Cash. Thanks for using anywash") 
                 router.push('/')
-                }   // this will close the modal programmatically
+               
             },
             onClose: () => {
-               const status = confirm("Your order has been cancelled")
-               if(status || !status){
+               toast.error("Your order has been cancelled")
                router.push('/')
-               } 
             },
           });
              

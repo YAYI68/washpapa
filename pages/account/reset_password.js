@@ -4,12 +4,13 @@ import React, { Fragment, useRef, useState } from 'react'
 import Main from '../../components/Main'
 import { resetPassword } from '../../db/auth';
 import { authvalidator } from '../../utils/validator';
+import { toast } from 'react-hot-toast';
+
 
 
 function ResetPassword() {
     const [ isLoading , setIsLoading ] = useState(false)
     const [ validate, setValidate] = useState({email:"",password:""})
-    const [ message, setMessage] = useState({error:"",success:""})
     const  passwordRef = useRef();
 
 
@@ -18,9 +19,8 @@ function ResetPassword() {
              setIsLoading(true)
            const  newPassword = passwordRef.current.value;
             const result = await resetPassword(newPassword)
-            authvalidator(result,setMessage)
-            setIsLoading(result.loading)
-             
+            authvalidator(result,toast)
+            setIsLoading(false)      
     }
 
     const passwordBlur = ()=>{
@@ -39,14 +39,6 @@ function ResetPassword() {
         </Head>
         <Main className=' mt-[5rem]'>
     <section className='h-[80vh] w-full flex flex-col items-center justify-center '>
-    { message.error ?    
-           <p className={`text-white w-[30%] bg-red-600 mb-[1rem] p-2`}>{message.error}</p>
-           :""
-           }
-             { message.success? 
-           <p className='text-white w-[30%] bg-green-500 mb-[1rem] p-2'>{ message.success}</p>
-           :""
-         }
        <div className='w-[30%] lg:w-[50%] md:w-[80%] bg-white shadow-md rounded-md border-2 dark:bg-gray-700 p-4 animate-top'>
         <div className='w-full h-full flex flex-col gap-5 items-center'>
            <h4 className='text-light-blue text-[2rem] '>Reset Password</h4>
@@ -65,7 +57,13 @@ function ResetPassword() {
                     <small className='text-red-500 ml-4'>{validate.password} *</small>
                   } 
               </div>
-              <button type="submit" className='bg-light-blue mt-[1rem] text-white px-4 w-full font-medium py-2 rounded-md shadow-md'>Reset password</button>
+              <button type="submit" className='bg-light-blue mt-[1rem] flex items-center justify-center gap-5 text-white px-4 w-full font-medium py-2 rounded-md shadow-md'>
+                   <span> Reset password</span>
+                  {isLoading ? 
+                    <Spinner />
+                    :""
+                  }
+                   </button>
            </form>
         </div>
        </div>
