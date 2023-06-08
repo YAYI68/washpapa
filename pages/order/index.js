@@ -7,6 +7,7 @@ import Link from "next/link";
 import { Fragment, useEffect, useMemo} from "react";
 import Main from "../../components/Main";
 import { useStateContext } from "../../context/ContextProvider";
+import OrderNotFound from "../../components/OrderNotFound";
 
 const baseUrl = process.env.NEXT_PUBLIC_API_URL
 
@@ -19,8 +20,10 @@ function Order() {
         if(userInfo && userInfo.uid){
           const res = await fetch(`${baseUrl}/OrderP/${userInfo.uid}.json`)
           const result = await res.json()
-          const client =  Object.values(result)
-          setClientOrders(client)
+          if(result){
+            const client =  Object.values(result)
+            setClientOrders(client)
+          }
         } 
      })()
   },[user,userInfo,setClientOrders])
@@ -32,8 +35,8 @@ function Order() {
              <title className="font-avant">anywash/order</title>
            </Head>
            <Main  className={'mt-[5rem]'}>
-          <section className='h-[80vh] w-full flex flex-col items-center justify-center '>
-             <h1 className="text-[2rem] lg:text-[1.5rem] font-semibold font-quickbold"> You dont currently have any order yet </h1>
+          <section className='h-[80vh] w-full flex flex-col items-center justify-center p-2'>
+           <OrderNotFound />
           </section>
         </Main>
        </Fragment>
