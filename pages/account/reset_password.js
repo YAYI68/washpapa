@@ -5,6 +5,7 @@ import Main from '../../components/Main'
 import { resetPassword } from '../../db/auth';
 import { authvalidator } from '../../utils/validator';
 import { toast } from 'react-hot-toast';
+import { Spinner } from '../../components/Spinner';
 
 
 
