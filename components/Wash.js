@@ -1,9 +1,9 @@
 
-import  { useState } from 'react';
+import { useState } from 'react';
 import { IoCaretDownCircle } from "react-icons/io5";
 import { currentDate, generateId } from '../utils/order';
 import { useStateContext } from '../context/ContextProvider';
-import  { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 
 
 function Wash({service,tab,toggleTab,tabNum}) {
@@ -16,6 +16,7 @@ function Wash({service,tab,toggleTab,tabNum}) {
 
   const submit = async()=>{
     const date = currentDate()
+    console.log({userInfo})
     const orderId = generateId(userInfo.email)
 
    saveOrder({

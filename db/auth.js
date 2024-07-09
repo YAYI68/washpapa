@@ -1,6 +1,5 @@
-import { auth, db } from "../config/firebaseConfig";
-import { createUserWithEmailAndPassword, sendEmailVerification, signInWithEmailAndPassword,signOut,sendPasswordResetEmail, updatePassword   } from "firebase/auth";
-import { ref, set } from "firebase/database";
+import { auth } from "../config/firebaseConfig";
+import { createUserWithEmailAndPassword, sendEmailVerification, signInWithEmailAndPassword, signOut, sendPasswordResetEmail, updatePassword } from "firebase/auth";
 import Cookies from 'js-cookie';
 
 
@@ -75,11 +74,12 @@ export const logIn = async({email,password})=>{
       else{
         const token = await userCredential.user.getIdToken()
         Cookies.set("authToken",token,{expires:15})
-        const res = await fetch(`${baseUrl}/Users/${userCredential.user.uid}.json`)
-        const user = await res.json();
+        // const res = await fetch(`${baseUrl}/Users/${userCredential.user.uid}.json`)
+        // const user = await res.json();
+        // console.log({user})
         return {
             loading:false,
-            user:user,
+            user:userCredential.user,
             success:"User signed in successfully"
         }
       }
@@ -138,26 +138,26 @@ export async function forgetPasswordReset(email){
 
 
 
- export async function resetPassword(newPassword){
-    try{
-        if(!newPassword || !newPassword.trim().length < 7){
-            return{
-               loading:false,
-               inValidMessage: "Password should be at least 7 characters"
-            }
+export async function resetPassword(newPassword){
+   try{
+       if(!newPassword || !newPassword.trim().length < 7){
+           return{
+              loading:false,
+              inValidMessage: "Password should be at least 7 characters"
            }
-          const user = auth.currentUser 
-       await  updatePassword(user, newPassword)
+          }
+         const user = auth.currentUser 
+      await  updatePassword(user, newPassword)
+      return {
+       loading:false,
+       success: "Password reset email set successfully"
+      }
+   }
+   catch(error){
+      const errorCode = error.code;
        return {
-        loading:false,
-        success: "Password reset email set successfully"
+           loading:false,
+           errorMessage:errorCode,
        }
-    }
-    catch(error){
-       const errorCode = error.code;
-        return {
-            loading:false,
-            errorMessage:errorCode,
-        }
-    }
- }
+   }
+}

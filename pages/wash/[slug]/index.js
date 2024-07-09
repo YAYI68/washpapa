@@ -1,6 +1,6 @@
 
 import Head from 'next/head';
-import React, { Fragment, useEffect, useState } from 'react'
+import { Fragment } from 'react';
 import Main from '../../../components/Main';
 import ProductContainer from '../../../components/ProductContainer';
 import { getAllService, getServiceType } from '../../../lib/utils';
@@ -8,7 +8,6 @@ import { getAllService, getServiceType } from '../../../lib/utils';
 
 
 const WashType = ({wash}) => {
-    // console.log({wash})
   return (
     <Fragment>
       <Head>

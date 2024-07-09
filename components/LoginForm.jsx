@@ -28,6 +28,7 @@ function LoginForm() {
    const email = emailRef.current.value;
    const password = passwordRef.current.value;
     const result =  await logIn({email, password})
+    console.log({result})
     authvalidator(result,toast)
     if(result.user){
       localStorage.setItem('userInfo',JSON.stringify(result.user))
