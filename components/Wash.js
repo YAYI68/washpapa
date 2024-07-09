@@ -16,7 +16,6 @@ function Wash({service,tab,toggleTab,tabNum}) {
 
   const submit = async()=>{
     const date = currentDate()
-    console.log({userInfo})
     const orderId = generateId(userInfo.email)
 
    saveOrder({

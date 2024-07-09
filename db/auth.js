@@ -77,9 +77,16 @@ export const logIn = async({email,password})=>{
         // const res = await fetch(`${baseUrl}/Users/${userCredential.user.uid}.json`)
         // const user = await res.json();
         // console.log({user})
+        const user = {
+            email:userCredential?.user?.email,
+            emailVerified: userCredential.user?.emailVerified,
+            displayName : userCredential?.user?.displayName,
+            uid: userCredential?.user?.uid,
+            createdAt: userCredential?.user?.createdAt
+        }
         return {
             loading:false,
-            user:userCredential.user,
+            user:user,
             success:"User signed in successfully"
         }
       }
