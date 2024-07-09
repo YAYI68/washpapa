@@ -12,7 +12,7 @@ export const signup = async (data)=>{
         if(!email || !email.includes("@")){
          return{
             loading:false,
-            inValidMessage: "Invalid email address"
+            errorMessage: "Invalid email address"
          }
         }
       const userCredential = await createUserWithEmailAndPassword(auth, email, password)
@@ -92,16 +92,16 @@ export const logIn = async({email,password})=>{
       }
     }
     catch(error){
-        if(error.code === "auth/wrong-password"){
-            return {
-                loading:false,
-                errorMessage:"Invalid email / wrong password"
-            }
-        }
         if(error.code === "auth/network-request-failed"){
             return {
                 loading:false,
                 errorMessage:"Poor or No Internet Access. Check your internet connection and try again"
+            }
+        }
+        else{
+            return {
+                loading:false,
+                errorMessage:"Invalid email / wrong password"
             }
         }
         
